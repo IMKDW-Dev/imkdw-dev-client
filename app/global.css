@@ -1,0 +1,14 @@
+@tailwind base; /* Preflight will be injected here */
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-color: #282424;
+}
+body {
+  color: var(--font-color);
+}
+
+a {
+  transition: all 0.3s ease;
+}
