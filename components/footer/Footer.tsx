@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function Footer() {
   return (
     <footer className="flex w-full items-center justify-center">
-      <div className="flex h-full max-h-[1200px] w-full flex-row justify-between">
+      <div className="flex h-full w-full max-w-[1200px] flex-row justify-between">
         {/* Contact me 부분 */}
         <section className="flex w-[30%] flex-col gap-4">
           <h3 className="w-full text-2xl">✨ Contact me!</h3>

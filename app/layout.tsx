@@ -25,8 +25,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={clsx(urbanist.className, 'bg-primary')}>
-        <main>
-          <Header />
+        <Header />
+        <main className="pt-[80px]">
           {children}
           <Footer />
         </main>
