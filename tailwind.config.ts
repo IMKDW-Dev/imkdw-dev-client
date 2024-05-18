@@ -21,6 +21,9 @@ const config: Config = {
       colors: {
         accent: '#FF6481',
       },
+      outlineColor: {
+        accent: '#FF6481',
+      },
     },
   },
   plugins: [],
