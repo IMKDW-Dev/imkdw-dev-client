@@ -24,9 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={clsx(urbanist.className, 'bg-primary')}>
+      <body className={clsx(urbanist.className, 'flex justify-center bg-primary')}>
         <Header />
-        <main className="pt-[80px]">
+        <main className="max-w-[1200px] pt-[100px]">
           {children}
           <Footer />
         </main>
