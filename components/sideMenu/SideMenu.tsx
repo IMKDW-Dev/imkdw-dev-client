@@ -4,11 +4,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import Logo from '../common/Logo';
-import useUser from '../../stores/use-user';
 import useSidemenu from '../../stores/use-sidemenu';
+import Authencation from './authentication/Authentication';
 
 export default function SideMenu() {
-  const { isLoggedIn } = useUser((state) => state);
   const { isOpen, setIsOpen } = useSidemenu((state) => state);
 
   const handleMenu = () => {
@@ -41,57 +40,7 @@ export default function SideMenu() {
           <h3 className="text-2xl">
             ✨ <b>Authencation</b>
           </h3>
-          {!isLoggedIn && (
-            <ul className="flex justify-center gap-10 pt-2">
-              <li className="flex flex-col items-center justify-center gap-2 p-1">
-                <button type="button">
-                  <div className="relative h-[50px] w-[50px] overflow-hidden rounded-xl">
-                    <Image src="/images/icon/github.png" layout="fill" alt="github" objectFit="cover" />
-                  </div>
-                </button>
-                <p>Github</p>
-              </li>
-              <li className="flex flex-col items-center justify-center gap-2 p-1">
-                <button type="button">
-                  <div className="relative h-[50px] w-[50px] overflow-hidden rounded-xl">
-                    <Image src="/images/icon/google.png" layout="fill" alt="google" objectFit="cover" />
-                  </div>
-                </button>
-                <p>Google</p>
-              </li>
-              <li className="flex flex-col items-center justify-center gap-2 p-1">
-                <button type="button">
-                  <div className="relative h-[50px] w-[50px] overflow-hidden rounded-xl">
-                    <Image src="/images/icon/kakaotalk.png" layout="fill" alt="kakao" objectFit="cover" />
-                  </div>
-                </button>
-                <p>Kakao</p>
-              </li>
-            </ul>
-          )}
-          {isLoggedIn && (
-            <div className="box-shadow flex flex-col gap-5 rounded-xl border border-box p-3">
-              <div className="flex items-center gap-3">
-                <div className="relative h-[60px] w-[60px] overflow-hidden rounded-[100px]">
-                  <Image src="/images/pepe-hacker.png" layout="fill" alt="github" objectFit="cover" />
-                </div>
-                <p>
-                  Welcome to my Blog, <b>IMKDW</b>
-                </p>
-              </div>
-              <div className="flex justify-center gap-10">
-                <button type="button" className="rounded-md bg-[#FF6481] p-1 pl-2 pr-2 text-white hover:bg-black">
-                  Change name
-                </button>
-                <button type="button" className="rounded-md bg-[#FF6481] p-1 pl-2 pr-2 text-white hover:bg-black">
-                  Logout
-                </button>
-                <button type="button" className="rounded-md bg-[#FF6481] p-1 pl-2 pr-2 text-white hover:bg-red-600">
-                  Exit
-                </button>
-              </div>
-            </div>
-          )}
+          <Authencation />
         </section>
 
         {/* 네비게이터 */}

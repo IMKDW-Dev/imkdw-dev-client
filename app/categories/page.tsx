@@ -1,4 +1,5 @@
 import Categories from '../../containers/categories/Categories';
+import CategoryArticles from '../../containers/categoryArticles/CategoryArticles';
 
 export default function CategoryListPage() {
   return (
@@ -12,6 +13,7 @@ export default function CategoryListPage() {
         Use the search function to find more correct articles
       </p>
       <Categories />
+      <CategoryArticles />
     </section>
   );
 }

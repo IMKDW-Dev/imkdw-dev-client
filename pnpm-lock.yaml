@@ -29,6 +29,9 @@ dependencies:
   react-dom:
     specifier: ^18.3.1
     version: 18.3.1(react@18.3.1)
+  react-toastify:
+    specifier: ^10.0.5
+    version: 10.0.5(react-dom@18.3.1)(react@18.3.1)
   zustand:
     specifier: ^4.5.2
     version: 4.5.2(@types/react@18.3.2)(react@18.3.1)
@@ -3137,6 +3140,17 @@ packages:
 
   /react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
+    dev: false
+
+  /react-toastify@10.0.5(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-mNKt2jBXJg4O7pSdbNUfDdTsK9FIdikfsIE/yUCxbAEXl4HMyJaivrVFcn3Elvt5xvCQYhUZm+hqTIu1UXM3Pw==}
+    peerDependencies:
+      react: '>=18'
+      react-dom: '>=18'
+    dependencies:
+      clsx: 2.1.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
     dev: false
 
   /react-transition-group@4.4.5(react-dom@18.3.1)(react@18.3.1):

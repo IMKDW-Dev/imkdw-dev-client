@@ -14,7 +14,7 @@ export default function CategoryArticleItem() {
             <b>Backend</b>
           </div>
         </Link>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 p-2">
           <h3 className="text-center">
             <Link href="/articles/1">
               <b className="text-lg">Welcome to IMKDW Dev</b>

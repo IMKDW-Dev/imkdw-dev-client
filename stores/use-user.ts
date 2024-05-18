@@ -1,21 +1,46 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-const USE_USER_PRESIST_KEY = 'userStorage';
+interface UserInfo {
+  userId: string;
+  nickname: string;
+  profile: string;
+  role: 'normal' | 'admin';
+}
 
 interface UserStore {
   isLoggedIn: boolean;
+  userInfo: UserInfo;
   setIsLoggedIn: (isLoggedIn: boolean) => void;
+  setUserInfo: (userInfo: UserInfo) => void;
+  reset: () => void;
 }
 
 const useUser = create(
   persist<UserStore>(
     (set) => ({
       isLoggedIn: false,
-      setIsLoggedIn: (isLoggedIn) => set({ isLoggedIn }),
+      userInfo: {
+        userId: '',
+        nickname: '',
+        profile: '',
+        role: 'normal',
+      },
+      setIsLoggedIn: (isLoggedIn) => set(() => ({ isLoggedIn })),
+      setUserInfo: (userInfo) => set(() => ({ userInfo })),
+      reset: () =>
+        set(() => ({
+          isLoggedIn: false,
+          userInfo: {
+            userId: '',
+            nickname: '',
+            profile: '',
+            role: 'normal',
+          },
+        })),
     }),
     {
-      name: USE_USER_PRESIST_KEY,
+      name: 'userStorage',
     },
   ),
 );
