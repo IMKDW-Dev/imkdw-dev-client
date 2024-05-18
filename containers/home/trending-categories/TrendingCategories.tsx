@@ -19,7 +19,10 @@ export default function TrendingCategories() {
           </ul>
           <div className="flex items-center justify-center gap-5">
             <b>or...</b>
-            <Link href="" className="rounded-md bg-[#FF6481] pb-2 pl-4 pr-4 pt-2 text-white">
+            <Link
+              href={`${process.env.CLIENT_URL}/categories`}
+              className="rounded-md bg-[#FF6481] pb-2 pl-4 pr-4 pt-2 text-white"
+            >
               <b>Explore All</b>
             </Link>
           </div>

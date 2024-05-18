@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className={clsx(urbanist.className, 'flex justify-center bg-primary')}>
         <SideMenu />
         <Header />
-        <main className="max-w-[1200px] pt-[100px]">
+        <main className="w-full max-w-[1200px] pt-[100px]">
           {children}
           <Footer />
         </main>

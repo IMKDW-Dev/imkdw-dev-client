@@ -8,7 +8,7 @@ const DmSans = DM_Sans({ subsets: ['latin'] });
 export default function PopularArticleItem() {
   return (
     <li className="box-shadow w-full rounded-xl border border-box bg-white p-3">
-      <Link href="" className="flex items-center gap-8 p-3">
+      <Link href="/articles/1" className="flex items-center gap-8 p-3">
         <div className="profile relative h-[250px] w-[270px] overflow-hidden rounded-xl">
           <Image src="/images/pepe-hacker.png" layout="fill" alt="Server" objectFit="cover" />
         </div>

@@ -1,8 +1,9 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="mt-[50px] flex w-full flex-col items-center justify-center gap-10 border-t border-box pt-[50px]">
+    <footer className="mt-[50px] flex w-full flex-col items-center justify-center gap-10 border-t border-box pl-5 pr-5 pt-[50px]">
       <div className="flex h-full w-full max-w-[1200px] flex-row justify-between">
         {/* Contact me 부분 */}
         <section className="flex w-[30%] flex-col gap-4">
@@ -59,9 +60,9 @@ export default function Footer() {
           <p>
             This blog is an <b>open-source</b> technology blog
             <br /> You can check the source code on{' '}
-            <a href="https://github.com/IMKDW-Dev" target="_blank">
+            <Link href="https://github.com/IMKDW-Dev" target="_blank">
               <b>GitHub</b>
-            </a>
+            </Link>
             <br />
             <br />
             Also, if you have <b>any questions</b>
