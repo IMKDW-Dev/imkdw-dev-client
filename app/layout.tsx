@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import { Urbanist } from 'next/font/google';
-import generateCustomMetadata from '../utils/metadata';
 import clsx from 'clsx';
+
+import generateCustomMetadata from '../utils/metadata';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import './global.css';
+import SideMenu from '../components/sideMenu/SideMenu';
 
 const urbanist = Urbanist({ subsets: ['latin'] });
 
@@ -25,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={clsx(urbanist.className, 'flex justify-center bg-primary')}>
+        <SideMenu />
         <Header />
         <main className="max-w-[1200px] pt-[100px]">
           {children}

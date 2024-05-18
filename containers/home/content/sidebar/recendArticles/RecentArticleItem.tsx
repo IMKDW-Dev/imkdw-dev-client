@@ -4,9 +4,9 @@ import Link from 'next/link';
 export default function RecentArticleItem() {
   return (
     <li>
-      <Link href="" className="flex gap-5">
+      <Link href="1" className="flex gap-5">
         <div className="profile relative h-[100px] w-[100px] overflow-hidden rounded-md">
-          <Image src="/images/pepe_profile.png" layout="fill" alt="Server" objectFit="cover" />
+          <Image src="/images/pepe-hacker.png" layout="fill" alt="Server" objectFit="cover" />
         </div>
         <div className="flex flex-col items-start justify-center gap-1">
           <h4>
