@@ -1,7 +1,7 @@
 export interface Category {
   id: string;
   name: string;
-  description: string;
+  desc: string;
   image: string;
   articleCount: number;
 }
@@ -9,3 +9,5 @@ export interface Category {
 export interface GetCategoriesResponse {
   items: Category[];
 }
+
+export interface GetCategoryDetailResponse extends Category {}

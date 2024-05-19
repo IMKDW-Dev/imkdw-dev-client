@@ -1,30 +1,53 @@
 import Image from 'next/image';
-import CategoryArticles from '../../../containers/categoryArticles/CategoryArticles';
+import { notFound } from 'next/navigation';
 
-export default function CategoryDetailPage() {
+import CategoryArticles from '../../../containers/categoryArticles/CategoryArticles';
+import { getCategoryDetail } from '../../../services/category';
+import generateCustomMetadata from '../../../utils/metadata';
+import CategoryImage from '../../../components/category/CategoryImage';
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const categoryName = params.slug;
+
+  try {
+    const categoryDetail = await getCategoryDetail(categoryName);
+
+    return {
+      ...generateCustomMetadata({
+        title: categoryDetail.name,
+        desc: `카테고리 ${categoryDetail.name}의 대한 소개페이지 입니다`,
+        link: `/categories/${categoryName}`,
+        image: categoryDetail.image,
+      }),
+    };
+  } catch (error: any) {
+    if (error.message?.includes('404')) {
+      return notFound();
+    }
+  }
+
+  return null;
+}
+
+export default async function CategoryDetailPage({ params }: { params: { slug: string } }) {
+  const categoryName = params.slug;
+  const { articleCount, desc, image, name } = await getCategoryDetail(categoryName);
+
   return (
     <section className="flex w-full flex-col items-center pl-5 pr-5 pt-[80px]">
-      <header className="flex">
+      <header className="flex max-w-[960px] pb-[20px] pl-[60px] pr-[60px]">
         <div className="flex items-center gap-3 border-r-2 border-box pr-10">
-          <div className="profile relative h-[60px] w-[60px] overflow-hidden rounded-[100px] border border-box">
-            <Image src="/images/pepe-hacker.png" layout="fill" alt="Server" objectFit="cover" />
-          </div>
+          <CategoryImage image={image} name={name} />
           <div className="flex flex-col justify-center">
             <h1 className="text-2xl">
               <b>Backend</b>
             </h1>
             <p className="text-sm">
-              A collection of <b>9 articles</b>
+              A collection of <b>{articleCount} articles</b>
             </p>
           </div>
         </div>
-        <p className="pl-10">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit
-          <br />
-          Facilis laudantium illum id. Odit corrupti aliquam placeat dolorum
-          <br />
-          ad odio corporis pariatur atque autem dolorem laborum animi
-        </p>
+        <p className="max-w-[480px] pl-10">{desc}</p>
       </header>
       <CategoryArticles />
       <div className="pt-5">Page 1 of 1</div>

@@ -1,14 +1,14 @@
 interface Params {
   title: string;
-  description: string;
+  desc: string;
   link: string;
   image?: string;
 }
 
-const generateCustomMetadata = ({ title, description, link, image }: Params) => ({
+const generateCustomMetadata = ({ title, desc, link, image }: Params) => ({
   metadataBase: new URL('https://imkdw.dev'),
   title: `IMKDW DEV | ${title}`,
-  description: `${description}`,
+  desc: `${desc}`,
   robots: {
     index: true,
     follow: true,
@@ -34,7 +34,7 @@ const generateCustomMetadata = ({ title, description, link, image }: Params) => 
   category: 'blog',
   openGraph: {
     title: `IMKDW DEV | ${title}`,
-    description: `${description}`,
+    desc: `${desc}`,
     url: `${link}`,
     siteName: 'IMKDW_DEV',
     images: [

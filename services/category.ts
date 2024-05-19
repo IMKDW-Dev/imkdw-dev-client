@@ -1,8 +1,7 @@
 import { HttpMethod } from '../enums/http-method.enum';
-import { GetCategoriesResponse } from './@types/category';
+import { GetCategoriesResponse, GetCategoryDetailResponse } from './@types/category';
 import { callApi } from './api';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getCategories = (limit?: number) => {
   let url = 'v1/categories';
 
@@ -11,4 +10,9 @@ export const getCategories = (limit?: number) => {
   }
 
   return callApi<GetCategoriesResponse>({ url, method: HttpMethod.GET });
+};
+
+export const getCategoryDetail = (name: string) => {
+  const url = `v1/categories/${name}`;
+  return callApi<GetCategoryDetailResponse>({ url, method: HttpMethod.GET });
 };

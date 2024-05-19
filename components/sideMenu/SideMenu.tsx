@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import Logo from '../common/Logo';
 import useSidemenu from '../../stores/use-sidemenu';
 import Authencation from './authentication/Authentication';
 
@@ -30,10 +29,10 @@ export default function SideMenu() {
         </section>
 
         {/* 로고 */}
-        <section className="flex w-full flex-col items-center gap-1">
+        {/* <section className="flex w-full flex-col items-center gap-1">
           <Logo width={150} height={150} />
           <p className="text-[11px]">Share Experience of Technology</p>
-        </section>
+        </section> */}
 
         {/* 인증 */}
         <section className="flex w-full flex-col gap-5 p-10">
