@@ -39,9 +39,9 @@ const generateCustomMetadata = ({ title, desc, link, image }: Params) => ({
     siteName: 'IMKDW_DEV',
     images: [
       {
-        url: image ?? 'https://static.imkdw.dev/images/open-graph.png',
-        width: 1200,
-        height: 630,
+        url: image ?? 'https://static.imkdw.dev/images/open-graph.webp',
+        width: 800,
+        height: 520,
       },
     ],
     locale: 'ko_KR',
