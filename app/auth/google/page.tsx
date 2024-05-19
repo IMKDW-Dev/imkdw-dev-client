@@ -36,7 +36,7 @@ export default function GoogleAuthPage() {
     if (token) {
       fetchGoogleOAuth();
     }
-  }, [setIsLoggedIn, setUserInfo, token]);
+  }, [router, setIsLoggedIn, setUserInfo, token]);
 
   return null;
 }

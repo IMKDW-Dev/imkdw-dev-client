@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 import CategoryArticles from '../../../containers/categoryArticles/CategoryArticles';

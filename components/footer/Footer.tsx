@@ -10,24 +10,32 @@ export default function Footer() {
           <h3 className="w-full text-2xl">✨ Contact me!</h3>
           <ul className="flex flex-col pl-8">
             <li className="border-b border-box p-2 pb-3 pt-3">
-              <a href="" className="flex items-center justify-between hover:text-accent">
+              <Link
+                href="https://github.com/imkdw"
+                target="_blank"
+                className="flex items-center justify-between hover:text-accent"
+              >
                 <span className="text-lg">
                   Contact on <b>Github</b>
                 </span>
                 <span>
                   <Image src="/images/footer/github-mark.svg" width={30} height={30} alt="Github" />
                 </span>
-              </a>
+              </Link>
             </li>
             <li className="border-b border-box p-2 pb-3 pt-3">
-              <a href="" className="flex items-center justify-between hover:text-accent">
+              <Link
+                href="https://www.instagram.com/woo_dong_99/"
+                target="_blank"
+                className="flex items-center justify-between hover:text-accent"
+              >
                 <span className="text-lg">
                   Contact on <b>Instagram</b>
                 </span>
                 <span>
                   <Image src="/images/footer/instagram-mark.png" width={30} height={30} alt="Github" />
                 </span>
-              </a>
+              </Link>
             </li>
           </ul>
         </section>
@@ -37,19 +45,19 @@ export default function Footer() {
           <h3 className="w-full text-2xl">✨ Quick Links</h3>
           <ul className="flex flex-col pl-8">
             <li className="border-b border-box p-2 pb-3 pt-3">
-              <a href="" className="flex items-center justify-between hover:text-accent">
+              <Link href="/" className="flex items-center justify-between hover:text-accent">
                 <span className="text-lg">Home</span>
-              </a>
+              </Link>
             </li>
             <li className="border-b border-box p-2 pb-3 pt-3">
-              <a href="" className="flex items-center justify-between hover:text-accent">
+              <Link href="/" className="flex items-center justify-between hover:text-accent">
                 <span className="text-lg">Contact</span>
-              </a>
+              </Link>
             </li>
             <li className="border-b border-box p-2 pb-3 pt-3">
-              <a href="" className="flex items-center justify-between hover:text-accent">
+              <Link href="/" className="flex items-center justify-between hover:text-accent">
                 <span className="text-lg">Privacy Policy</span>
-              </a>
+              </Link>
             </li>
           </ul>
         </section>
@@ -77,9 +85,9 @@ export default function Footer() {
         <p>Copyright 2024. IMKDW. All rights reserved.</p>
         <p className="text-center">
           Theme reference by{' '}
-          <a href="https://estudiopatagon.com/projects/zento-for-wordpress/?ref=zento-wp-footer" target="_blank">
+          <Link href="https://estudiopatagon.com/projects/zento-for-wordpress/?ref=zento-wp-footer" target="_blank">
             <b>Zento</b>
-          </a>
+          </Link>
         </p>
       </div>
     </footer>
