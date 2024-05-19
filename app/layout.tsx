@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Urbanist } from 'next/font/google';
 import clsx from 'clsx';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import Script from 'next/script';
 
 import generateCustomMetadata from '../utils/metadata';
 import Header from '../components/header/Header';
@@ -33,6 +35,8 @@ export default function RootLayout({
           <Footer />
         </main>
       </body>
+      <GoogleAnalytics gaId="G-DXRR1KZDDN" />
+      <Script src="https://developers.kakao.com/sdk/js/kakao.js" strategy="afterInteractive" />
     </html>
   );
 }
