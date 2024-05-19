@@ -3,6 +3,7 @@ export interface Category {
   name: string;
   description: string;
   image: string;
+  articleCount: number;
 }
 
 export interface GetCategoriesResponse {
