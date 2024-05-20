@@ -3,12 +3,14 @@ import { Urbanist } from 'next/font/google';
 import clsx from 'clsx';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
+import { headers } from 'next/headers';
 
 import generateCustomMetadata from '../utils/metadata';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
-import './global.css';
 import SideMenu from '../components/sideMenu/SideMenu';
+import { MANAGE_PAGE_PATH } from '../constants/path.constant';
+import './global.css';
 
 const urbanist = Urbanist({ subsets: ['latin'] });
 
@@ -25,14 +27,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headerList = headers();
+  const pathname = headerList.get('x-pathname') || '';
+
   return (
     <html lang="en">
-      <body className={clsx(urbanist.className, 'flex justify-center bg-primary')}>
+      <body
+        className={clsx(
+          urbanist.className,
+          'flex justify-center',
+          pathname.includes(MANAGE_PAGE_PATH) ? 'bg-[#f3f4f6]' : 'bg-primary',
+        )}
+      >
         <SideMenu />
         <Header />
-        <main className="w-full max-w-[1200px] pt-[100px]">
+        <main className={clsx('w-full pt-[100px]', !pathname.includes(MANAGE_PAGE_PATH) && 'max-w-[1200px]')}>
           {children}
-          <Footer />
+          {!pathname.includes(MANAGE_PAGE_PATH) && <Footer />}
         </main>
       </body>
       <GoogleAnalytics gaId="G-DXRR1KZDDN" />
