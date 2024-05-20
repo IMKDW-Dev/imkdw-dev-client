@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+Allow: /manage
+Allow: /manage/categories

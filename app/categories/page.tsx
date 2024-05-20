@@ -1,5 +1,15 @@
+import { Metadata } from 'next';
 import Categories from '../../containers/categories/Categories';
 import CategoryArticles from '../../containers/categoryArticles/CategoryArticles';
+import generateCustomMetadata from '../../utils/metadata';
+
+export const metadata: Metadata = {
+  ...generateCustomMetadata({
+    title: '카테고리 목록',
+    desc: '카테고리 목록 페이지입니다.',
+    link: 'https://imkdw.dev/categories',
+  }),
+};
 
 export default function CategoryListPage() {
   return (
