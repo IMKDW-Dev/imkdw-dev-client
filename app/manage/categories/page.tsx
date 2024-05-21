@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import ManageCategory from '../../../containers/manage/categories/ManageCategory';
 import generateCustomMetadata from '../../../utils/metadata';
+import CategoryCreateButton from '../../../containers/manage/categories/CategoryCreateButton';
 
 export const metadata: Metadata = {
   ...generateCustomMetadata({
@@ -13,7 +14,10 @@ export const metadata: Metadata = {
 export default function ManageCategoryPage() {
   return (
     <div className="flex w-full flex-col gap-5 p-6">
-      <h1 className="text-2xl font-bold">Categories</h1>
+      <div className="flex w-full justify-between">
+        <h1 className="text-2xl font-bold">Categories</h1>
+        <CategoryCreateButton />
+      </div>
       <div className="w-full rounded-md bg-white p-6">
         <ManageCategory />
       </div>
