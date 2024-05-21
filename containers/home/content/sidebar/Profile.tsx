@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import './profile.css';
 import { DM_Sans } from 'next/font/google';
 import clsx from 'clsx';
 

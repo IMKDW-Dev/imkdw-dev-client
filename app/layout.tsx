@@ -40,6 +40,7 @@ export default function RootLayout({
         )}
       >
         <SideMenu />
+        <div id="portal" />
         <Header />
         <main className={clsx('w-full pt-[100px]', !pathname.includes(MANAGE_PAGE_PATH) && 'max-w-[1200px]')}>
           {children}
