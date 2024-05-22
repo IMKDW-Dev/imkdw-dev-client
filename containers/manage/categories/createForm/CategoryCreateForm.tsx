@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useRef, useState } from 'react';
+import { postCreateCategory } from '../../../../services/category';
 
 export default function CategoryCreateForm() {
   const [name, setName] = useState('');
@@ -18,8 +19,15 @@ export default function CategoryCreateForm() {
     setDescription(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('desc', description);
+    formData.append('image', image as Blob);
+
+    await postCreateCategory(formData);
   };
 
   const handleClickUpload = () => {
@@ -47,7 +55,7 @@ export default function CategoryCreateForm() {
 
   return (
     <>
-      <form className="flex flex-col items-center gap-6 p-4 pt-8" onSubmit={handleSubmit}>
+      <form className="flex flex-col items-center gap-6 p-4 pt-8" onSubmit={handleSubmit} encType="multipart/form-data">
         {image && imageUrl ? (
           <div className="profile relative flex h-[80px] w-[80px] items-center justify-center overflow-hidden rounded-[100px] border border-gray-300">
             <Image src={imageUrl} alt="upload" width={80} height={80} />

@@ -18,15 +18,16 @@ interface CallApiParams {
 
 // eslint-disable-next-line import/prefer-default-export
 export const callApi = async <T>(params: CallApiParams): Promise<T> => {
+  const isFormData = params.body instanceof FormData;
   const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/${params.url}`;
   const response = await fetch(url, {
     method: params.method,
     headers: {
       Authorization: `Bearer ${params.accessToken}`,
-      'Content-Type': params?.contentType ?? 'application/json',
+      ...(!isFormData && { 'Content-Type': 'multipart/form-data' }),
     },
     credentials: 'include',
-    body: JSON.stringify(params.body),
+    body: params.body instanceof FormData ? params.body : JSON.stringify(params.body),
   });
 
   const json = await response.json();

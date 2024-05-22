@@ -16,11 +16,7 @@ export default function Modal({ children, selector, onClose, title }: Props) {
   const element = typeof window !== 'undefined' && document.querySelector(selector);
   return element && children
     ? ReactDOM.createPortal(
-        <div
-          className="fixed z-[999] flex h-full w-full items-center justify-center bg-black bg-opacity-30"
-          onClick={onClose}
-          role="presentation"
-        >
+        <div className="fixed z-[100] flex h-full w-full items-center justify-center bg-black bg-opacity-30">
           <div className="flex w-[500px] flex-col rounded-md bg-white">
             <div className="flex justify-between border-b border-gray-300 p-4">
               <h3 className="text-xl">{title}</h3>

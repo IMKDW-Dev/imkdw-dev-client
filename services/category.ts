@@ -16,3 +16,8 @@ export const getCategoryDetail = (name: string) => {
   const url = `v1/categories/${name}`;
   return callApi<GetCategoryDetailResponse>({ url, method: HttpMethod.GET });
 };
+
+export const postCreateCategory = (formData: FormData) => {
+  const url = 'v1/categories';
+  return callApi({ url, method: HttpMethod.POST, body: formData, contentType: 'multipart/form-data' });
+};

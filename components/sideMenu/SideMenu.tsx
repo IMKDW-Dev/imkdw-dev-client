@@ -64,9 +64,9 @@ export default function SideMenu() {
               </Link>
             </li>
             <li className="border-b border-box p-4 text-xl hover:underline">
-              <Link href="/manage" onClick={handleCloseSideMenu}>
+              <a href="/manage" onClick={handleCloseSideMenu}>
                 Manage <b className="text-xs">(Read-only)</b>
-              </Link>
+              </a>
             </li>
             <li className="border-b border-box p-4 text-xl hover:underline">
               <Link href="/contact" onClick={handleCloseSideMenu}>
