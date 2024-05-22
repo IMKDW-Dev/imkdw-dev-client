@@ -1,10 +1,27 @@
+/* eslint-disable react/jsx-props-no-spreading */
+
 import Image from 'next/image';
+import { forwardRef } from 'react';
+import { DraggableProvidedDragHandleProps, DraggableProvidedDraggableProps } from 'react-beautiful-dnd';
+
 import CategoryImage from '../../../components/category/CategoryImage';
 import { Category } from '../../../services/@types/category';
+import clsx from 'clsx';
 
-export default function ManageCategoryItem({ name, image, articleCount, desc }: Category) {
-  return (
-    <li className="flex w-full gap-5 rounded-sm p-3 hover:bg-[#f3f7f9]">
+interface Props extends Category {
+  draggableProps: DraggableProvidedDraggableProps;
+  dragHandleProps: DraggableProvidedDragHandleProps | null | undefined;
+  isDragging: boolean;
+}
+
+const ManageCategoryItem = forwardRef<HTMLLIElement, Props>(
+  ({ articleCount, desc, image, name, dragHandleProps, draggableProps, isDragging }, ref) => (
+    <li
+      className={clsx('flex w-full gap-5 rounded-sm p-3 hover:bg-[#f3f7f9]', isDragging && 'shadow-lg')}
+      ref={ref}
+      {...dragHandleProps}
+      {...draggableProps}
+    >
       <Image src="/images/icon/drag-indicator.svg" alt={name} width={30} height={30} />
       <div className="flex w-full">
         <div className="flex-2 flex w-1/4 gap-4">
@@ -19,5 +36,7 @@ export default function ManageCategoryItem({ name, image, articleCount, desc }: 
         <div className="flex flex-1 items-center">{desc}</div>
       </div>
     </li>
-  );
-}
+  ),
+);
+
+export default ManageCategoryItem;

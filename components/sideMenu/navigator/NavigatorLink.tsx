@@ -26,6 +26,8 @@ export default function SideMenuNavigatorLink({ href, name }: Props) {
       {name}
     </Link>
   ) : (
-    <a href={href}>{name}</a>
+    <a href={href} onClick={handleCloseSideMenu}>
+      {name}
+    </a>
   );
 }
