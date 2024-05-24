@@ -21,3 +21,8 @@ export const postCreateCategory = (formData: FormData): Promise<Category> => {
   const url = 'v1/categories';
   return callApi({ url, method: HttpMethod.POST, body: formData, contentType: 'multipart/form-data' });
 };
+
+export const patchUpdateCategory = (categoryId: number, formData: FormData): Promise<Category> => {
+  const url = `v1/categories/${categoryId}`;
+  return callApi({ url, method: HttpMethod.PATCH, body: formData, contentType: 'multipart/form-data' });
+};

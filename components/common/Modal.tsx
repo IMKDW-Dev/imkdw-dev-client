@@ -12,7 +12,7 @@ interface Props {
   onClose: () => void;
 }
 
-export default function Modal({ children, selector, onClose, title }: Props) {
+export default function CategoryModal({ children, selector, onClose, title }: Props) {
   const element = typeof window !== 'undefined' && document.querySelector(selector);
   return element && children
     ? ReactDOM.createPortal(

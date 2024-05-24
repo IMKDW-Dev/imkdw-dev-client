@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import CategoryCreateForm from './createForm/CategoryCreateForm';
-import Modal from '../../../components/common/Modal';
+import CategoryModal from '../../../components/common/Modal';
 
 export default function CategoryCreateButton() {
   const [isCreate, setIsCreate] = useState(false);
@@ -15,9 +15,9 @@ export default function CategoryCreateButton() {
         Create
       </button>
       {isCreate && (
-        <Modal onClose={() => setIsCreate(false)} selector="#portal" title="Create Category">
+        <CategoryModal onClose={() => setIsCreate(false)} selector="#portal" title="Create Category">
           <CategoryCreateForm onClose={() => setIsCreate(false)} />
-        </Modal>
+        </CategoryModal>
       )}
     </>
   );

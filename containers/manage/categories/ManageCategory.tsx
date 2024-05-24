@@ -13,7 +13,7 @@ import useCategory from '../../../stores/use-category';
 export default function ManageCategory() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [enabled, setEnabled] = useState(false);
-  const { newCategory } = useCategory((state) => state);
+  const { newCategory, updatedCategory } = useCategory((state) => state);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -44,6 +44,17 @@ export default function ManageCategory() {
     };
   }, []);
 
+  /**
+   * 업데이트된 카테고리가 있으면 해당 카테고리를 업데이트
+   */
+  useEffect(() => {
+    if (updatedCategory) {
+      setCategories((prev) =>
+        prev.map((category) => (category.id === updatedCategory.id ? updatedCategory : category)),
+      );
+    }
+  }, [updatedCategory]);
+
   if (!enabled) {
     return null;
   }
@@ -61,12 +72,7 @@ export default function ManageCategory() {
               <Draggable key={category.name} draggableId={category.name} index={category.id}>
                 {(childProvided, snapshot) => (
                   <ManageCategoryItem
-                    key={category.id}
-                    name={category.name}
-                    image={category.image}
-                    articleCount={category.articleCount}
-                    desc={category.desc}
-                    id={category.id}
+                    category={category}
                     ref={childProvided.innerRef}
                     dragHandleProps={childProvided.dragHandleProps}
                     draggableProps={childProvided.draggableProps}

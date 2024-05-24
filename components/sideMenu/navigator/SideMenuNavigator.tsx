@@ -14,7 +14,7 @@ const SIDE_MENU_ITEM = [
   {
     id: 3,
     href: '/manage',
-    name: 'Manage',
+    name: 'Manage (readonly)',
   },
   {
     id: 4,

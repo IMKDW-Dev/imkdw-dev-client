@@ -7,33 +7,36 @@ import clsx from 'clsx';
 
 import CategoryImage from '../../../components/category/CategoryImage';
 import { Category } from '../../../services/@types/category';
+import ManageCategoryActions from './actionButton/ManagaCategoryActions';
 
-interface Props extends Category {
+interface Props {
+  category: Category;
   draggableProps: DraggableProvidedDraggableProps;
   dragHandleProps: DraggableProvidedDragHandleProps | null | undefined;
   isDragging: boolean;
 }
 
 const ManageCategoryItem = forwardRef<HTMLLIElement, Props>(
-  ({ articleCount, desc, image, name, dragHandleProps, draggableProps, isDragging }, ref) => (
+  ({ category, dragHandleProps, draggableProps, isDragging }, ref) => (
     <li
       className={clsx('flex w-full gap-5 rounded-sm p-3 hover:bg-[#f3f7f9]', isDragging && 'shadow-lg')}
       ref={ref}
       {...dragHandleProps}
       {...draggableProps}
     >
-      <Image src="/images/icon/drag-indicator.svg" alt={name} width={30} height={30} />
-      <div className="flex w-full">
+      <Image src="/images/icon/drag-indicator.svg" alt={category.name} width={30} height={30} />
+      <div className="relative flex w-full">
         <div className="flex-2 flex w-1/4 min-w-[200px] gap-4">
-          <CategoryImage image={image} name={name} />
+          <CategoryImage image={category.image} name={category.name} />
           <div className="flex flex-col justify-center pr-10">
             <h3 className="text-xl">
-              <b>{name}</b>
+              <b>{category.name}</b>
             </h3>
-            <p className="text-sm">{articleCount} Articles</p>
+            <p className="text-sm">{category.articleCount} Articles</p>
           </div>
         </div>
-        <div className="flex flex-1 items-center">{desc}</div>
+        <div className="flex flex-1 items-center">{category.desc}</div>
+        <ManageCategoryActions category={category} />
       </div>
     </li>
   ),

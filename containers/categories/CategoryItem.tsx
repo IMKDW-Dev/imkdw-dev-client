@@ -10,7 +10,7 @@ export default function CategoryItem({ articleCount, image, name }: Props) {
         <CategoryImage image={image} name={name} />
         <div>
           <h3>
-            <b>Backend</b>
+            <b>{name}</b>
           </h3>
           <p className="text-sm">{articleCount} Articles</p>
         </div>
