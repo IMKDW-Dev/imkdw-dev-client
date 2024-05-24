@@ -26,3 +26,8 @@ export const patchUpdateCategory = (categoryId: number, formData: FormData): Pro
   const url = `v1/categories/${categoryId}`;
   return callApi({ url, method: HttpMethod.PATCH, body: formData, contentType: 'multipart/form-data' });
 };
+
+export const deleteCategory = (categoryId: number) => {
+  const url = `v1/categories/${categoryId}`;
+  return callApi({ url, method: HttpMethod.DELETE });
+};

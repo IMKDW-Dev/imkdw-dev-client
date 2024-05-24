@@ -13,7 +13,7 @@ import useCategory from '../../../stores/use-category';
 export default function ManageCategory() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [enabled, setEnabled] = useState(false);
-  const { newCategory, updatedCategory } = useCategory((state) => state);
+  const { newCategory, updatedCategory, deletedCategory } = useCategory((state) => state);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -23,15 +23,6 @@ export default function ManageCategory() {
 
     fetchCategories();
   }, []);
-
-  /**
-   * 새로운 카테고리가 생성되면 해당 카테고리를 추가
-   */
-  useEffect(() => {
-    if (newCategory) {
-      setCategories((prev) => [newCategory, ...prev]);
-    }
-  }, [newCategory]);
 
   /**
    * DND 애니메이션 최적화
@@ -45,6 +36,15 @@ export default function ManageCategory() {
   }, []);
 
   /**
+   * 새로운 카테고리가 생성되면 해당 카테고리를 추가
+   */
+  useEffect(() => {
+    if (newCategory) {
+      setCategories((prev) => [newCategory, ...prev]);
+    }
+  }, [newCategory]);
+
+  /**
    * 업데이트된 카테고리가 있으면 해당 카테고리를 업데이트
    */
   useEffect(() => {
@@ -54,6 +54,15 @@ export default function ManageCategory() {
       );
     }
   }, [updatedCategory]);
+
+  /**
+   * 삭제된 카테고리가 있으면 해당 카테고리를 삭제
+   */
+  useEffect(() => {
+    if (deletedCategory) {
+      setCategories((prev) => prev.filter((category) => category.id !== deletedCategory.id));
+    }
+  }, [deletedCategory]);
 
   if (!enabled) {
     return null;

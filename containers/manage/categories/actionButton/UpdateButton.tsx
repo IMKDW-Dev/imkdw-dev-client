@@ -4,7 +4,7 @@ import { Edit } from '@mui/icons-material';
 import { useState } from 'react';
 
 import { Category } from '../../../../services/@types/category';
-import CategoryModal from '../../../../components/common/Modal';
+import CategoryModal from '../../../../components/common/CategoryModal';
 import CategoryUpdateForm from '../updateForm/CategoryUpdateForm';
 
 interface Props {
