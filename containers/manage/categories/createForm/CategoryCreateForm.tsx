@@ -3,12 +3,17 @@
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { postCreateCategory } from '../../../../services/category';
+import useCategory from '../../../../stores/use-category';
 
-export default function CategoryCreateForm() {
+interface Props {
+  onClose: () => void;
+}
+export default function CategoryCreateForm({ onClose }: Props) {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState<File | null>(null);
   const [imageUrl, setImageUrl] = useState<string>('');
+  const { setNewCategory } = useCategory((state) => state);
   const uploaderRef = useRef<HTMLInputElement>(null);
 
   const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +32,9 @@ export default function CategoryCreateForm() {
     formData.append('desc', description);
     formData.append('image', image as Blob);
 
-    await postCreateCategory(formData);
+    const createdCategory = await postCreateCategory(formData);
+    onClose();
+    setNewCategory(createdCategory);
   };
 
   const handleClickUpload = () => {
@@ -40,15 +47,8 @@ export default function CategoryCreateForm() {
     const file = e.target.files && e.target.files[0];
     if (file) {
       const reader = new FileReader();
-
-      reader.onload = () => {
-        setImageUrl(reader.result as string);
-      };
-
-      if (file) {
-        reader.readAsDataURL(file);
-      }
-
+      reader.onload = () => setImageUrl(reader.result as string);
+      if (file) reader.readAsDataURL(file);
       setImage(file);
     }
   };

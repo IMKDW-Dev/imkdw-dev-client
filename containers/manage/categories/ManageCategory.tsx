@@ -8,10 +8,12 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import ManageCategoryItem from './ManageCategoryItem';
 import { Category } from '../../../services/@types/category';
 import { getCategories } from '../../../services/category';
+import useCategory from '../../../stores/use-category';
 
 export default function ManageCategory() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [enabled, setEnabled] = useState(false);
+  const { newCategory } = useCategory((state) => state);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -22,14 +24,29 @@ export default function ManageCategory() {
     fetchCategories();
   }, []);
 
+  /**
+   * 새로운 카테고리가 생성되면 해당 카테고리를 추가
+   */
+  useEffect(() => {
+    if (newCategory) {
+      setCategories((prev) => [newCategory, ...prev]);
+    }
+  }, [newCategory]);
+
+  /**
+   * DND 애니메이션 최적화
+   */
   useEffect(() => {
     const animation = requestAnimationFrame(() => setEnabled(true));
-
     return () => {
       cancelAnimationFrame(animation);
       setEnabled(false);
     };
   }, []);
+
+  if (!enabled) {
+    return null;
+  }
 
   if (!enabled) {
     return null;

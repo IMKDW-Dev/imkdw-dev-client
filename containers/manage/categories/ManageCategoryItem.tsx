@@ -3,10 +3,10 @@
 import Image from 'next/image';
 import { forwardRef } from 'react';
 import { DraggableProvidedDragHandleProps, DraggableProvidedDraggableProps } from 'react-beautiful-dnd';
+import clsx from 'clsx';
 
 import CategoryImage from '../../../components/category/CategoryImage';
 import { Category } from '../../../services/@types/category';
-import clsx from 'clsx';
 
 interface Props extends Category {
   draggableProps: DraggableProvidedDraggableProps;
@@ -24,7 +24,7 @@ const ManageCategoryItem = forwardRef<HTMLLIElement, Props>(
     >
       <Image src="/images/icon/drag-indicator.svg" alt={name} width={30} height={30} />
       <div className="flex w-full">
-        <div className="flex-2 flex w-1/4 gap-4">
+        <div className="flex-2 flex w-1/4 min-w-[200px] gap-4">
           <CategoryImage image={image} name={name} />
           <div className="flex flex-col justify-center pr-10">
             <h3 className="text-xl">

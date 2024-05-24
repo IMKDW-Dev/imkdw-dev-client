@@ -7,9 +7,7 @@ import Modal from '../../../components/common/Modal';
 export default function CategoryCreateButton() {
   const [isCreate, setIsCreate] = useState(false);
 
-  const handleClick = () => {
-    setIsCreate(true);
-  };
+  const handleClick = () => setIsCreate(true);
 
   return (
     <>
@@ -18,7 +16,7 @@ export default function CategoryCreateButton() {
       </button>
       {isCreate && (
         <Modal onClose={() => setIsCreate(false)} selector="#portal" title="Create Category">
-          <CategoryCreateForm />
+          <CategoryCreateForm onClose={() => setIsCreate(false)} />
         </Modal>
       )}
     </>
