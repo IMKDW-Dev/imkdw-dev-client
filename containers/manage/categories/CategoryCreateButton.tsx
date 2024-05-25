@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import CategoryCreateForm from './createForm/CategoryCreateForm';
-import CategoryModal from '../../../components/common/CategoryModal';
+import CategoryModal from '../../../components/common/modals/CategoryModal';
 
 export default function CategoryCreateButton() {
   const [isCreate, setIsCreate] = useState(false);

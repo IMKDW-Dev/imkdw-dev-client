@@ -4,7 +4,7 @@ import { Edit } from '@mui/icons-material';
 import { useState } from 'react';
 
 import { Category } from '../../../../services/@types/category';
-import CategoryModal from '../../../../components/common/CategoryModal';
+import Modal from '../../../../components/common/modals/CategoryModal';
 import CategoryUpdateForm from '../updateForm/CategoryUpdateForm';
 
 interface Props {
@@ -26,9 +26,9 @@ export default function ManageCategoryUpdateButton({ category }: Props) {
         <Edit />
       </button>
       {isUpdate && (
-        <CategoryModal onClose={() => setIsCreate(false)} selector="#portal" title="Update Category">
+        <Modal onClose={() => setIsCreate(false)} selector="#portal" title="Update Category">
           <CategoryUpdateForm onClose={() => setIsCreate(false)} category={category} />
-        </CategoryModal>
+        </Modal>
       )}
     </>
   );
