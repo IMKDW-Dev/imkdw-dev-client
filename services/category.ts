@@ -1,5 +1,5 @@
 import { HttpMethod } from '../enums/http-method.enum';
-import { GetCategoriesResponse, GetCategoryDetailResponse } from './@types/category';
+import { Category, GetCategoriesResponse, GetCategoryDetailResponse } from './@types/category';
 import { callApi } from './api';
 
 export const getCategories = (limit?: number) => {
@@ -17,7 +17,17 @@ export const getCategoryDetail = (name: string) => {
   return callApi<GetCategoryDetailResponse>({ url, method: HttpMethod.GET });
 };
 
-export const postCreateCategory = (formData: FormData) => {
+export const postCreateCategory = (formData: FormData): Promise<Category> => {
   const url = 'v1/categories';
   return callApi({ url, method: HttpMethod.POST, body: formData, contentType: 'multipart/form-data' });
+};
+
+export const patchUpdateCategory = (categoryId: number, formData: FormData): Promise<Category> => {
+  const url = `v1/categories/${categoryId}`;
+  return callApi({ url, method: HttpMethod.PATCH, body: formData, contentType: 'multipart/form-data' });
+};
+
+export const deleteCategory = (categoryId: number) => {
+  const url = `v1/categories/${categoryId}`;
+  return callApi({ url, method: HttpMethod.DELETE });
 };

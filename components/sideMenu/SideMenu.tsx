@@ -1,10 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
 import useSidemenu from '../../stores/use-sidemenu';
 import Authencation from './authentication/Authentication';
+import SideMenuNavigator from './navigator/SideMenuNavigator';
 
 export default function SideMenu() {
   const { isOpen, setIsOpen } = useSidemenu((state) => state);
@@ -20,7 +20,11 @@ export default function SideMenu() {
   };
 
   return isOpen ? (
-    <div className="fixed left-0 top-0 z-[20] flex h-full w-full justify-end bg-black bg-opacity-30">
+    <div
+      className="fixed left-0 top-0 z-[20] flex h-full w-full justify-end bg-black bg-opacity-30"
+      onClick={handleCloseSideMenu}
+      role="none"
+    >
       <div className="z-[30] flex h-full w-[450px] flex-col items-center gap-10 bg-white opacity-100">
         {/* 닫기 버튼 */}
         <section className="flex w-full justify-end pr-0 pt-10">
@@ -48,33 +52,7 @@ export default function SideMenu() {
         </section>
 
         {/* 네비게이터 */}
-        <nav className="flex w-full flex-col gap-5 p-10 pt-0">
-          <h3 className="text-2xl">
-            ✨ <b>Navigators</b>
-          </h3>
-          <ul className="flex flex-col gap-2">
-            <li className="border-b border-box p-4 text-xl hover:underline">
-              <Link href="/" onClick={handleCloseSideMenu}>
-                Home
-              </Link>
-            </li>
-            <li className="border-b border-box p-4 text-xl hover:underline">
-              <Link href="/articles" onClick={handleCloseSideMenu}>
-                Articles
-              </Link>
-            </li>
-            <li className="border-b border-box p-4 text-xl hover:underline">
-              <a href="/manage" onClick={handleCloseSideMenu}>
-                Manage <b className="text-xs">(Read-only)</b>
-              </a>
-            </li>
-            <li className="border-b border-box p-4 text-xl hover:underline">
-              <Link href="/contact" onClick={handleCloseSideMenu}>
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <SideMenuNavigator />
       </div>
     </div>
   ) : null;

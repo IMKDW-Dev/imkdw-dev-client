@@ -2,27 +2,25 @@
 
 import Image from 'next/image';
 import { useRef, useState } from 'react';
-import { postCreateCategory } from '../../../../services/category';
+import { patchUpdateCategory } from '../../../../services/category';
 import useCategory from '../../../../stores/use-category';
+import { Category } from '../../../../services/@types/category';
 
 interface Props {
   onClose: () => void;
+  category: Category;
 }
-export default function CategoryCreateForm({ onClose }: Props) {
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
+export default function CategoryUpdateForm({ onClose, category }: Props) {
+  const [name, setName] = useState(category.name);
+  const [description, setDescription] = useState(category.desc);
+  const [imageUrl, setImageUrl] = useState<string>(category.image);
   const [image, setImage] = useState<File | null>(null);
-  const [imageUrl, setImageUrl] = useState<string>('');
-  const { setNewCategory } = useCategory((state) => state);
+
+  const { setUpdatedCategory } = useCategory((state) => state);
   const uploaderRef = useRef<HTMLInputElement>(null);
 
-  const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  };
-
-  const handleChangeDescription = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setDescription(e.target.value);
-  };
+  const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value);
+  const handleChangeDescription = (e: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,11 +28,13 @@ export default function CategoryCreateForm({ onClose }: Props) {
     const formData = new FormData();
     formData.append('name', name);
     formData.append('desc', description);
-    formData.append('image', image as Blob);
+    if (image) {
+      formData.append('image', image);
+    }
 
-    const createdCategory = await postCreateCategory(formData);
+    const updatedCategory = await patchUpdateCategory(category.id, formData);
     onClose();
-    setNewCategory(createdCategory);
+    setUpdatedCategory(updatedCategory);
   };
 
   const handleClickUpload = () => {
@@ -56,19 +56,13 @@ export default function CategoryCreateForm({ onClose }: Props) {
   return (
     <>
       <form className="flex flex-col items-center gap-6 p-4 pt-8" onSubmit={handleSubmit} encType="multipart/form-data">
-        {image && imageUrl ? (
-          <div className="profile relative flex h-[80px] w-[80px] items-center justify-center overflow-hidden rounded-[100px] border border-gray-300">
-            <Image src={imageUrl} alt="upload" width={80} height={80} />
-          </div>
-        ) : (
-          <button
-            className="profile relative flex h-[80px] w-[80px] cursor-pointer items-center justify-center overflow-hidden rounded-[100px] border border-gray-300"
-            onClick={handleClickUpload}
-            type="button"
-          >
-            <Image src="/images/icon/upload.svg" alt="upload" width={25} height={25} />
-          </button>
-        )}
+        <button
+          className="profile relative flex h-[80px] w-[80px] cursor-pointer items-center justify-center overflow-hidden rounded-[100px] border border-gray-300"
+          onClick={handleClickUpload}
+          type="button"
+        >
+          <Image src={imageUrl} alt="upload" width={80} height={80} />
+        </button>
         <div className="flex w-full flex-col gap-3">
           <p className="text-[14px] text-[#6C757D]">Name</p>
           <input
@@ -89,7 +83,7 @@ export default function CategoryCreateForm({ onClose }: Props) {
           />
         </div>
         <button type="submit" className="w-1/3 rounded-md bg-[#6658DD] p-2 text-white hover:bg-[#573BBC]">
-          Create
+          Save
         </button>
       </form>
       <input type="file" hidden accept="image/*" ref={uploaderRef} onChange={handleUpload} />
