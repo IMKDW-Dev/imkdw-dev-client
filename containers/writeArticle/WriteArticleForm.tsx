@@ -1,6 +1,8 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
+
 import CategorySelector from './categorySelector/CategorySelector';
 import ArticleContentEditor from './contentEditor/ArticleContentEditor';
 import ArticleCategoryFormItemWrapper from './wrapper/ItemWrapper';
@@ -9,16 +11,26 @@ import ArticleModal from '../../components/common/modals/ArticleModal';
 import useCreateArticle from '../../stores/use-create-article';
 import TagEditor from './tagEditor/TagEditor';
 import TagList from './tagEditor/TagList';
+import { postCreateArticle } from '../../services/article';
 
 export default function WriteArticleForm() {
   const [isNext, setIsNext] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const { data, setContent, setTitle, reset } = useCreateArticle((state) => state);
+  const router = useRouter();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(data);
+
+    const { id } = await postCreateArticle({
+      ...data,
+      visible: data.isPublic,
+      categoryId: data.categoryId!,
+      thumbnail: data.thumbnail!,
+    });
+
     reset();
+    router.push(`/articles/${id}`);
   };
 
   const handleClickSubmitButton = () => {
