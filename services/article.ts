@@ -1,8 +1,7 @@
 import { HttpMethod } from '../enums/http-method.enum';
-import { PostCreateArticleBody, PostCreateArticleResponse } from './@types/article';
+import { ArticleDetail, PostCreateArticleBody, PostCreateArticleResponse } from './@types/article';
 import { callApi } from './api';
 
-// eslint-disable-next-line import/prefer-default-export
 export const postCreateArticle = (body: PostCreateArticleBody) => {
   const url = 'v1/articles';
 
@@ -16,4 +15,9 @@ export const postCreateArticle = (body: PostCreateArticleBody) => {
   formData.append('thumbnail', body.thumbnail);
 
   return callApi<PostCreateArticleResponse>({ url, method: HttpMethod.POST, body: formData });
+};
+
+export const getArticleDetail = async (id: string) => {
+  const url = `v1/articles/${id}`;
+  return callApi<ArticleDetail>({ url, method: HttpMethod.GET });
 };
