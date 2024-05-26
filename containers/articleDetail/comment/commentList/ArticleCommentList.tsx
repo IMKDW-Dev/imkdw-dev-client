@@ -2,9 +2,11 @@
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 import { ArticleCommentDetail } from '../../../../services/@types/article-comment';
 import useArticleComment from '../../../../stores/use-article-comment';
+import useCommentReply from '../../../../stores/use-comment-reply';
 
 interface Props {
   comments: ArticleCommentDetail[];
@@ -12,6 +14,11 @@ interface Props {
 export default function ArticleCommentList({ comments }: Props) {
   const [articleComments, setArticleComments] = useState<ArticleCommentDetail[]>(comments);
   const { newArticleComment } = useArticleComment((state) => state);
+  const { setReplyCommendId } = useCommentReply((state) => state);
+
+  const handleReply = (commentId: number) => {
+    setReplyCommendId(commentId);
+  };
 
   useEffect(() => {
     if (newArticleComment) {
@@ -38,12 +45,13 @@ export default function ArticleCommentList({ comments }: Props) {
               </div>
             </div>
             <p className="pl-[63px]">{comment.content}</p>
-            <button
-              type="button"
+            <Link
+              href="#commentForm"
               className="ml-[63px] mt-4 rounded-md bg-[#FF6481] p-1 pl-4 pr-4 text-white hover:bg-black"
+              onClick={() => handleReply(comment.id)}
             >
               Reply
-            </button>
+            </Link>
           </li>
         ))}
 
