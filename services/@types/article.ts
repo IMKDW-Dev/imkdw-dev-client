@@ -1,5 +1,17 @@
 import { ArticleCommentDetail } from './article-comment';
+import { CategorySummary } from './category';
 import { Tag } from './tag';
+
+export interface ArticleSummary {
+  id: string;
+  title: string;
+  content: string;
+  thumbnail: string;
+  viewCount: number;
+  createdAt: string;
+  category: CategorySummary;
+  tags: Tag[];
+}
 
 export interface Article {
   id: string;

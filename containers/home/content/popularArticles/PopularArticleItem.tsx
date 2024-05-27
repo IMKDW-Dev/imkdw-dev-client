@@ -2,25 +2,25 @@ import clsx from 'clsx';
 import { DM_Sans } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Article } from '../../../../services/@types/article';
+import { ArticleSummary } from '../../../../services/@types/article';
 import { formatDate } from '../../../../utils/data';
 
 const DmSans = DM_Sans({ subsets: ['latin'] });
 
 interface Props {
-  article: Article;
+  article: ArticleSummary;
 }
 export default function PopularArticleItem({ article }: Props) {
   return (
     <li className="box-shadow w-full rounded-xl border border-box bg-white p-3">
-      <Link href={`/articles/${article.id}`} className="flex items-center gap-8 p-3">
+      <Link href={`/articles/${article.id}`} className="flex w-full items-center gap-8 p-3">
         <div className="relative h-[250px] w-[270px] overflow-hidden rounded-xl">
           <Image src={article.thumbnail} layout="fill" alt="Server" objectFit="cover" />
           <div className="absolute left-0 top-5 rounded-r-[100px] bg-red-400 p-2 pl-5 pr-5 text-sm text-white">
-            <b>Backend</b>
+            <b>{article.category.name}</b>
           </div>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-1 flex-col gap-4">
           {/* 상단 - 조회수 */}
           <div className="flex gap-1">
             <Image src="/images/icon/eye.svg" width={20} height={20} alt="Eye" />

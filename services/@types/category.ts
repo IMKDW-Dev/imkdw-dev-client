@@ -6,6 +6,11 @@ export interface Category {
   articleCount: number;
 }
 
+export interface CategorySummary {
+  id: number;
+  name: string;
+}
+
 export interface GetCategoriesResponse {
   items: Category[];
 }
