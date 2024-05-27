@@ -10,6 +10,7 @@ import ArticleDetailHeader from '../../../containers/articleDetail/header/Articl
 import ArticleDetailContent from '../../../containers/articleDetail/content/ArticleDetailContent';
 import ArticleShare from '../../../containers/articleDetail/share/ArticleShare';
 import ArticleCommentForm from '../../../containers/articleDetail/comment/CommentForm';
+import { formatDate } from '../../../utils/data';
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const articleId = params.slug;
@@ -40,7 +41,7 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
     <article className="flex w-full flex-col items-center gap-12 p-16 pl-[100px] pr-[100px]">
       {/* 게시글 내용 */}
       <section className="box-shadow flex w-full flex-col gap-8 rounded-lg border border-box bg-white p-8">
-        <ArticleDetailHeader title={articleDetail.title} createdAt={articleDetail.createdAt} />
+        <ArticleDetailHeader title={articleDetail.title} createdAt={formatDate(articleDetail.createdAt)} />
         <section className="flex h-[150px] items-center justify-center rounded-xl bg-black text-center text-3xl text-white">
           Advertisement
         </section>

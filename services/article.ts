@@ -1,5 +1,6 @@
+import { IGetArticlesFilter } from '../enums/article.enum';
 import { HttpMethod } from '../enums/http-method.enum';
-import { ArticleDetail, PostCreateArticleBody, PostCreateArticleResponse } from './@types/article';
+import { Article, ArticleDetail, PostCreateArticleBody, PostCreateArticleResponse } from './@types/article';
 import { callApi } from './api';
 
 export const postCreateArticle = (body: PostCreateArticleBody) => {
@@ -20,4 +21,9 @@ export const postCreateArticle = (body: PostCreateArticleBody) => {
 export const getArticleDetail = async (id: string) => {
   const url = `v1/articles/${id}`;
   return callApi<ArticleDetail>({ url, method: HttpMethod.GET });
+};
+
+export const getArticles = (filter: IGetArticlesFilter, limit: number) => {
+  const url = `v1/articles?filter=${filter}&limit=${limit}`;
+  return callApi<Article[]>({ url, method: HttpMethod.GET });
 };

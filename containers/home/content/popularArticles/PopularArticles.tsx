@@ -1,13 +1,15 @@
+import { GetArticlesFilter } from '../../../../enums/article.enum';
+import { getArticles } from '../../../../services/article';
 import PopularArticleItem from './PopularArticleItem';
 
-export default function PopularArticles() {
+export default async function PopularArticles() {
+  const articles = await getArticles(GetArticlesFilter.POPULAR, 5);
+
   return (
     <ul className="flex flex-col gap-5">
-      <PopularArticleItem />
-      <PopularArticleItem />
-      <PopularArticleItem />
-      <PopularArticleItem />
-      <PopularArticleItem />
+      {articles.map((article) => (
+        <PopularArticleItem article={article} key={article.id} />
+      ))}
     </ul>
   );
 }

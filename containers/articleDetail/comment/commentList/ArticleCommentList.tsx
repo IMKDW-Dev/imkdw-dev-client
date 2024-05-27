@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { ArticleCommentDetail } from '../../../../services/@types/article-comment';
 import useArticleComment from '../../../../stores/use-article-comment';
 import useCommentReply from '../../../../stores/use-comment-reply';
+import { formatDate } from '../../../../utils/data';
 
 interface Props {
   comments: ArticleCommentDetail[];
@@ -39,8 +40,10 @@ export default function ArticleCommentList({ comments }: Props) {
                 <Image src={comment.author.profile} layout="fill" alt="Server" objectFit="cover" />
               </div>
               <div>
-                <div>
-                  <b>{comment.author.nickname}</b> on {comment.createdAt}
+                <div className="flex gap-2">
+                  <p className="font-bold">{comment.author.nickname}</p>
+                  <p>on</p>
+                  <p>{formatDate(comment.createdAt)}</p>
                 </div>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { formatDate } from '../../../utils/data';
 
 interface Props {
   title: string;
@@ -13,7 +14,7 @@ export default function ArticleDetailHeader({ title, createdAt }: Props) {
       <div className="flex justify-center gap-2">
         <Image src="/images/icon/calendar.svg" width={18} height={18} alt="Calendar" />
         <b>Published: </b>
-        <p>{createdAt}</p>
+        <p>{formatDate(createdAt)}</p>
       </div>
     </header>
   );
