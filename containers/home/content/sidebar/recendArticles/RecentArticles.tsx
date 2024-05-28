@@ -4,7 +4,6 @@ import RecentArticleItem from './RecentArticleItem';
 
 export default async function RecentArticles() {
   const articles = await getArticles(GetArticlesFilter.LATEST, 3);
-  console.log(articles);
 
   return (
     <div className="flex flex-col gap-5">

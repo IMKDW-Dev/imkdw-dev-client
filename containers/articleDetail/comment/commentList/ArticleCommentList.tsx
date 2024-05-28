@@ -37,7 +37,7 @@ export default function ArticleCommentList({ comments }: Props) {
           <li className="flex flex-col items-start gap-3" key={comment.id}>
             <div className="flex items-center gap-3">
               <div className="profile relative h-[52px] w-[52px] overflow-hidden rounded-[100px]">
-                <Image src={comment.author.profile} layout="fill" alt="Server" objectFit="cover" />
+                <Image src={comment.author.profile} alt="Server" className="object-cover" />
               </div>
               <div>
                 <div className="flex gap-2">

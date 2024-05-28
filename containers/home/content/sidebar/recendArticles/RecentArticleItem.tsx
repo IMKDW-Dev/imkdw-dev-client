@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Article } from '../../../../../services/@types/article';
+import { ArticleSummary } from '../../../../../services/@types/article';
 import { formatDate } from '../../../../../utils/data';
 import RecentArticleImage from './ArticleImage';
 
 interface Props {
-  article: Article;
+  article: ArticleSummary;
 }
 export default function RecentArticleItem({ article }: Props) {
   return (

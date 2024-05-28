@@ -9,7 +9,7 @@ export default function CategoryArticleItem() {
           href="/articles/1"
           className="profile relative h-[250px] w-full overflow-hidden rounded-tl-xl rounded-tr-xl"
         >
-          <Image src="/images/pepe-hacker.png" layout="fill" alt="Server" objectFit="cover" />
+          <Image src="/images/pepe-hacker.png" alt="Server" className="object-cover" fill />
           <div className="absolute left-0 top-5 rounded-r-[100px] bg-red-400 p-2 pl-5 pr-5 text-sm text-white">
             <b>Backend</b>
           </div>

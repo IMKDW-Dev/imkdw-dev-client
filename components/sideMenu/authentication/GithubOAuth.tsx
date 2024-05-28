@@ -14,7 +14,7 @@ export default function GithubOAuth() {
     <>
       <button type="button" onClick={handleGithubOAuth}>
         <div className="relative h-[50px] w-[50px] overflow-hidden rounded-xl">
-          <Image src="/images/icon/github.png" layout="fill" alt="github" objectFit="cover" />
+          <Image src="/images/icon/github.png" alt="github" className="object-cover" fill />
         </div>
       </button>
       <p>Github</p>

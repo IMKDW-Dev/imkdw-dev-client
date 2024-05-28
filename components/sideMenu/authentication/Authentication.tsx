@@ -14,7 +14,7 @@ export default function Authencation() {
     <div className="box-shadow flex flex-col gap-5 rounded-xl border border-box p-3">
       <div className="flex items-center gap-3">
         <div className="relative h-[60px] w-[60px] overflow-hidden rounded-[100px]">
-          <Image src="/images/pepe-hacker.png" layout="fill" alt="github" objectFit="cover" />
+          <Image src="/images/pepe-hacker.png" alt="github" className="object-cover" fill />
         </div>
         <p>
           Welcome to my Blog, <b>IMKDW</b>
@@ -47,7 +47,7 @@ export default function Authencation() {
       <li className="flex flex-col items-center justify-center gap-2 p-1">
         <button type="button">
           <div className="relative h-[50px] w-[50px] overflow-hidden rounded-xl">
-            <Image src="/images/icon/kakaotalk.png" layout="fill" alt="kakao" objectFit="cover" />
+            <Image src="/images/icon/kakaotalk.png" fill alt="kakao" className="object-cover" />
           </div>
         </button>
         <p>Kakao</p>

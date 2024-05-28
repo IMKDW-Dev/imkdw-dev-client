@@ -84,7 +84,7 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
       <section className="box-shadow flex w-full flex-col gap-8 rounded-xl border border-box bg-white p-5">
         <div className="flex items-center justify-between gap-5">
           <div className="profile relative h-[70px] w-[70px] overflow-hidden rounded-[100px]">
-            <Image src="/images/pepe-hacker.png" layout="fill" alt="Server" objectFit="cover" />
+            <Image src="/images/pepe-hacker.png" alt="Server" className="object-cover" fill />
           </div>
           <div className="flex flex-1 flex-col gap-1">
             <p>

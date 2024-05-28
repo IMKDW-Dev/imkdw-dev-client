@@ -15,7 +15,7 @@ export default function PopularArticleItem({ article }: Props) {
     <li className="box-shadow w-full rounded-xl border border-box bg-white p-3">
       <Link href={`/articles/${article.id}`} className="flex w-full items-center gap-8 p-3">
         <div className="relative h-[250px] w-[270px] overflow-hidden rounded-xl">
-          <Image src={article.thumbnail} layout="fill" alt="Server" objectFit="cover" />
+          <Image src={article.thumbnail} alt="Server" className="object-cover" fill />
           <div className="absolute left-0 top-5 rounded-r-[100px] bg-red-400 p-2 pl-5 pr-5 text-sm text-white">
             <b>{article.category.name}</b>
           </div>
