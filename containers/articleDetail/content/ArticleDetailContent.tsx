@@ -13,15 +13,15 @@ interface Props {
 }
 
 export default function ArticleDetailContent({ content }: Props) {
-  const highlightCode = (code: string) => {
-    const highlightedCode = hljs.highlightAuto(he.decode(code)).value;
-    return `<code>${highlightedCode}</code>`;
-  };
+  // const highlightCode = (code: string) => {
+  //   const highlightedCode = hljs.highlightAuto(he.decode(code)).value;
+  //   return `<code>${highlightedCode}</code>`;
+  // };
 
-  const highlightedContent = content.replace(
-    /<pre[^>]*>([\s\S]*?)<\/pre>/gi,
-    (match, code) => `<pre>${highlightCode(code)}</pre>`,
-  );
+  // const highlightedContent = content.replace(
+  //   /<pre[^>]*>([\s\S]*?)<\/pre>/gi,
+  //   (match, code) => `<pre>${highlightCode(code)}</pre>`,
+  // );
 
-  return <section dangerouslySetInnerHTML={{ __html: highlightedContent }} />;
+  return <section dangerouslySetInnerHTML={{ __html: content }} />;
 }

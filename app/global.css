@@ -29,5 +29,14 @@ button {
     0px 13px 27px -5px rgba(50, 50, 93, 0.25);
 }
 
-#portal {
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 20px;
 }

@@ -52,7 +52,7 @@
     "typescript": "^5.4.5"
   },
   "lint-staged": {
-    "app/**/*.{tsx,ts}": [
+    "**/*.{tsx,ts}": [
       "eslint --fix"
     ]
   }
