@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import Categories from '../../containers/categories/Categories';
-import CategoryArticles from '../../containers/categoryArticles/CategoryArticles';
 import generateCustomMetadata from '../../utils/metadata';
 
 export const metadata: Metadata = {
@@ -23,7 +22,6 @@ export default function CategoryListPage() {
         Use the search function to find more correct articles
       </p>
       <Categories />
-      <CategoryArticles />
     </section>
   );
 }

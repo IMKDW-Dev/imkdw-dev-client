@@ -1,21 +1,9 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 import CategoryItem from './CategoryItem';
-import { Category } from '../../services/@types/category';
 import { getCategories } from '../../services/category';
 
-export default function Categories() {
-  const [categories, setCategories] = useState<Category[]>([]);
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const response = await getCategories();
-      setCategories(response.items);
-    };
-
-    fetchCategories();
-  }, []);
+export default async function Categories() {
+  const response = await getCategories();
+  const categories = response.items;
 
   return (
     <div className="w-full pl-10 pr-10">

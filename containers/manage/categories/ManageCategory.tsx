@@ -71,15 +71,31 @@ export default function ManageCategory() {
   const handleDragEnd = async (result: DropResult) => {
     const { draggableId, destination } = result;
     if (draggableId && destination) {
-      const sourceIndex = categories.findIndex((category) => category.id === parseInt(draggableId, 10));
-      const destinationIndex = destination.index - 1;
+      const sourceCategory = categories.find((category) => category.id === parseInt(draggableId, 10));
+      const sourceCategorySort = sourceCategory?.sort;
 
-      const newCategories = [...categories];
-      const [draggedCategory] = newCategories.splice(sourceIndex, 1);
-      newCategories.splice(destinationIndex, 0, draggedCategory);
-      setCategories(newCategories);
+      // 낙관적 업데이트
+      const updatedCategories = categories.map((category) => {
+        if (category.id === parseInt(draggableId, 10)) {
+          return { ...category, sort: destination.index };
+        }
+        if (category.sort >= destination.index && category.sort < sourceCategorySort!) {
+          return { ...category, sort: category.sort + 1 };
+        }
+        if (category.sort <= destination.index && category.sort > sourceCategorySort!) {
+          return { ...category, sort: category.sort - 1 };
+        }
+        return category;
+      });
 
-      await patchUpdateCategory(parseInt(draggableId, 10), { sort: destination.index });
+      setCategories(updatedCategories.sort((a, b) => a.sort - b.sort));
+
+      try {
+        await patchUpdateCategory(parseInt(draggableId, 10), { sort: destination.index });
+      } catch (error) {
+        // 서버 요청 실패 시 이전 상태로 되돌림
+        setCategories(categories);
+      }
     }
   };
 

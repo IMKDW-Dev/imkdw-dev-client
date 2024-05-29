@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArticleSummary } from '../../../../services/@types/article';
 import { formatDate } from '../../../../utils/data';
+import { removeHtmlTags } from '../../../../utils/html';
 
 const DmSans = DM_Sans({ subsets: ['latin'] });
 
@@ -36,7 +37,7 @@ export default function PopularArticleItem({ article }: Props) {
                 'line-clamp-3 max-w-[400px] overflow-hidden text-ellipsis text-[15px] leading-loose',
               )}
             >
-              {article.content}
+              {removeHtmlTags(article.content)}
             </p>
           </div>
 

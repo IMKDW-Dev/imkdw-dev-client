@@ -1,7 +1,6 @@
 import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 import typescript from 'highlight.js/lib/languages/typescript';
-import he from 'he';
 
 import './content.css';
 
@@ -13,15 +12,6 @@ interface Props {
 }
 
 export default function ArticleDetailContent({ content }: Props) {
-  // const highlightCode = (code: string) => {
-  //   const highlightedCode = hljs.highlightAuto(he.decode(code)).value;
-  //   return `<code>${highlightedCode}</code>`;
-  // };
-
-  // const highlightedContent = content.replace(
-  //   /<pre[^>]*>([\s\S]*?)<\/pre>/gi,
-  //   (match, code) => `<pre>${highlightCode(code)}</pre>`,
-  // );
-
+  // eslint-disable-next-line react/no-danger
   return <section dangerouslySetInnerHTML={{ __html: content }} />;
 }
