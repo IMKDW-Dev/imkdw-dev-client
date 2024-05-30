@@ -19,6 +19,7 @@ export default function ArticleCommentForm({ articleId }: Props) {
     const createdComment = await postCreateArticleComment(articleId, { content: comment, parentId: replyCommentId });
     setNewArticleComment(createdComment);
     setComment('');
+    setReplyCommendId(null);
   };
 
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {

@@ -1,5 +1,6 @@
 export interface ArticleCommentDetail {
   id: number;
+  parentId: number;
   replies: any[];
   author: {
     nickname: string;
