@@ -3,7 +3,7 @@ import { getCategories } from '../../services/category';
 
 export default async function Categories() {
   const response = await getCategories();
-  const categories = response.items;
+  const { categories } = response;
 
   return (
     <div className="w-full pl-10 pr-10">

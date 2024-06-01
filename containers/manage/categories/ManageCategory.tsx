@@ -18,7 +18,7 @@ export default function ManageCategory() {
   useEffect(() => {
     const fetchCategories = async () => {
       const response = await getCategories();
-      setCategories(response.items);
+      setCategories(response.categories);
     };
 
     fetchCategories();
@@ -40,7 +40,7 @@ export default function ManageCategory() {
    */
   useEffect(() => {
     if (newCategory) {
-      setCategories((prev) => [newCategory, ...prev]);
+      setCategories((prev) => [...prev, newCategory]);
     }
   }, [newCategory]);
 

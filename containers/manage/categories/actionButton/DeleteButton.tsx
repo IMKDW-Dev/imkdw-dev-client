@@ -28,6 +28,7 @@ export default function ManageCategoryDeleteButton({ category }: Props) {
         className="text-gray-400 hover:text-gray-600"
         onClick={handleClick}
         aria-label="Delete Category"
+        disabled={category.articleCount > 0}
       >
         <Delete />
       </button>
