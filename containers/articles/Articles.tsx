@@ -1,22 +1,18 @@
 import { GetArticlesSort } from '../../enums/article.enum';
 import { Category } from '../../services/@types/category';
 import { getArticles } from '../../services/article';
-import CategoryArticleItem from './CategoryArticleItem';
+import CategoryArticleItem from './ArticleItem';
 import { getHeaderValue } from '../../functions/header.function';
 import { X_PAGING_PAGE } from '../../constants/header.constants';
 import OffsetPaging from '../../components/common/OffsetPaging';
 
-interface Props {
-  category: Category;
-}
-export default async function CategoryArticles({ category }: Props) {
+export default async function Articles() {
   const currentPage = getHeaderValue(X_PAGING_PAGE) ? parseInt(getHeaderValue(X_PAGING_PAGE)!, 10) : 1;
 
   const GET_ARTICLE_LIMIT = 6;
 
   const { items, hasNextPage, hasPreviousPage, totalPage } = await getArticles({
     sort: GetArticlesSort.LATEST,
-    categoryId: category.id,
     limit: GET_ARTICLE_LIMIT,
     page: currentPage,
   });

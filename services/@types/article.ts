@@ -38,4 +38,5 @@ export interface GetArticlesQuery extends OffsetPagingQuery {
   sort: IGetArticlesSort;
   categoryId?: number;
   excludeId?: string;
+  search?: string;
 }

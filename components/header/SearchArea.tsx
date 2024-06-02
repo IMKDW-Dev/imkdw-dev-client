@@ -1,13 +1,19 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+
 import SearchModal from '../common/modals/SearchModal';
+import SearchForm from '../search/SearchForm';
+import useSearch from '../../stores/use-search';
 
 export default function SearchArea() {
-  const [isSearch, setIsSearch] = useState(false);
+  const { isSearch, setIsSearch } = useSearch((state) => state);
 
   useEffect(() => {
+    /**
+     * ECS 누를경우 검색창 종료 등록
+     */
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setIsSearch(false);
@@ -25,16 +31,11 @@ export default function SearchArea() {
       document.body.style.overflow = 'auto';
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isSearch]);
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setIsSearch(false);
-  };
+  }, [isSearch, setIsSearch]);
 
   return (
     <>
-      <button className="flex flex-row gap-2" type="button" onClick={() => setIsSearch(true)}>
+      <button className="flex flex-row gap-2 outline-none" type="button" onClick={() => setIsSearch(true)}>
         <span>
           <Image src="/images/icon/search.svg" width={24} height={24} alt="Search" />
         </span>
@@ -42,16 +43,7 @@ export default function SearchArea() {
       </button>
       {isSearch && (
         <SearchModal>
-          <form className="flex w-full rounded-lg" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Type to start you search"
-              className="h-[50px] flex-1 rounded-l-lg p-2 pl-4 pr-4"
-            />
-            <button type="submit" className="rounded-r-lg bg-[#FF6481] p-2 pl-3 pr-3 text-white">
-              Search
-            </button>
-          </form>
+          <SearchForm defaultText="" />
         </SearchModal>
       )}
     </>

@@ -40,3 +40,7 @@ h2 {
 h3 {
   font-size: 20px;
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}

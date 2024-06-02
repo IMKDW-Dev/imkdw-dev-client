@@ -39,6 +39,10 @@ export const getArticles = (query: GetArticlesQuery) => {
     url += `&excludeId=${query.excludeId}`;
   }
 
+  if (query?.search) {
+    url += `&search=${query.search}`;
+  }
+
   return callApi<GetArticlesReponse>({ url, method: HttpMethod.GET });
 };
 

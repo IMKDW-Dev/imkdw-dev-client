@@ -13,6 +13,7 @@ export default async function RelationArticles({ article }: Props) {
     categoryId: article.category.id,
     limit: 3,
     excludeId: article.id,
+    page: 1,
   });
 
   return (
