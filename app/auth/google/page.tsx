@@ -27,7 +27,7 @@ export default function GoogleAuthPage() {
       setUserInfo({
         nickname: userInfo.nickname,
         profile: userInfo.profile,
-        userId: userInfo.userId,
+        id: userInfo.id,
         role: userInfo.role,
       });
       router.push('/');

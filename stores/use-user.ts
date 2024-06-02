@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 interface UserInfo {
-  userId: string;
+  id: string;
   nickname: string;
   profile: string;
   role: 'normal' | 'admin';
@@ -21,7 +21,7 @@ const useUser = create(
     (set) => ({
       isLoggedIn: false,
       userInfo: {
-        userId: '',
+        id: '',
         nickname: '',
         profile: '',
         role: 'normal',
@@ -32,7 +32,7 @@ const useUser = create(
         set(() => ({
           isLoggedIn: false,
           userInfo: {
-            userId: '',
+            id: '',
             nickname: '',
             profile: '',
             role: 'normal',
