@@ -9,13 +9,12 @@ import useCreateArticle from '../../../stores/use-create-article';
 export default function CategorySelector() {
   const [categories, setCategories] = useState<Category[]>([]);
   const { setCategoryId } = useCreateArticle((state) => state);
-
   const options = categories.map((category) => ({ value: category.id, label: category.name }));
 
   useEffect(() => {
     const fetchCategories = async () => {
       const response = await getCategories();
-      setCategories(response.items);
+      setCategories(response.categories);
     };
 
     fetchCategories();

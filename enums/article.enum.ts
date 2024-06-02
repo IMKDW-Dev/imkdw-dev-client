@@ -1,5 +1,5 @@
-export const GetArticlesFilter = {
+export const GetArticlesSort = {
   LATEST: 'latest',
   POPULAR: 'popular',
 } as const;
-export type IGetArticlesFilter = (typeof GetArticlesFilter)[keyof typeof GetArticlesFilter];
+export type IGetArticlesSort = (typeof GetArticlesSort)[keyof typeof GetArticlesSort];

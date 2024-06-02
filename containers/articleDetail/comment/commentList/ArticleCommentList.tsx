@@ -2,15 +2,15 @@
 
 import { useEffect, useState } from 'react';
 
-import { ArticleCommentDetail } from '../../../../services/@types/article-comment';
 import useArticleComment from '../../../../stores/use-article-comment';
 import ArticleCommentItem from './ArticleCommentItem';
+import { ArticleComment } from '../../../../services/@types/article-comment';
 
 interface Props {
-  comments: ArticleCommentDetail[];
+  comments: ArticleComment[];
 }
 export default function ArticleCommentList({ comments }: Props) {
-  const [articleComments, setArticleComments] = useState<ArticleCommentDetail[]>(comments);
+  const [articleComments, setArticleComments] = useState<ArticleComment[]>(comments);
   const { newArticleComment } = useArticleComment((state) => state);
 
   useEffect(() => {
@@ -40,11 +40,17 @@ export default function ArticleCommentList({ comments }: Props) {
       <h3 className="text-xl">
         ✨ <b>Comments</b>
       </h3>
-      <ul className="flex flex-col gap-10">
-        {articleComments.map((comment) => (
-          <ArticleCommentItem key={comment.id} comment={comment} isReply={false} />
-        ))}
-      </ul>
+      {articleComments.length ? (
+        <ul className="flex flex-col gap-10">
+          {articleComments.map((comment) => (
+            <ArticleCommentItem key={comment.id} comment={comment} isReply={false} />
+          ))}
+        </ul>
+      ) : (
+        <div className="flex items-center justify-center p-10 text-2xl tracking-widest text-gray-400">
+          Nothing Yet...😅
+        </div>
+      )}
     </section>
   );
 }

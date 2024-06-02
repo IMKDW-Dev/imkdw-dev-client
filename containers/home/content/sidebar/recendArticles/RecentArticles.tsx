@@ -1,9 +1,9 @@
-import { GetArticlesFilter } from '../../../../../enums/article.enum';
+import { GetArticlesSort } from '../../../../../enums/article.enum';
 import { getArticles } from '../../../../../services/article';
 import RecentArticleItem from './RecentArticleItem';
 
 export default async function RecentArticles() {
-  const articles = await getArticles(GetArticlesFilter.LATEST, 3);
+  const articles = await getArticles({ sort: GetArticlesSort.LATEST, limit: 3 });
 
   return (
     <div className="flex flex-col gap-5">

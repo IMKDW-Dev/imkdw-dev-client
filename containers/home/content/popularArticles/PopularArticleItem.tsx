@@ -2,14 +2,14 @@ import clsx from 'clsx';
 import { DM_Sans } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArticleSummary } from '../../../../services/@types/article';
 import { formatDate } from '../../../../utils/data';
 import { removeHtmlTags } from '../../../../utils/html';
+import { Article } from '../../../../services/@types/article';
 
 const DmSans = DM_Sans({ subsets: ['latin'] });
 
 interface Props {
-  article: ArticleSummary;
+  article: Article;
 }
 export default function PopularArticleItem({ article }: Props) {
   return (

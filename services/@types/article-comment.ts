@@ -1,12 +1,12 @@
-export interface ArticleCommentDetail {
+import { User } from './user';
+
+export interface ArticleComment {
   id: number;
-  parentId: number;
-  replies: any[];
-  author: {
-    nickname: string;
-    profile: string;
-  };
+  articleId: string;
   content: string;
+  author: User;
+  parentId: number | null;
+  replies: ArticleComment[];
   createdAt: string;
 }
 

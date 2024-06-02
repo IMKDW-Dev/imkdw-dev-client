@@ -1,6 +1,3 @@
-/* eslint-disable react/no-danger */
-import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import generateCustomMetadata from '../../../utils/metadata';
@@ -11,6 +8,7 @@ import ArticleDetailContent from '../../../containers/articleDetail/content/Arti
 import ArticleShare from '../../../containers/articleDetail/share/ArticleShare';
 import ArticleCommentForm from '../../../containers/articleDetail/comment/CommentForm';
 import { formatDate } from '../../../utils/data';
+import RelationArticles from '../../../containers/articleDetail/relationArticles/RelationArticles';
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const articleId = params.slug;
@@ -46,11 +44,11 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
           Advertisement
         </section>
         <ArticleDetailContent content={articleDetail.content} />
-        <ArticleShare articleId={articleDetail.id} />
+        <ArticleShare article={articleDetail} />
       </section>
 
       {/* 이전/다음 게시글 */}
-      <section className="flex w-full items-center justify-between">
+      {/* <section className="flex w-full items-center justify-between">
         <div className="w-[45%]">
           <Link href="/articles/0" className="w-full">
             <div className="box-shadow flex gap-5 rounded-lg bg-[#8665f0] p-7 pl-0">
@@ -78,60 +76,12 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
             </div>
           </Link>
         </div>
-      </section>
+      </section> */}
 
       {/* 카테고리에 속한 다른 게시글들 */}
-      <section className="box-shadow flex w-full flex-col gap-8 rounded-xl border border-box bg-white p-5">
-        <div className="flex items-center justify-between gap-5">
-          <div className="profile relative h-[70px] w-[70px] overflow-hidden rounded-[100px]">
-            <Image src="/images/pepe-hacker.png" alt="Server" className="object-cover" fill />
-          </div>
-          <div className="flex flex-1 flex-col gap-1">
-            <p>
-              More in this <b>Category</b>
-            </p>
-            <h3 className="text-2xl">
-              <b>Backend</b>
-            </h3>
-          </div>
-          <button type="button" className="rounded-md bg-[#7e3f83] p-2 pl-4 pr-4 text-white hover:bg-black">
-            View All Articles
-          </button>
-        </div>
-        <ul className="flex w-full flex-col pl-5 pr-5">
-          <li className="border-b border-box pb-3 pt-3">
-            <Link href="/articles/1" className="flex items-center gap-3">
-              <div className="flex h-[30px] w-[30px] items-center justify-center rounded-md bg-black text-white">
-                <b>1</b>
-              </div>
-              <h3>
-                <b>Lorem ipsum dolor sit amet consectetur adipisicing elit</b>
-              </h3>
-            </Link>
-          </li>
-          <li className="border-b border-box pb-3 pt-3">
-            <Link href="/articles/1" className="flex items-center gap-3">
-              <div className="flex h-[30px] w-[30px] items-center justify-center rounded-md bg-black text-white">
-                <b>2</b>
-              </div>
-              <h3>
-                <b>Lorem ipsum dolor sit amet consectetur adipisicing elit</b>
-              </h3>
-            </Link>
-          </li>
-          <li className="pb-3 pt-3">
-            <Link href="/articles/1" className="flex items-center gap-3">
-              <div className="flex h-[30px] w-[30px] items-center justify-center rounded-md bg-black text-white">
-                <b>3</b>
-              </div>
-              <h3>
-                <b>Lorem ipsum dolor sit amet consectetur adipisicing elit</b>
-              </h3>
-            </Link>
-          </li>
-        </ul>
-      </section>
+      <RelationArticles article={articleDetail} />
 
+      {/* 댓글 목록 */}
       <ArticleCommentList comments={articleDetail.comments} />
 
       {/* 댓글 작성창 */}

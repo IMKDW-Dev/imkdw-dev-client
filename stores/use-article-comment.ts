@@ -1,9 +1,9 @@
 import { create } from 'zustand';
-import { ArticleCommentDetail } from '../services/@types/article-comment';
+import { ArticleComment } from '../services/@types/article-comment';
 
 interface ArticleCommentStore {
-  newArticleComment: ArticleCommentDetail | null;
-  setNewArticleComment(data: ArticleCommentDetail): void;
+  newArticleComment: ArticleComment | null;
+  setNewArticleComment(data: ArticleComment): void;
 }
 
 const useArticleComment = create<ArticleCommentStore>((set) => ({

@@ -6,6 +6,7 @@ import { postCreateCategory } from '../../../../services/category';
 import useCategory from '../../../../stores/use-category';
 import useUser from '../../../../stores/use-user';
 import { userRole } from '../../../../constants/user.constant';
+import clsx from 'clsx';
 
 interface Props {
   onClose: () => void;
@@ -93,7 +94,10 @@ export default function CategoryCreateForm({ onClose }: Props) {
         </div>
         <button
           type="submit"
-          className="w-1/3 rounded-md bg-[#6658DD] p-2 text-white hover:bg-[#573BBC]"
+          className={clsx(
+            'w-1/3 rounded-md p-2 text-white',
+            userInfo.role === userRole.NORMAL ? 'bg-gray-300' : 'bg-[#6658DD] hover:bg-[#573BBC]',
+          )}
           disabled={userInfo.role === userRole.NORMAL}
         >
           Create

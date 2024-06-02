@@ -30,7 +30,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export default async function CategoryDetailPage({ params }: { params: { slug: string } }) {
   const categoryName = params.slug;
-  const { articleCount, desc, image, name } = await getCategoryDetail(categoryName);
+  const category = await getCategoryDetail(categoryName);
+  const { articleCount, desc, image, name } = category;
 
   return (
     <section className="flex w-full flex-col items-center pl-5 pr-5 pt-[80px]">
@@ -39,7 +40,7 @@ export default async function CategoryDetailPage({ params }: { params: { slug: s
           <CategoryImage image={image} name={name} />
           <div className="flex flex-col justify-center">
             <h1 className="text-2xl">
-              <b>Backend</b>
+              <b>{name}</b>
             </h1>
             <p className="text-sm">
               A collection of <b>{articleCount} articles</b>
@@ -48,7 +49,7 @@ export default async function CategoryDetailPage({ params }: { params: { slug: s
         </div>
         <p className="max-w-[480px] pl-10">{desc}</p>
       </header>
-      <CategoryArticles />
+      <CategoryArticles category={category} />
       <div className="pt-5">Page 1 of 1</div>
     </section>
   );

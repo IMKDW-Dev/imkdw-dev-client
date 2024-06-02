@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { ArticleCommentDetail } from '../../../../services/@types/article-comment';
 import { formatDate } from '../../../../utils/data';
 import useCommentReply from '../../../../stores/use-comment-reply';
+import { ArticleComment } from '../../../../services/@types/article-comment';
 
 interface Props {
-  comment: ArticleCommentDetail;
+  comment: ArticleComment;
   isReply: boolean;
 }
 export default function ArticleCommentItem({ comment, isReply }: Props) {

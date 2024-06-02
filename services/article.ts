@@ -1,12 +1,6 @@
-import { IGetArticlesFilter } from '../enums/article.enum';
+import { IGetArticlesSort } from '../enums/article.enum';
 import { HttpMethod } from '../enums/http-method.enum';
-import {
-  Article,
-  ArticleDetail,
-  ArticleSummary,
-  PostCreateArticleBody,
-  PostCreateArticleResponse,
-} from './@types/article';
+import { Article, GetArticlesQuery, PostCreateArticleBody, PostCreateArticleResponse } from './@types/article';
 import { callApi } from './api';
 
 export const postCreateArticle = (body: PostCreateArticleBody) => {
@@ -26,10 +20,23 @@ export const postCreateArticle = (body: PostCreateArticleBody) => {
 
 export const getArticleDetail = async (id: string) => {
   const url = `v1/articles/${id}`;
-  return callApi<ArticleDetail>({ url, method: HttpMethod.GET });
+  return callApi<Article>({ url, method: HttpMethod.GET });
 };
 
-export const getArticles = (filter: IGetArticlesFilter, limit: number) => {
-  const url = `v1/articles?filter=${filter}&limit=${limit}`;
-  return callApi<ArticleSummary[]>({ url, method: HttpMethod.GET });
+export const getArticles = (query: GetArticlesQuery) => {
+  let url = `v1/articles?sort=${query.sort}`;
+
+  if (query?.limit) {
+    url += `&limit=${query.limit}`;
+  }
+
+  if (query?.categoryId) {
+    url += `&categoryId=${query.categoryId}`;
+  }
+
+  if (query?.excludeId) {
+    url += `&excludeId=${query.excludeId}`;
+  }
+
+  return callApi<Article[]>({ url, method: HttpMethod.GET });
 };
