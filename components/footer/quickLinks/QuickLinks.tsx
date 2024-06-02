@@ -12,7 +12,7 @@ export default function QuickLinks() {
           </Link>
         </li>
         <li className="border-b border-box p-2 pb-3 pt-3">
-          <Link href="/" className="flex items-center justify-between hover:text-accent">
+          <Link href="/contact" className="flex items-center justify-between hover:text-accent">
             <span className="text-lg">Contact</span>
           </Link>
         </li>
