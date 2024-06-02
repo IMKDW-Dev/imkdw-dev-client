@@ -1,24 +1,11 @@
-'use client';
-
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-
 import TrendingCategoryItem from './TrendingCategoryItem';
-import { Category } from '../../../services/@types/category';
 import { getCategories } from '../../../services/category';
 
-export default function TrendingCategories() {
-  const TO_SHOW_CATEGORY_COUNT = 5;
-  const [categories, setCategories] = useState<Category[]>([]);
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const response = await getCategories(TO_SHOW_CATEGORY_COUNT);
-      setCategories(response.items);
-    };
-
-    fetchCategories();
-  }, []);
+export default async function TrendingCategories() {
+  const SHOW_CATEGORY_COUNT = 5;
+  const response = await getCategories(SHOW_CATEGORY_COUNT);
+  const { categories } = response;
 
   return (
     <section className="flex w-full pl-5 pr-5">

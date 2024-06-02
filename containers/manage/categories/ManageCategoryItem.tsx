@@ -35,7 +35,7 @@ const ManageCategoryItem = forwardRef<HTMLLIElement, Props>(
             <p className="text-sm">{category.articleCount} Articles</p>
           </div>
         </div>
-        <div className="flex flex-1 items-center">{category.desc}</div>
+        <div className="flex w-2/4 items-center">{category.desc}</div>
         <ManageCategoryActions category={category} />
       </div>
     </li>

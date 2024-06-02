@@ -17,7 +17,7 @@ export default function GoogleOAuth() {
     <>
       <button type="button" onClick={handleGoogleOAuth}>
         <div className="relative h-[50px] w-[50px] overflow-hidden rounded-xl">
-          <Image src="/images/icon/google.png" layout="fill" alt="google" objectFit="cover" />
+          <Image src="/images/icon/google.png" alt="google" className="object-cover" fill />
         </div>
       </button>
       <p>Google</p>

@@ -12,7 +12,7 @@ interface Props {
 }
 export default function CategoryUpdateForm({ onClose, category }: Props) {
   const [name, setName] = useState(category.name);
-  const [description, setDescription] = useState(category.desc);
+  const [desc, setDesc] = useState(category.desc);
   const [imageUrl, setImageUrl] = useState<string>(category.image);
   const [image, setImage] = useState<File | null>(null);
 
@@ -20,19 +20,12 @@ export default function CategoryUpdateForm({ onClose, category }: Props) {
   const uploaderRef = useRef<HTMLInputElement>(null);
 
   const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value);
-  const handleChangeDescription = (e: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value);
+  const handleChangeDesc = (e: React.ChangeEvent<HTMLTextAreaElement>) => setDesc(e.target.value);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('desc', description);
-    if (image) {
-      formData.append('image', image);
-    }
-
-    const updatedCategory = await patchUpdateCategory(category.id, formData);
+    const updatedCategory = await patchUpdateCategory(category.id, { name, desc, ...(image && { image }) });
     onClose();
     setUpdatedCategory(updatedCategory);
   };
@@ -74,10 +67,10 @@ export default function CategoryUpdateForm({ onClose, category }: Props) {
           />
         </div>
         <div className="flex w-full flex-col gap-3">
-          <p className="text-[14px] text-[#6C757D]">Description</p>
+          <p className="text-[14px] text-[#6C757D]">desc</p>
           <textarea
-            value={description}
-            onChange={handleChangeDescription}
+            value={desc}
+            onChange={handleChangeDesc}
             className="resize-none rounded-md border border-[#dee2e6] p-2 placeholder:text-sm"
             placeholder="Don't stop using node.js"
           />

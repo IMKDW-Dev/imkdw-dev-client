@@ -1,85 +1,55 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
-export default function ArticleDetailPage() {
+import generateCustomMetadata from '../../../utils/metadata';
+import { getArticleDetail } from '../../../services/article';
+import ArticleCommentList from '../../../containers/articleDetail/comment/commentList/ArticleCommentList';
+import ArticleDetailHeader from '../../../containers/articleDetail/header/ArticleDetailHeader';
+import ArticleDetailContent from '../../../containers/articleDetail/content/ArticleDetailContent';
+import ArticleShare from '../../../containers/articleDetail/share/ArticleShare';
+import ArticleCommentForm from '../../../containers/articleDetail/comment/CommentForm';
+import { formatDate } from '../../../utils/data';
+import RelationArticles from '../../../containers/articleDetail/relationArticles/RelationArticles';
+import ArticleViewCount from '../../../containers/articleDetail/viewCount/ArticleViewCount';
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const articleId = params.slug;
+
+  try {
+    const articleDetail = await getArticleDetail(articleId);
+    return {
+      ...generateCustomMetadata({
+        title: articleDetail.title,
+        desc: articleDetail.content,
+        link: `/articles/${articleId}`,
+        image: `/images/${articleDetail.thumbnail}`,
+      }),
+    };
+  } catch (error: any) {
+    if (error.message?.includes('404')) {
+      return notFound();
+    }
+  }
+
+  return null;
+}
+
+export default async function ArticleDetailPage({ params }: { params: { slug: string } }) {
+  const articleDetail = await getArticleDetail(params.slug);
+
   return (
     <article className="flex w-full flex-col items-center gap-12 p-16 pl-[100px] pr-[100px]">
       {/* 게시글 내용 */}
       <section className="box-shadow flex w-full flex-col gap-8 rounded-lg border border-box bg-white p-8">
-        {/* 게시글 상세 상단 */}
-        <header className="flex flex-col gap-6">
-          <h1 className="text-center text-3xl">
-            <b>Welcome to IMKDW Dev</b>
-          </h1>
-          <p className="flex justify-center gap-2">
-            <Image src="/images/icon/calendar.svg" width={18} height={18} alt="Calendar" />
-            <b>Published: </b>
-            <p>2024. 05. 18</p>
-          </p>
-        </header>
-
-        {/* 광고 */}
+        <ArticleDetailHeader title={articleDetail.title} createdAt={formatDate(articleDetail.createdAt)} />
         <section className="flex h-[150px] items-center justify-center rounded-xl bg-black text-center text-3xl text-white">
           Advertisement
         </section>
-
-        {/* 게시글 내용 */}
-        <section>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati aperiam amet dicta optio quam, ad porro
-          consectetur magni at nesciunt consequuntur atque eligendi? Ab nisi error dignissimos corporis, necessitatibus
-          repellendus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati aperiam amet dicta optio
-          quam, ad porro consectetur magni at nesciunt consequuntur atque eligendi? Ab nisi error dignissimos corporis,
-          necessitatibus repellendus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati aperiam amet
-          dicta optio quam, ad porro consectetur magni at nesciunt consequuntur atque eligendi? Ab nisi error
-          dignissimos corporis, necessitatibus repellendus. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          Obcaecati aperiam amet dicta optio quam, ad porro consectetur magni at nesciunt consequuntur atque eligendi?
-          Ab nisi error dignissimos corporis, necessitatibus repellendus. Lorem ipsum dolor sit amet consectetur,
-          adipisicing elit. Obcaecati aperiam amet dicta optio quam, ad porro consectetur magni at nesciunt consequuntur
-          atque eligendi? Ab nisi error dignissimos corporis, necessitatibus repellendus. Lorem ipsum dolor sit amet
-          consectetur, adipisicing elit. Obcaecati aperiam amet dicta optio quam, ad porro consectetur magni at nesciunt
-          consequuntur atque eligendi? Ab nisi error dignissimos corporis, necessitatibus repellendus. Lorem ipsum dolor
-          sit amet consectetur, adipisicing elit. Obcaecati aperiam amet dicta optio quam, ad porro consectetur magni at
-          nesciunt consequuntur atque eligendi? Ab nisi error dignissimos corporis, necessitatibus repellendus. Lorem
-          ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati aperiam amet dicta optio quam, ad porro
-          consectetur magni at nesciunt consequuntur atque eligendi? Ab nisi error dignissimos corporis, necessitatibus
-          repellendus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati aperiam amet dicta optio
-          quam, ad porro consectetur magni at nesciunt consequuntur atque eligendi? Ab nisi error dignissimos corporis,
-          necessitatibus repellendus. necessitatibus repellendus. necessitatibus repellendus. necessitatibus
-          repellendus. necessitatibus repellendus. necessitatibus repellendus. necessitatibus repellendus.
-          necessitatibus repellendus.
-        </section>
-
-        {/* 게시글 공유 */}
-        <section className="flex w-full flex-col items-center justify-center border-t border-box pb-7">
-          {/* SNS 공유 */}
-          <div className="flex w-full justify-center gap-3 pb-6 pt-6">
-            <b>Share Article : </b>
-            <ul>
-              <li>
-                <button type="button">
-                  <Image src="/images/icon/kakaotalk.png" width={24} height={24} alt="kakao" />
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* 링크 복사 */}
-          <div className="box-shadow flex w-[70%] justify-center rounded-md border border-box p-2">
-            <input
-              type="text"
-              value="https://imkdw.dev/article/welcome-to-imkdw-dev"
-              className="w-[80%] pl-5 pr-20 outline-none"
-              readOnly
-            />
-            <button type="button" className="text- rounded-md bg-[#FF6481] p-3 text-sm text-white hover:bg-black">
-              Copy Link
-            </button>
-          </div>
-        </section>
+        <ArticleDetailContent content={articleDetail.content} />
+        <ArticleShare article={articleDetail} />
       </section>
 
       {/* 이전/다음 게시글 */}
-      <section className="flex w-full items-center justify-between">
+      {/* <section className="flex w-full items-center justify-between">
         <div className="w-[45%]">
           <Link href="/articles/0" className="w-full">
             <div className="box-shadow flex gap-5 rounded-lg bg-[#8665f0] p-7 pl-0">
@@ -107,122 +77,19 @@ export default function ArticleDetailPage() {
             </div>
           </Link>
         </div>
-      </section>
+      </section> */}
 
       {/* 카테고리에 속한 다른 게시글들 */}
-      <section className="box-shadow flex w-full flex-col gap-8 rounded-xl border border-box bg-white p-5">
-        <div className="flex items-center justify-between gap-5">
-          <div className="profile relative h-[70px] w-[70px] overflow-hidden rounded-[100px]">
-            <Image src="/images/pepe-hacker.png" layout="fill" alt="Server" objectFit="cover" />
-          </div>
-          <div className="flex flex-1 flex-col gap-1">
-            <p>
-              More in this <b>Category</b>
-            </p>
-            <h3 className="text-2xl">
-              <b>Backend</b>
-            </h3>
-          </div>
-          <button type="button" className="rounded-md bg-[#7e3f83] p-2 pl-4 pr-4 text-white hover:bg-black">
-            View All Articles
-          </button>
-        </div>
-        <ul className="flex w-full flex-col pl-5 pr-5">
-          <li className="border-b border-box pb-3 pt-3">
-            <Link href="/articles/1" className="flex items-center gap-3">
-              <div className="flex h-[30px] w-[30px] items-center justify-center rounded-md bg-black text-white">
-                <b>1</b>
-              </div>
-              <h3>
-                <b>Lorem ipsum dolor sit amet consectetur adipisicing elit</b>
-              </h3>
-            </Link>
-          </li>
-          <li className="border-b border-box pb-3 pt-3">
-            <Link href="/articles/1" className="flex items-center gap-3">
-              <div className="flex h-[30px] w-[30px] items-center justify-center rounded-md bg-black text-white">
-                <b>2</b>
-              </div>
-              <h3>
-                <b>Lorem ipsum dolor sit amet consectetur adipisicing elit</b>
-              </h3>
-            </Link>
-          </li>
-          <li className="pb-3 pt-3">
-            <Link href="/articles/1" className="flex items-center gap-3">
-              <div className="flex h-[30px] w-[30px] items-center justify-center rounded-md bg-black text-white">
-                <b>3</b>
-              </div>
-              <h3>
-                <b>Lorem ipsum dolor sit amet consectetur adipisicing elit</b>
-              </h3>
-            </Link>
-          </li>
-        </ul>
-      </section>
+      <RelationArticles article={articleDetail} />
 
       {/* 댓글 목록 */}
-      <section className="flex w-full flex-col gap-5 pt-10">
-        <h3 className="text-xl">
-          ✨ <b>Comments</b>
-        </h3>
-        <ul className="flex flex-col gap-10">
-          <li className="flex flex-col items-start gap-3">
-            <div className="flex items-center gap-3">
-              <div className="profile relative h-[52px] w-[52px] overflow-hidden rounded-[100px]">
-                <Image src="/images/pepe-hacker.png" layout="fill" alt="Server" objectFit="cover" />
-              </div>
-              <div>
-                <div>
-                  <b>imkdw</b> on 2024. 05. 18
-                </div>
-              </div>
-            </div>
-            <p className="pl-[63px]">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <button
-              type="button"
-              className="ml-[63px] mt-4 rounded-md bg-[#FF6481] p-1 pl-4 pr-4 text-white hover:bg-black"
-            >
-              Reply
-            </button>
-          </li>
-          <li className="flex flex-col items-start gap-3">
-            <div className="flex items-center gap-3">
-              <div className="profile relative h-[52px] w-[52px] overflow-hidden rounded-[100px]">
-                <Image src="/images/pepe-hacker.png" layout="fill" alt="Server" objectFit="cover" />
-              </div>
-              <div>
-                <div>
-                  <b>imkdw</b> on 2024. 05. 18
-                </div>
-              </div>
-            </div>
-            <p className="pl-[63px]">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <button
-              type="button"
-              className="ml-[63px] mt-4 rounded-md bg-[#FF6481] p-1 pl-4 pr-4 text-white hover:bg-black"
-            >
-              Reply
-            </button>
-          </li>
-        </ul>
-      </section>
+      <ArticleCommentList comments={articleDetail.comments} />
 
       {/* 댓글 작성창 */}
-      <section className="flex w-full flex-col items-start gap-3 pt-10">
-        <h3>
-          <b>Leave a Reply</b>
-        </h3>
-        <div className="w-full">
-          <textarea
-            className="box-shadow min-h-[150px] w-full resize-none rounded-md  border border-box p-5 outline-accent"
-            placeholder="Comment"
-          />
-        </div>
-        <button type="submit" className="rounded-md bg-[#FF6481] p-2 pl-5 pr-5 text-white hover:bg-black">
-          Post Comment
-        </button>
-      </section>
+      <ArticleCommentForm articleId={articleDetail.id} />
+
+      {/* 조회수 추가용 컴포넌트 */}
+      <ArticleViewCount article={articleDetail} />
     </article>
   );
 }

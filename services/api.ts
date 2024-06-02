@@ -24,7 +24,7 @@ export const callApi = async <T>(params: CallApiParams): Promise<T> => {
     method: params.method,
     headers: {
       Authorization: `Bearer ${params.accessToken}`,
-      ...(!isFormData && { 'Content-Type': 'multipart/form-data' }),
+      ...(!isFormData && { 'Content-Type': 'application/json' }),
     },
     credentials: 'include',
     body: params.body instanceof FormData ? params.body : JSON.stringify(params.body),

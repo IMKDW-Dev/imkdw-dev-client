@@ -3,11 +3,16 @@ export interface Category {
   name: string;
   desc: string;
   image: string;
+  sort: number;
   articleCount: number;
 }
 
 export interface GetCategoriesResponse {
-  items: Category[];
+  categories: Category[];
 }
 
 export interface GetCategoryDetailResponse extends Category {}
+
+export interface PatchUpdateCategoryBody extends Partial<Pick<Category, 'name' | 'desc' | 'sort'>> {
+  image?: File;
+}

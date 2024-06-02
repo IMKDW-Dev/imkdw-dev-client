@@ -4,6 +4,9 @@ import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { postCreateCategory } from '../../../../services/category';
 import useCategory from '../../../../stores/use-category';
+import useUser from '../../../../stores/use-user';
+import { userRole } from '../../../../constants/user.constant';
+import clsx from 'clsx';
 
 interface Props {
   onClose: () => void;
@@ -15,6 +18,7 @@ export default function CategoryCreateForm({ onClose }: Props) {
   const [imageUrl, setImageUrl] = useState<string>('');
   const { setNewCategory } = useCategory((state) => state);
   const uploaderRef = useRef<HTMLInputElement>(null);
+  const { userInfo } = useUser((state) => state);
 
   const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -88,7 +92,14 @@ export default function CategoryCreateForm({ onClose }: Props) {
             placeholder="Don't stop using node.js"
           />
         </div>
-        <button type="submit" className="w-1/3 rounded-md bg-[#6658DD] p-2 text-white hover:bg-[#573BBC]">
+        <button
+          type="submit"
+          className={clsx(
+            'w-1/3 rounded-md p-2 text-white',
+            userInfo.role === userRole.NORMAL ? 'bg-gray-300' : 'bg-[#6658DD] hover:bg-[#573BBC]',
+          )}
+          disabled={userInfo.role === userRole.NORMAL}
+        >
           Create
         </button>
       </form>

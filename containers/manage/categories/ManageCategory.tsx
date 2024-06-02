@@ -3,11 +3,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import { DragDropContext, Draggable, DropResult, Droppable } from 'react-beautiful-dnd';
 
 import ManageCategoryItem from './ManageCategoryItem';
 import { Category } from '../../../services/@types/category';
-import { getCategories } from '../../../services/category';
+import { getCategories, patchUpdateCategory } from '../../../services/category';
 import useCategory from '../../../stores/use-category';
 
 export default function ManageCategory() {
@@ -18,7 +18,7 @@ export default function ManageCategory() {
   useEffect(() => {
     const fetchCategories = async () => {
       const response = await getCategories();
-      setCategories(response.items);
+      setCategories(response.categories);
     };
 
     fetchCategories();
@@ -40,7 +40,7 @@ export default function ManageCategory() {
    */
   useEffect(() => {
     if (newCategory) {
-      setCategories((prev) => [newCategory, ...prev]);
+      setCategories((prev) => [...prev, newCategory]);
     }
   }, [newCategory]);
 
@@ -68,17 +68,44 @@ export default function ManageCategory() {
     return null;
   }
 
-  if (!enabled) {
-    return null;
-  }
+  const handleDragEnd = async (result: DropResult) => {
+    const { draggableId, destination } = result;
+    if (draggableId && destination) {
+      const sourceCategory = categories.find((category) => category.id === parseInt(draggableId, 10));
+      const sourceCategorySort = sourceCategory?.sort;
+
+      // 낙관적 업데이트
+      const updatedCategories = categories.map((category) => {
+        if (category.id === parseInt(draggableId, 10)) {
+          return { ...category, sort: destination.index };
+        }
+        if (category.sort >= destination.index && category.sort < sourceCategorySort!) {
+          return { ...category, sort: category.sort + 1 };
+        }
+        if (category.sort <= destination.index && category.sort > sourceCategorySort!) {
+          return { ...category, sort: category.sort - 1 };
+        }
+        return category;
+      });
+
+      setCategories(updatedCategories.sort((a, b) => a.sort - b.sort));
+
+      try {
+        await patchUpdateCategory(parseInt(draggableId, 10), { sort: destination.index });
+      } catch (error) {
+        // 서버 요청 실패 시 이전 상태로 되돌림
+        setCategories(categories);
+      }
+    }
+  };
 
   return (
-    <DragDropContext onDragEnd={() => {}}>
+    <DragDropContext onDragEnd={handleDragEnd}>
       <Droppable droppableId="droppable" direction="vertical">
         {(parentProvided) => (
           <ul className="flex w-full flex-col gap-5" ref={parentProvided.innerRef} {...parentProvided.droppableProps}>
             {categories.map((category) => (
-              <Draggable key={category.name} draggableId={category.name} index={category.id}>
+              <Draggable key={category.id} draggableId={category.id.toString()} index={category.sort}>
                 {(childProvided, snapshot) => (
                   <ManageCategoryItem
                     category={category}

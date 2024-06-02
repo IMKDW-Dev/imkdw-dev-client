@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import QuickLinks from './quickLinks/QuickLinks';
 
 export default function Footer() {
   return (
@@ -40,27 +41,7 @@ export default function Footer() {
           </ul>
         </section>
 
-        {/* Quick Links 부분 */}
-        <section className="flex w-[30%] flex-col gap-4">
-          <h3 className="w-full text-2xl">✨ Quick Links</h3>
-          <ul className="flex flex-col pl-8">
-            <li className="border-b border-box p-2 pb-3 pt-3">
-              <Link href="/" className="flex items-center justify-between hover:text-accent">
-                <span className="text-lg">Home</span>
-              </Link>
-            </li>
-            <li className="border-b border-box p-2 pb-3 pt-3">
-              <Link href="/" className="flex items-center justify-between hover:text-accent">
-                <span className="text-lg">Contact</span>
-              </Link>
-            </li>
-            <li className="border-b border-box p-2 pb-3 pt-3">
-              <Link href="/" className="flex items-center justify-between hover:text-accent">
-                <span className="text-lg">Privacy Policy</span>
-              </Link>
-            </li>
-          </ul>
-        </section>
+        <QuickLinks />
 
         {/* 블로그 소개 */}
         <section className="flex w-[30%] flex-col gap-4">
