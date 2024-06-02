@@ -50,7 +50,6 @@ export default async function CategoryDetailPage({ params }: { params: { slug: s
         <p className="max-w-[480px] pl-10">{desc}</p>
       </header>
       <CategoryArticles category={category} />
-      <div className="pt-5">Page 1 of 1</div>
     </section>
   );
 }

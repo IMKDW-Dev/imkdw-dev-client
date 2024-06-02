@@ -8,7 +8,7 @@ interface Props {
   article: Article;
 }
 export default async function RelationArticles({ article }: Props) {
-  const relationArticles = await getArticles({
+  const { items } = await getArticles({
     sort: GetArticlesSort.LATEST,
     categoryId: article.category.id,
     limit: 3,
@@ -35,7 +35,7 @@ export default async function RelationArticles({ article }: Props) {
         </Link>
       </div>
       <ul className="flex w-full flex-col pl-5 pr-5">
-        {relationArticles.map((relationArticle, index) => (
+        {items.map((relationArticle, index) => (
           <li className="border-b border-box pb-3 pt-3" key={relationArticle.id}>
             <Link href={`/articles/${relationArticle.id}`} className="flex items-center gap-3">
               <div className="flex h-[30px] w-[30px] items-center justify-center rounded-md bg-black text-white">

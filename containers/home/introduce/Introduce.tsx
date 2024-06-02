@@ -9,7 +9,7 @@ export default function Introduce() {
           Hey, I&apos;m <b className="text-accent">Dongwoo Kim</b> 😁
         </h1>
         <p className="text-lg leading-loose">
-          I&apos;m a <b>Backend Developer</b> in Korea, I like to write about my experiences
+          I&apos;m a <b>Backend Engineer</b> in Korea, I like to write about my experiences
           <br />
           This is my Tech blog, <b>IMKDW Dev</b>
           <br />

@@ -1,6 +1,7 @@
 import { headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
+import { X_PATHNAME } from '../../constants/header.constants';
 
 interface Props {
   width: number;
@@ -9,7 +10,7 @@ interface Props {
 
 export default function Logo({ width, height }: Props) {
   const headerList = headers();
-  const pathname = headerList.get('x-pathname') || '';
+  const pathname = headerList.get(X_PATHNAME) || '';
 
   return pathname.includes('/manage') ? (
     <a href="/">

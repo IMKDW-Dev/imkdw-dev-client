@@ -1,6 +1,7 @@
 import { IGetArticlesSort } from '../../enums/article.enum';
 import { ArticleComment } from './article-comment';
 import { Category } from './category';
+import { OffsetPagingQuery, OffsetPagingResponse } from './common';
 import { Tag } from './tag';
 
 export interface Article {
@@ -31,9 +32,10 @@ export interface PostCreateArticleResponse {
   id: string;
 }
 
-export interface GetArticlesQuery {
+export interface GetArticlesReponse extends OffsetPagingResponse<Article> {}
+
+export interface GetArticlesQuery extends OffsetPagingQuery {
   sort: IGetArticlesSort;
   categoryId?: number;
-  limit?: number;
   excludeId?: string;
 }

@@ -12,7 +12,7 @@ export default function Profile() {
       </div>
       <div className="flex flex-col">
         <b>Dongwoo Kim</b>
-        <p className={clsx(DmSans.className, 'text-sm')}>Backend Developer</p>
+        <p className={clsx(DmSans.className, 'text-sm')}>Backend Engineer</p>
       </div>
     </div>
   );

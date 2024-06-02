@@ -11,6 +11,7 @@ import Footer from '../components/footer/Footer';
 import SideMenu from '../components/sideMenu/SideMenu';
 import { MANAGE_PAGE_PATH } from '../constants/path.constant';
 import './global.css';
+import { X_PATHNAME } from '../constants/header.constants';
 
 const urbanist = Urbanist({ subsets: ['latin'] });
 
@@ -28,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const headerList = headers();
-  const pathname = headerList.get('x-pathname') || '';
+  const pathname = headerList.get(X_PATHNAME) || '';
 
   return (
     <html lang="en">

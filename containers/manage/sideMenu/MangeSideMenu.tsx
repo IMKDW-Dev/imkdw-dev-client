@@ -9,7 +9,7 @@ export default function ManageSideMenu() {
       <Logo height={100} width={100} />
       <ul className="h-full w-full">
         <SideMenuSeparator text="NAVIGATION" />
-        <ManageSideMenuItem link="/manage/dashboard" text="Dashboards" />
+        <ManageSideMenuItem link="/manage/dashboards" text="Dashboards" />
         <SideMenuSeparator text="APPS" />
         <ManageSideMenuItem link="/manage/categories" text="Categories" />
         <ManageSideMenuItem link="/manage/articles" text="Articles" />

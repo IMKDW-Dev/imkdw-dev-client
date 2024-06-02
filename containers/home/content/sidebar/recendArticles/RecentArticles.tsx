@@ -3,7 +3,7 @@ import { getArticles } from '../../../../../services/article';
 import RecentArticleItem from './RecentArticleItem';
 
 export default async function RecentArticles() {
-  const articles = await getArticles({ sort: GetArticlesSort.LATEST, limit: 3 });
+  const { items } = await getArticles({ sort: GetArticlesSort.LATEST, limit: 3, page: 1 });
 
   return (
     <div className="flex flex-col gap-5">
@@ -11,7 +11,7 @@ export default async function RecentArticles() {
         ✨ <b>Recent Articles</b>
       </h3>
       <ul className="flex flex-col gap-5">
-        {articles.map((article) => (
+        {items.map((article) => (
           <RecentArticleItem article={article} key={article.id} />
         ))}
       </ul>

@@ -5,10 +5,11 @@ import Logo from '../common/Logo';
 import HeaderMenu from './Menu';
 import SearchArea from './SearchArea';
 import { MANAGE_PAGE_PATH } from '../../constants/path.constant';
+import { X_PATHNAME } from '../../constants/header.constants';
 
 export default function Header() {
   const headerList = headers();
-  const pathname = headerList.get('x-pathname') || '';
+  const pathname = headerList.get(X_PATHNAME) || '';
 
   return (
     <header className="box-shadow fixed z-[10] flex h-[100px] w-full justify-center border-b border-box bg-white">

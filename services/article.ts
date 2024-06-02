@@ -1,6 +1,11 @@
-import { IGetArticlesSort } from '../enums/article.enum';
 import { HttpMethod } from '../enums/http-method.enum';
-import { Article, GetArticlesQuery, PostCreateArticleBody, PostCreateArticleResponse } from './@types/article';
+import {
+  Article,
+  GetArticlesQuery,
+  GetArticlesReponse,
+  PostCreateArticleBody,
+  PostCreateArticleResponse,
+} from './@types/article';
 import { callApi } from './api';
 
 export const postCreateArticle = (body: PostCreateArticleBody) => {
@@ -24,11 +29,7 @@ export const getArticleDetail = async (id: string) => {
 };
 
 export const getArticles = (query: GetArticlesQuery) => {
-  let url = `v1/articles?sort=${query.sort}`;
-
-  if (query?.limit) {
-    url += `&limit=${query.limit}`;
-  }
+  let url = `v1/articles?sort=${query.sort}&limit=${query.limit}&page=${query.page}`;
 
   if (query?.categoryId) {
     url += `&categoryId=${query.categoryId}`;
@@ -38,7 +39,7 @@ export const getArticles = (query: GetArticlesQuery) => {
     url += `&excludeId=${query.excludeId}`;
   }
 
-  return callApi<Article[]>({ url, method: HttpMethod.GET });
+  return callApi<GetArticlesReponse>({ url, method: HttpMethod.GET });
 };
 
 export const patchAddViewCount = (articleId: string) => {

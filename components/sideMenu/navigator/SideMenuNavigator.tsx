@@ -7,11 +7,6 @@ const SIDE_MENU_ITEM = [
     name: 'Home',
   },
   {
-    id: 2,
-    href: '/articles',
-    name: 'Articles',
-  },
-  {
     id: 3,
     href: '/manage',
     name: 'Manage (readonly)',
