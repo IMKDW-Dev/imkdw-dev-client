@@ -40,3 +40,8 @@ export const getArticles = (query: GetArticlesQuery) => {
 
   return callApi<Article[]>({ url, method: HttpMethod.GET });
 };
+
+export const patchAddViewCount = (articleId: string) => {
+  const url = `v1/articles/${articleId}/view`;
+  return callApi<void>({ url, method: HttpMethod.PATCH });
+};

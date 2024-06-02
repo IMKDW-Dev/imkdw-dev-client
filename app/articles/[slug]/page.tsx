@@ -9,6 +9,7 @@ import ArticleShare from '../../../containers/articleDetail/share/ArticleShare';
 import ArticleCommentForm from '../../../containers/articleDetail/comment/CommentForm';
 import { formatDate } from '../../../utils/data';
 import RelationArticles from '../../../containers/articleDetail/relationArticles/RelationArticles';
+import ArticleViewCount from '../../../containers/articleDetail/viewCount/ArticleViewCount';
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const articleId = params.slug;
@@ -86,6 +87,9 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
 
       {/* 댓글 작성창 */}
       <ArticleCommentForm articleId={articleDetail.id} />
+
+      {/* 조회수 추가용 컴포넌트 */}
+      <ArticleViewCount article={articleDetail} />
     </article>
   );
 }
