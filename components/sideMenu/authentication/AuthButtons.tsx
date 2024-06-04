@@ -26,9 +26,9 @@ export default function AuthButtons() {
         >
           Logout
         </button>
-        <button type="button" className="rounded-md bg-[#FF6481] p-1 pl-2 pr-2 text-white hover:bg-red-600">
+        {/* <button type="button" className="rounded-md bg-[#FF6481] p-1 pl-2 pr-2 text-white hover:bg-red-600">
           Exit
-        </button>
+        </button> */}
       </div>
       {isChangeProfile && (
         <UserModal onClose={() => setIsChangeProfile(false)} title="Change Profile">

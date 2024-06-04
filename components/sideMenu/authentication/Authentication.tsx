@@ -1,11 +1,11 @@
 'use client';
 
-import Image from 'next/image';
 import useUser from '../../../stores/use-user';
 import GithubOAuth from './GithubOAuth';
 import GoogleOAuth from './GoogleOAuth';
 import UserInfo from './UserInfo';
 import AuthButtons from './AuthButtons';
+import KakaoOAuth from './KakaoOAuth';
 
 export default function Authencation() {
   const { isLoggedIn } = useUser((state) => state);
@@ -24,12 +24,7 @@ export default function Authencation() {
         <GoogleOAuth />
       </li>
       <li className="flex flex-col items-center justify-center gap-2 p-1">
-        <button type="button">
-          <div className="relative h-[50px] w-[50px] overflow-hidden rounded-xl">
-            <Image src="/images/icon/kakaotalk.png" fill alt="kakao" className="object-cover" />
-          </div>
-        </button>
-        <p>Kakao</p>
+        <KakaoOAuth />
       </li>
     </ul>
   );
