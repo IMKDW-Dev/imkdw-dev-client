@@ -8,6 +8,26 @@ export const postGoogleOAuth = async (accessToken: string): Promise<AuthResponse
   return callApi<AuthResponse>({ url, method: HttpMethod.POST, accessToken });
 };
 
-// export const postGithubOAuth = async () =>
+export const postGithubOAuth = async (code: string, redirectUri: string) => {
+  const url = 'v1/oauth/github';
+  return callApi<AuthResponse>({
+    url,
+    method: HttpMethod.POST,
+    body: {
+      code,
+      redirectUri,
+    },
+  });
+};
 
-// export const postKakaoOAuth = async () =>
+export const postKakaoOAuth = async (code: string, redirectUri: string) => {
+  const url = 'v1/oauth/kakao';
+  return callApi<AuthResponse>({
+    url,
+    method: HttpMethod.POST,
+    body: {
+      code,
+      redirectUri,
+    },
+  });
+};

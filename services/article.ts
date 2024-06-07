@@ -50,3 +50,8 @@ export const patchAddViewCount = (articleId: string) => {
   const url = `v1/articles/${articleId}/view`;
   return callApi<void>({ url, method: HttpMethod.PATCH });
 };
+
+export const deleteArticle = (articleId: string) => {
+  const url = `v1/articles/${articleId}`;
+  return callApi<void>({ url, method: HttpMethod.DELETE });
+};

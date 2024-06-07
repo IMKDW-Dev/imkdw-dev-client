@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
 import useSidemenu from '../../stores/use-sidemenu';
 import Authencation from './authentication/Authentication';
@@ -52,9 +51,9 @@ export default function SideMenu() {
         {/* 관리자용 버튼 */}
         {userInfo.role === userRole.ADMIN && (
           <div className="flex">
-            <Link href="/articles/write" onClick={handleCloseSideMenu}>
+            <a href="/articles/write" onClick={handleCloseSideMenu}>
               글쓰기
-            </Link>
+            </a>
           </div>
         )}
 
