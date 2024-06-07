@@ -14,6 +14,7 @@ const config: Config = {
       },
       backgroundColor: {
         primary: '#FFF4F5',
+        danger: '#F1556C',
       },
       borderColor: {
         box: '#FEEAEC',

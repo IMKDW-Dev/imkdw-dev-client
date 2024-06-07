@@ -14,12 +14,14 @@ export default async function CategoryArticles({ category }: Props) {
 
   const GET_ARTICLE_LIMIT = 6;
 
-  const { items, hasNextPage, hasPreviousPage, totalPage } = await getArticles({
+  const response = await getArticles({
     sort: GetArticlesSort.LATEST,
     categoryId: category.id,
     limit: GET_ARTICLE_LIMIT,
     page: currentPage,
   });
+
+  const { items, hasNextPage, hasPreviousPage, totalPage } = response;
 
   return (
     <section className="flex w-full flex-col justify-center pt-[80px]">

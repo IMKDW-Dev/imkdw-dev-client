@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import QuickLinks from './quickLinks/QuickLinks';
+import TopButton from './TopButton';
 
 export default function Footer() {
   return (
-    <footer className="mt-[50px] flex w-full flex-col items-center justify-center gap-10 border-t border-box pl-5 pr-5 pt-[50px]">
+    <footer className="relative mt-[50px] flex w-full flex-col items-center justify-center gap-10 border-t border-box pl-5 pr-5 pt-[50px]">
       <div className="flex h-full w-full max-w-[1200px] flex-row justify-between">
         {/* Contact me 부분 */}
         <section className="flex w-[30%] flex-col gap-4">
@@ -71,6 +72,8 @@ export default function Footer() {
           </Link>
         </p>
       </div>
+
+      <TopButton />
     </footer>
   );
 }

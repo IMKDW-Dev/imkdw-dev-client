@@ -3,23 +3,23 @@
 import { useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-import { postKakaoOAuth } from '../../../services/auth';
+import { postGithubOAuth } from '../../../services/auth';
 import useUser from '../../../stores/use-user';
 import { getUserInfo } from '../../../services/user';
 
-export default function KakaoAuthPage() {
+export default function GithubOAuthPage() {
   const { setIsLoggedIn, setUserInfo } = useUser((state) => state);
   const router = useRouter();
   const searchParams = useSearchParams();
   const code = searchParams.get('code') ?? '';
-  const redirectUri = process.env.NEXT_PUBLIC_KAKAO_OAUTH_REDIRECT_URI ?? '';
+  const redirectUri = process.env.NEXT_PUBLIC_GITHUB_OAUTH_REDIRECT_URI ?? '';
 
   const CLIENT_URL = process.env.NEXT_PUBLIC_CLIENT_URL;
-  const KAKAO_OAUTH_REDIRECT_URI = `${CLIENT_URL}/${process.env.NEXT_PUBLIC_KAKAO_OAUTH_REDIRECT_URI}`;
+  const GITHUB_OAUTH_REDIRECT_URI = `${CLIENT_URL}/${process.env.NEXT_PUBLIC_GITHUB_OAUTH_REDIRECT_URI}`;
 
   useEffect(() => {
-    const fetchKakaoOAuth = async () => {
-      const authResult = await postKakaoOAuth(code, KAKAO_OAUTH_REDIRECT_URI);
+    const fetchGithubOAuth = async () => {
+      const authResult = await postGithubOAuth(code, GITHUB_OAUTH_REDIRECT_URI);
       const userInfo = await getUserInfo(authResult.userId);
 
       setIsLoggedIn(true);
@@ -33,9 +33,9 @@ export default function KakaoAuthPage() {
     };
 
     if (code) {
-      fetchKakaoOAuth();
+      fetchGithubOAuth();
     }
-  }, [KAKAO_OAUTH_REDIRECT_URI, code, redirectUri, router, setIsLoggedIn, setUserInfo]);
+  }, [GITHUB_OAUTH_REDIRECT_URI, code, redirectUri, router, setIsLoggedIn, setUserInfo]);
 
   return null;
 }

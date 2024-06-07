@@ -9,7 +9,7 @@ const SIDE_MENU_ITEM = [
   {
     id: 3,
     href: '/manage',
-    name: 'Manage (readonly)',
+    name: 'Manage (read-only)',
   },
   {
     id: 4,

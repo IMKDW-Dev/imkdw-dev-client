@@ -12,7 +12,7 @@ export default function ManageSideMenu() {
         <ManageSideMenuItem link="/manage/dashboards" text="Dashboards" />
         <SideMenuSeparator text="APPS" />
         <ManageSideMenuItem link="/manage/categories" text="Categories" />
-        <ManageSideMenuItem link="/manage/articles" text="Articles" />
+        <ManageSideMenuItem link="/manage/articles?page=1" text="Articles" />
       </ul>
     </aside>
   );
