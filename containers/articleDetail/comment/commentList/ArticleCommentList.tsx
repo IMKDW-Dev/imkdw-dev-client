@@ -36,12 +36,12 @@ export default function ArticleCommentList({ comments }: Props) {
   }, [newArticleComment]);
 
   return (
-    <section className="flex w-full flex-col gap-5 pt-10">
+    <section className="mobile:px-3 flex w-full flex-col gap-5 pt-10">
       <h3 className="text-xl">
         ✨ <b>Comments</b>
       </h3>
       {articleComments.length ? (
-        <ul className="flex flex-col gap-10">
+        <ul className="flex w-full flex-col gap-10">
           {articleComments.map((comment) => (
             <ArticleCommentItem key={comment.id} comment={comment} isReply={false} />
           ))}

@@ -31,8 +31,13 @@ export default function RootLayout({
   const headerList = headers();
   const pathname = headerList.get(X_PATHNAME) || '';
 
+  const IS_MANAGE_PAGE = pathname.includes(MANAGE_PAGE_PATH);
+
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body
         className={clsx(
           urbanist.className,
@@ -43,7 +48,7 @@ export default function RootLayout({
         <SideMenu />
         <div id="portal" />
         <Header />
-        <main className={clsx('w-full pt-[100px]', !pathname.includes(MANAGE_PAGE_PATH) && 'max-w-[1200px]')}>
+        <main className={clsx('w-full pt-[100px]', !IS_MANAGE_PAGE && 'max-w-[1200px]')}>
           {children}
           {!pathname.includes(MANAGE_PAGE_PATH) && <Footer />}
         </main>

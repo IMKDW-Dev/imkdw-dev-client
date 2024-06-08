@@ -25,11 +25,11 @@ export default function SideMenu() {
   return isOpen ? (
     <>
       <div
-        className="fixed left-0 top-0 z-[20] flex h-full w-full justify-end bg-black bg-opacity-30"
+        className="fixed left-0 top-0 z-[20] flex h-full w-full justify-end bg-black bg-opacity-30 mobile:hidden"
         onClick={handleCloseSideMenu}
         role="none"
       />
-      <div className="fixed right-0 z-[20] flex h-full w-[450px] flex-col items-center gap-5 bg-white opacity-100">
+      <div className="fixed right-0 z-[20] flex h-full w-[450px] flex-col items-center gap-5 bg-white opacity-100 mobile:w-full">
         {/* 닫기 버튼 */}
         <section className="flex w-full justify-end pr-0 pt-5">
           <button
@@ -41,7 +41,7 @@ export default function SideMenu() {
           </button>
         </section>
         {/* 인증 */}
-        <section className="flex w-full flex-col gap-5 p-10">
+        <section className="flex w-full flex-col gap-5 p-10 mobile:p-5">
           <h3 className="text-2xl">
             ✨ <b>Authencation</b>
           </h3>

@@ -17,7 +17,7 @@ export default function ArticleCommentItem({ comment, isReply }: Props) {
   };
 
   return (
-    <li className="flex w-full flex-col items-end gap-5" key={comment.id}>
+    <li className="flex w-full flex-col items-end gap-5 break-words" key={comment.id}>
       <div className="flex w-full items-center gap-3">
         <div className="profile relative h-[52px] w-[52px] overflow-hidden rounded-[100px]">
           <Image src={comment.author.profile} alt="Server" className="object-cover" fill />

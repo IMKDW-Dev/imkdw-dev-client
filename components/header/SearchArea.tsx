@@ -39,7 +39,7 @@ export default function SearchArea() {
         <span>
           <Image src="/images/icon/search.svg" width={24} height={24} alt="Search" />
         </span>
-        <span>Quick Search...</span>
+        <span className="mobile:hidden">Quick Search...</span>
       </button>
       {isSearch && (
         <SearchModal>

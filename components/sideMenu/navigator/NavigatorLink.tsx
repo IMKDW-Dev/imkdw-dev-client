@@ -1,9 +1,5 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
-
-import { MANAGE_PAGE_PATH } from '../../../constants/path.constant';
 import useSidemenu from '../../../stores/use-sidemenu';
 
 interface Props {
@@ -12,8 +8,6 @@ interface Props {
 }
 
 export default function SideMenuNavigatorLink({ href, name }: Props) {
-  const pathname = usePathname();
-
   const { setIsOpen } = useSidemenu((state) => state);
 
   const handleCloseSideMenu = () => {
@@ -21,11 +15,7 @@ export default function SideMenuNavigatorLink({ href, name }: Props) {
     setIsOpen(false);
   };
 
-  return pathname.includes(MANAGE_PAGE_PATH) ? (
-    <Link href={href} onClick={handleCloseSideMenu}>
-      {name}
-    </Link>
-  ) : (
+  return (
     <a href={href} onClick={handleCloseSideMenu}>
       {name}
     </a>

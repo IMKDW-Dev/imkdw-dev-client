@@ -21,27 +21,33 @@ export default async function SearchPage() {
   });
 
   return (
-    <section className={clsx('flex w-full flex-col items-center gap-10 pt-[80px]', !items.length && 'h-full')}>
-      <h1 className="text-center font-bold">Search results for: &quot;{searchText}&quot;</h1>
-      <div className="w-1/2">
-        <SearchForm defaultText={searchText} />
+    <section className={clsx('flex w-full flex-col items-center gap-10 pt-[80px]')}>
+      <h1 className="mobile:text-lg text-center font-bold">
+        Search results for: &quot;{decodeURIComponent(searchText)}&quot;
+      </h1>
+      <div className="mobile:w-[80%] w-1/2">
+        <SearchForm defaultText={decodeURIComponent(searchText)} />
       </div>
       {items.length ? (
-        <ul className="flex w-full flex-wrap">
-          {items.map((article) => (
-            <ArticleItem key={article.id} article={article} />
-          ))}
-        </ul>
+        <>
+          <ul className="flex w-full flex-wrap">
+            {items.map((article) => (
+              <ArticleItem key={article.id} article={article} />
+            ))}
+          </ul>
+          <OffsetPaging
+            currentPage={currentPage}
+            hasNextPage={hasNextPage}
+            hasPreviousPage={hasPreviousPage}
+            link={`/search?search=${searchText}`}
+            totalPage={totalPage}
+          />
+        </>
       ) : (
-        <div className="justify-cetner flex flex-1 items-center text-4xl text-gray-300">Nothing...</div>
+        <div className="justify-cetner flex w-full items-center justify-center py-[100px] text-4xl text-gray-300">
+          Nothing...
+        </div>
       )}
-      <OffsetPaging
-        currentPage={currentPage}
-        hasNextPage={hasNextPage}
-        hasPreviousPage={hasPreviousPage}
-        link={`/search?search=${searchText}`}
-        totalPage={totalPage}
-      />
     </section>
   );
 }

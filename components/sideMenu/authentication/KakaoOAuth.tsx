@@ -18,7 +18,7 @@ export default function KakaoOAuth() {
           <Image src="/images/icon/kakaotalk.png" alt="google" className="object-cover" fill />
         </div>
       </button>
-      <p>Google</p>
+      <p>Kakao</p>
     </>
   );
 }
