@@ -3,6 +3,7 @@ import {
   Article,
   GetArticlesQuery,
   GetArticlesReponse,
+  PatchUpdateArticleBody,
   PostCreateArticleBody,
   PostCreateArticleResponse,
 } from './@types/article';
@@ -54,4 +55,17 @@ export const patchAddViewCount = (articleId: string) => {
 export const deleteArticle = (articleId: string) => {
   const url = `v1/articles/${articleId}`;
   return callApi<void>({ url, method: HttpMethod.DELETE });
+};
+
+export const patchUpdateArticle = (articleId: string, body: PatchUpdateArticleBody) => {
+  const url = `v1/articles/${articleId}`;
+
+  const formData = new FormData();
+  Object.entries(body).forEach(([key, value]) => {
+    if (value) {
+      formData.append(key, value as string | Blob);
+    }
+  });
+
+  return callApi<Article>({ url, method: HttpMethod.PATCH, body: formData });
 };

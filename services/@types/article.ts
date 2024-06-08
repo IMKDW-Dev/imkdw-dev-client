@@ -32,6 +32,9 @@ export interface PostCreateArticleResponse {
   id: string;
 }
 
+export interface PatchUpdateArticleBody
+  extends Partial<Pick<PostCreateArticleBody, 'title' | 'categoryId' | 'content' | 'visible' | 'tags' | 'thumbnail'>> {}
+
 export interface GetArticlesReponse extends OffsetPagingResponse<Article> {}
 
 export interface GetArticlesQuery extends OffsetPagingQuery {

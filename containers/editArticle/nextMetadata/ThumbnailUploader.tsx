@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { useRef } from 'react';
-import useCreateArticle from '../../../stores/use-create-article';
+import useEditArticle from '../../../stores/use-edit-article';
 
 export default function ArticleThumbnailUploader() {
-  const { data, setThumbnail, setThumbnailUrl } = useCreateArticle((state) => state);
+  const { data, setThumbnail, setThumbnailUrl } = useEditArticle((state) => state);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
