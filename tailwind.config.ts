@@ -26,6 +26,9 @@ const config: Config = {
         accent: '#FF6481',
       },
     },
+    screens: {
+      mobile: { max: '639px' },
+    },
   },
   plugins: [],
 };

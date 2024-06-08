@@ -9,8 +9,9 @@ interface Props {
   article: Article;
 }
 export default function ArticleShare({ article }: Props) {
-  const LINK = `https://imkdw.dev/articles/${article.id}`;
-  const { commentCount, content, thumbnail, title, id } = article;
+  const CLIENT_URL = process.env.NEXT_PUBLIC_CLIENT_URL;
+  const LINK = `${CLIENT_URL}/articles/${article.id}`;
+  const { commentCount, content, thumbnail, title } = article;
 
   const [kakao, setKakao] = useState<any>(null);
   const [isCopied, setIsCopied] = useState(false);
@@ -41,8 +42,8 @@ export default function ArticleShare({ article }: Props) {
           description: removeHtmlTags(content),
           imageUrl: thumbnail,
           link: {
-            mobileWebUrl: `https://imkdw.dev/articles/${id}`,
-            webUrl: `https://imkdw.dev/articles/${id}`,
+            mobileWebUrl: LINK,
+            webUrl: LINK,
           },
         },
         social: {
@@ -52,8 +53,8 @@ export default function ArticleShare({ article }: Props) {
           {
             title: '이동하기',
             link: {
-              mobileWebUrl: `https://imkdw.dev/articles/${id}`,
-              webUrl: `https://imkdw.dev/articles/${id}`,
+              mobileWebUrl: LINK,
+              webUrl: LINK,
             },
           },
         ],
@@ -83,14 +84,14 @@ export default function ArticleShare({ article }: Props) {
       </div>
 
       {/* 링크 복사 */}
-      <div className="box-shadow flex w-[70%] justify-between rounded-md border border-box p-2 pl-5">
-        <input type="text" value={LINK} className="flex-1" readOnly />
+      <div className="box-shadow mobile:w-full mobile:pl-2 flex w-[70%] justify-between rounded-md border border-box p-2 pl-5">
+        <input type="text" value={LINK} className="flex-1 overflow-hidden text-ellipsis px-2" readOnly />
         <button
           type="button"
           onClick={handleCopyLink}
           className="rounded-md bg-[#FF6481] p-3 text-sm text-white hover:bg-black"
         >
-          {isCopied ? 'Copied!' : 'Copy Link'}
+          {isCopied ? 'Copied!' : 'Copy'}
         </button>
       </div>
     </section>

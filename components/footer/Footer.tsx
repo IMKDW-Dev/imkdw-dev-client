@@ -6,11 +6,11 @@ import TopButton from './TopButton';
 export default function Footer() {
   return (
     <footer className="relative mt-[50px] flex w-full flex-col items-center justify-center gap-10 border-t border-box pl-5 pr-5 pt-[50px]">
-      <div className="flex h-full w-full max-w-[1200px] flex-row justify-between">
+      <div className="mobile:flex-col mobile:gap-10 flex h-full w-full max-w-[1200px] flex-row justify-between">
         {/* Contact me 부분 */}
-        <section className="flex w-[30%] flex-col gap-4">
+        <section className="mobile:w-full flex w-[30%] flex-col gap-4">
           <h3 className="w-full text-2xl">✨ Contact me!</h3>
-          <ul className="flex flex-col pl-8">
+          <ul className="mobile:pl-0 flex flex-col pl-8">
             <li className="border-b border-box p-2 pb-3 pt-3">
               <Link
                 href="https://github.com/imkdw"
@@ -45,9 +45,9 @@ export default function Footer() {
         <QuickLinks />
 
         {/* 블로그 소개 */}
-        <section className="flex w-[30%] flex-col gap-4">
+        <section className="mobile:w-full flex w-[30%] flex-col gap-4">
           <h3 className="w-full text-2xl">✨ My Blog is...</h3>
-          <p>
+          <p className="mobile:text-center ">
             This blog is an <b>open-source</b> technology blog
             <br /> You can check the source code on{' '}
             <Link href="https://github.com/IMKDW-Dev" target="_blank">

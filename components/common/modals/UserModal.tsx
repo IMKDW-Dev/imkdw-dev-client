@@ -16,7 +16,7 @@ export default function UserModal({ children, onClose, title }: Props) {
   return element && children
     ? ReactDOM.createPortal(
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-30">
-          <div className="relative mx-auto w-[500px] rounded-md bg-white">
+          <div className="mobile:w-[90%] relative mx-auto w-[500px] rounded-md bg-white">
             <div className="flex justify-between border-b border-gray-300 p-4">
               <h3 className="text-xl">{title}</h3>
               <button type="button">

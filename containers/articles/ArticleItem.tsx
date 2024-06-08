@@ -8,8 +8,8 @@ interface Props {
 }
 export default function ArticleItem({ article }: Props) {
   return (
-    <li className="w-1/3 p-5">
-      <div className="box-shadow flex flex-col gap-4 rounded-lg border border-box bg-white pb-5">
+    <li className="mobile:w-full w-1/3 p-5">
+      <div className="box-shadow flex flex-col gap-4 rounded-lg border border-box bg-white">
         <Link
           href={`/articles/${article.id}`}
           className="profile relative h-[250px] w-full overflow-hidden rounded-tl-xl rounded-tr-xl"
@@ -19,7 +19,7 @@ export default function ArticleItem({ article }: Props) {
             <b>{article.category.name}</b>
           </div>
         </Link>
-        <div className="flex flex-col gap-3 p-2">
+        <div className="flex flex-col gap-3 p-5">
           <h3 className="text-center">
             <Link href="/articles/1">
               <b className="text-lg">{article.title}</b>
