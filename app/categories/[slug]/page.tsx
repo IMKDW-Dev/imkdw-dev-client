@@ -34,20 +34,18 @@ export default async function CategoryDetailPage({ params }: { params: { slug: s
   const { articleCount, desc, image, name } = category;
 
   return (
-    <section className="flex w-full flex-col items-center pl-5 pr-5 pt-[80px]">
-      <header className="flex max-w-[960px] pb-[20px] pl-[60px] pr-[60px]">
-        <div className="flex items-center gap-3 border-r-2 border-box pr-10">
+    <section className="mobile:pt-[50px] flex w-full flex-col items-center pl-5 pr-5 pt-[80px]">
+      <header className="mobile:flex-col mobile:gap-5 flex max-w-[960px] px-[60px] pb-[20px]">
+        <div className="mobile:border-none mobile:pr-0 flex items-center gap-3 border-r-2 border-box pr-10">
           <CategoryImage image={image} name={name} />
           <div className="flex flex-col justify-center">
-            <h1 className="text-2xl">
-              <b>{name}</b>
-            </h1>
+            <h1 className="text-2xl font-bold">{name}</h1>
             <p className="text-sm">
               A collection of <b>{articleCount} articles</b>
             </p>
           </div>
         </div>
-        <p className="max-w-[480px] pl-10">{desc}</p>
+        <p className="mobile:text-center mobile:pl-0 max-w-[480px] pl-10">{desc}</p>
       </header>
       <CategoryArticles category={category} />
     </section>

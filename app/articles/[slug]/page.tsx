@@ -37,9 +37,9 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
   const articleDetail = await getArticleDetail(params.slug);
 
   return (
-    <article className="flex w-full flex-col items-center gap-12 p-16 pl-[100px] pr-[100px]">
+    <article className="mobile:py-5 mobile:px-0 flex w-full flex-col items-center gap-12 px-[100px] py-[50px]">
       {/* 게시글 내용 */}
-      <section className="box-shadow relative flex w-full flex-col gap-8 rounded-lg border border-box bg-white p-8">
+      <section className="box-shadow mobile:p-4 relative flex w-full flex-col gap-8 rounded-lg border border-box bg-white p-8">
         <ArticleDetailHeader title={articleDetail.title} createdAt={formatDate(articleDetail.createdAt)} />
         <section className="flex h-[150px] items-center justify-center rounded-xl bg-black text-center text-3xl text-white">
           Advertisement

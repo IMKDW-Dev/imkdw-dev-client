@@ -31,7 +31,7 @@ export default function ArticleCommentForm({ articleId }: Props) {
   };
 
   return (
-    <form className="flex w-full flex-col items-start gap-3 pt-10" onSubmit={handleSubmit} id="commentForm">
+    <form className="mobile:px-3 flex w-full flex-col items-start gap-3 pt-10" onSubmit={handleSubmit} id="commentForm">
       <div className="flex gap-3">
         <h3 className="font-bold">Leave a Reply</h3>
         {replyCommentId && (

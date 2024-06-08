@@ -8,7 +8,7 @@ interface Props {
 }
 export default function CategoryArticleItem({ article }: Props) {
   return (
-    <li className="w-1/3 p-5">
+    <li className="mobile:w-full w-1/3 p-5">
       <div className="box-shadow flex flex-col gap-4 rounded-lg border border-box bg-white pb-5">
         <Link
           href={`/articles/${article.id}`}

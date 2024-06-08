@@ -4,7 +4,7 @@ import TrendingCategories from '../containers/home/trending-categories/TrendingC
 
 export default function Home() {
   return (
-    <div className="flex w-full flex-col gap-[80px] pl-5 pr-5">
+    <div className="mobile:px-0 flex w-full flex-col gap-[80px] px-5">
       <Introduce />
       <TrendingCategories />
       <HomeContent />

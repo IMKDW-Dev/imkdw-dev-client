@@ -24,19 +24,27 @@ export default async function CategoryArticles({ category }: Props) {
   const { items, hasNextPage, hasPreviousPage, totalPage } = response;
 
   return (
-    <section className="flex w-full flex-col justify-center pt-[80px]">
-      <ul className="flex w-full flex-wrap">
-        {items.map((article) => (
-          <CategoryArticleItem key={article.id} article={article} />
-        ))}
-      </ul>
-      <OffsetPaging
-        currentPage={currentPage}
-        hasNextPage={hasNextPage}
-        hasPreviousPage={hasPreviousPage}
-        link={`/categories/${category.name}`}
-        totalPage={totalPage}
-      />
+    <section className="flex w-full flex-col justify-center pt-[50px]">
+      {items.length ? (
+        <>
+          <ul className="flex w-full flex-wrap">
+            {items.map((article) => (
+              <CategoryArticleItem key={article.id} article={article} />
+            ))}
+          </ul>
+          <OffsetPaging
+            currentPage={currentPage}
+            hasNextPage={hasNextPage}
+            hasPreviousPage={hasPreviousPage}
+            link={`/categories/${category.name}`}
+            totalPage={totalPage}
+          />
+        </>
+      ) : (
+        <div className="justify-cetner flex w-full items-center justify-center py-[100px] text-4xl text-gray-300">
+          Nothing...
+        </div>
+      )}
     </section>
   );
 }
