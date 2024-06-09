@@ -10,18 +10,18 @@ export interface Props {
 export default function ManageArticleItem({ article }: Props) {
   return (
     <li className="flex w-full items-center border-b border-gray-300 p-3 pb-5 pt-5 last:border-none hover:bg-gray-100">
-      <a href={`/articles/${article.id}`} className="line-clamp-1 w-[12%] overflow-hidden text-ellipsis">
-        {article.id}
+      <a href={`/articles/${article.id}`} className="line-clamp-1 w-[12%] overflow-hidden text-ellipsis pr-1">
+        {article.id.slice(0, -12)}
       </a>
-      <div className="w-[17%]">{article.title}</div>
-      <div className="w-[11%]">
-        <a href={`/categories/${article.category.name}`} className="rounded-md bg-[#c6eee6] p-1 pl-3 pr-3 font-bold">
+      <div className="line-clamp-1 w-[17%] overflow-hidden text-ellipsis pr-1 font-bold">{article.title}</div>
+      <div className="w-[11%] pr-1">
+        <a href={`/categories/${article.category.name}`} className="rounded-md bg-[#c6eee6] p-1 px-2">
           {article.category.name}
         </a>
       </div>
       <ul className="flex w-[15%] items-start gap-2">
         {article.tags.map((tag) => (
-          <li key={tag.id} className="rounded-md bg-gray-200 p-1 pl-3 pr-3">
+          <li key={tag.id} className="rounded-md bg-gray-200 p-1 px-2">
             {tag.name}
           </li>
         ))}

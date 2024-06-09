@@ -8,7 +8,7 @@ interface Params {
 const generateCustomMetadata = ({ title, desc, link, image }: Params) => ({
   metadataBase: new URL('https://imkdw.dev'),
   title: `IMKDW DEV | ${title}`,
-  desc: `${desc}`,
+  description: `${desc}`,
   robots: {
     index: true,
     follow: true,
@@ -34,7 +34,7 @@ const generateCustomMetadata = ({ title, desc, link, image }: Params) => ({
   category: 'blog',
   openGraph: {
     title: `IMKDW DEV | ${title}`,
-    desc: `${desc}`,
+    description: `${desc}`,
     url: `${link}`,
     siteName: 'IMKDW_DEV',
     images: [

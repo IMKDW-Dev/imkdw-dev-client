@@ -17,7 +17,7 @@ const modules = {
     highlight: (text: any) => hljs.highlightAuto(text).value,
   },
   toolbar: [
-    [{ header: [1, 2, 3, false] }],
+    [{ header: [2, 3, 4, false] }],
     ['bold', 'italic', 'underline', 'strike', 'blockquote'],
     [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
     ['link', 'image', 'code-block'],
