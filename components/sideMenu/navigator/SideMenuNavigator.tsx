@@ -20,7 +20,7 @@ const SIDE_MENU_ITEM = [
 
 export default function SideMenuNavigator() {
   return (
-    <nav className="flex w-full flex-col gap-5 p-10 pt-0">
+    <nav className="flex w-full flex-col gap-5 p-10 pt-0 mobile:p-5">
       <h3 className="text-2xl">
         ✨ <b>Navigators</b>
       </h3>

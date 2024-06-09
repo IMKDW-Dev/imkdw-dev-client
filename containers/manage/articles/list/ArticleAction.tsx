@@ -23,7 +23,7 @@ export default function ManageArticleItemAction({ article }: Props) {
     window.location.reload();
   };
 
-  return (
+  return userInfo.role === userRole.ADMIN ? (
     <ul className="flex gap-1">
       <li>
         <a href={`/articles/${article.id}/edit`} aria-label="article update link">
@@ -36,5 +36,5 @@ export default function ManageArticleItemAction({ article }: Props) {
         </button>
       </li>
     </ul>
-  );
+  ) : null;
 }
