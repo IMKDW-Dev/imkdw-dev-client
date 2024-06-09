@@ -16,29 +16,32 @@ interface Props {
 export default function PopularArticleItem({ article }: Props) {
   return (
     <li className="box-shadow w-full rounded-xl border border-box bg-white p-3">
-      <Link href={`/articles/${article.id}`} className="mobile:flex-col flex w-full items-center gap-8 p-3">
-        <div className="mobile:w-full relative h-[250px] w-[270px] overflow-hidden rounded-xl">
+      <Link href={`/articles/${article.id}`} className="flex w-full items-center gap-8 p-3 mobile:flex-col">
+        <div className="relative h-[250px] w-[270px] overflow-hidden rounded-xl mobile:w-full">
           <Image src={article.thumbnail} alt="Server" className="object-cover" fill />
           <div className="absolute left-0 top-5 rounded-r-[100px] bg-red-400 p-2 pl-5 pr-5 text-sm text-white">
             <b>{article.category.name}</b>
           </div>
         </div>
-        <div className="mobile:w-full flex flex-1 flex-col gap-4">
+        <div className="flex flex-1 flex-col gap-4 mobile:w-full">
           {/* 상단 - 조회수 */}
-          <div className="mobile:justify-center flex gap-1">
+          <div className="flex gap-1 mobile:justify-center">
             <Image src="/images/icon/eye.svg" width={20} height={20} alt="Eye" />
             <span className="ml-1 text-sm text-[#4D6385]">{article.viewCount} reads</span>
           </div>
 
           {/* 중간 - 제목, 내용 */}
           <div className="flex flex-col gap-4">
-            <h3 className="mobile:text-center line-clamp-2 flex flex-col gap-5 overflow-hidden text-ellipsis text-2xl font-bold">
+            <h3
+              className="line-clamp-2 flex flex-col gap-5 overflow-hidden text-ellipsis text-2xl font-bold mobile:text-center"
+              style={{ display: '-webkit-box', WebkitBoxOrient: 'vertical' }}
+            >
               {article.title}
             </h3>
             <p
               className={clsx(
                 DmSans.className,
-                'mobile:text-center line-clamp-3 max-w-[400px] overflow-hidden text-ellipsis text-[15px] leading-loose',
+                'line-clamp-3 max-w-[400px] overflow-hidden text-ellipsis text-[15px] leading-loose mobile:text-center',
               )}
             >
               {removeHtmlTags(article.content)}

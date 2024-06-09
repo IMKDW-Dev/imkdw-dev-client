@@ -8,7 +8,7 @@ interface Props {
 }
 export default function CategoryArticleItem({ article }: Props) {
   return (
-    <li className="mobile:w-full w-1/3 p-5">
+    <li className="w-1/3 p-5 mobile:w-full">
       <div className="box-shadow flex flex-col gap-4 rounded-lg border border-box bg-white pb-5">
         <Link
           href={`/articles/${article.id}`}
@@ -22,7 +22,7 @@ export default function CategoryArticleItem({ article }: Props) {
         <div className="flex flex-col gap-3 p-2">
           <h3 className="text-center">
             <Link href="/articles/1">
-              <b className="text-lg">{article.title}</b>
+              <b className="line-clamp-2 overflow-hidden text-ellipsis text-lg">{article.title}</b>
             </Link>
           </h3>
           <p className="line-clamp-3 overflow-hidden text-ellipsis text-center">{removeHtmlTags(article.content)}</p>

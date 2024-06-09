@@ -13,13 +13,13 @@ export default function ManageArticleItem({ article }: Props) {
       <a href={`/articles/${article.id}`} className="line-clamp-1 w-[12%] overflow-hidden text-ellipsis">
         {article.id}
       </a>
-      <div className="w-[11%]">{article.title}</div>
+      <div className="w-[17%]">{article.title}</div>
       <div className="w-[11%]">
         <a href={`/categories/${article.category.name}`} className="rounded-md bg-[#c6eee6] p-1 pl-3 pr-3 font-bold">
           {article.category.name}
         </a>
       </div>
-      <ul className="flex w-[11%] items-start gap-2">
+      <ul className="flex w-[15%] items-start gap-2">
         {article.tags.map((tag) => (
           <li key={tag.id} className="rounded-md bg-gray-200 p-1 pl-3 pr-3">
             {tag.name}
@@ -29,8 +29,8 @@ export default function ManageArticleItem({ article }: Props) {
       <button className="flex w-[11%] items-start" type="button">
         {article.visible ? <Visibility /> : <VisibilityOff />}
       </button>
-      <div className="w-[11%]">{article.viewCount}</div>
-      <div className="w-[11%]">{article.commentCount}</div>
+      <div className="w-[6%]">{article.viewCount}</div>
+      <div className="w-[6%]">{article.commentCount}</div>
       <div className="w-[11%]">{formatDate(article.createdAt)}</div>
       <div className="w-[11%]">
         <ManageArticleItemAction article={article} />
