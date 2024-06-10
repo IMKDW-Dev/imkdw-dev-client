@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const articleDetail = await getArticleDetail(articleId);
     return {
       ...generateCustomMetadata({
-        title: articleDetail.title,
-        desc: articleDetail.content,
+        title: articleDetail.title.slice(0, 50),
+        desc: articleDetail.content.slice(0, 100),
         link: `/articles/${articleId}`,
         image: `/images/${articleDetail.thumbnail}`,
       }),
@@ -37,9 +37,9 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
   const articleDetail = await getArticleDetail(params.slug);
 
   return (
-    <article className="mobile:py-5 mobile:px-0 flex w-full flex-col items-center gap-12 px-[100px] py-[50px]">
+    <article className="flex w-full flex-col items-center gap-12 px-[100px] py-[50px] mobile:px-0 mobile:py-5">
       {/* 게시글 내용 */}
-      <section className="box-shadow mobile:p-4 relative flex w-full flex-col gap-8 rounded-lg border border-box bg-white p-8">
+      <section className="box-shadow relative flex w-full flex-col gap-8 rounded-lg border border-box bg-white p-8 mobile:p-4">
         <ArticleDetailHeader title={articleDetail.title} createdAt={formatDate(articleDetail.createdAt)} />
         <section className="flex h-[150px] items-center justify-center rounded-xl bg-black text-center text-3xl text-white">
           Advertisement
