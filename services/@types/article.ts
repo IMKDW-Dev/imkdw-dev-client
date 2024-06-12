@@ -1,3 +1,4 @@
+import { JSONContent } from '@tiptap/core';
 import { IGetArticlesSort } from '../../enums/article.enum';
 import { ArticleComment } from './article-comment';
 import { Category } from './category';
@@ -22,7 +23,7 @@ export interface PostCreateArticleBody {
   id: string;
   title: string;
   categoryId: number;
-  content: string;
+  content: JSONContent | null;
   visible: boolean;
   tags: string[];
   thumbnail: File;

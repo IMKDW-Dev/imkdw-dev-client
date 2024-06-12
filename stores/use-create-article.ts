@@ -1,3 +1,4 @@
+import { JSONContent } from '@tiptap/core';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
@@ -5,7 +6,7 @@ interface CreateArticleStore {
   data: {
     id: string;
     title: string;
-    content: string;
+    content: JSONContent | null;
     tags: string[];
     categoryId: number | null;
     thumbnail: File | null;
@@ -14,7 +15,7 @@ interface CreateArticleStore {
   };
   setId: (id: string) => void;
   setTitle: (title: string) => void;
-  setContent: (content: string) => void;
+  setContent: (content: JSONContent | null) => void;
   setTags: (tags: string[]) => void;
   setCategoryId: (categoryId: number) => void;
   setThumbnail: (thumbnail: File) => void;
@@ -29,7 +30,7 @@ const useCreateArticle = create(
       data: {
         id: '',
         title: '',
-        content: '',
+        content: null,
         tags: [],
         categoryId: null,
         thumbnail: null,
@@ -49,7 +50,7 @@ const useCreateArticle = create(
           data: {
             id: '',
             title: '',
-            content: '',
+            content: null,
             tags: [],
             categoryId: null,
             thumbnail: null,

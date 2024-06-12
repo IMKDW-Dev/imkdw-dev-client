@@ -16,7 +16,7 @@ export const postCreateArticle = (body: PostCreateArticleBody) => {
   formData.append('id', body.id);
   formData.append('title', body.title);
   formData.append('categoryId', body.categoryId.toString());
-  formData.append('content', body.content);
+  formData.append('content', JSON.stringify(body.content?.content));
   formData.append('visible', body.visible.toString());
   body.tags.forEach((tag) => formData.append('tags[]', tag));
   formData.append('thumbnail', body.thumbnail);

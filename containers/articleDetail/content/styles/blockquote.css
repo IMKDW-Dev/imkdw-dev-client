@@ -1,0 +1,20 @@
+blockquote {
+  font-weight: 800;
+  color: #e91e63;
+  padding: 30px 0;
+  width: 100%;
+  max-width: 500px;
+  z-index: 1;
+  margin: 80px auto;
+  align-self: center;
+  border-top: solid 4px #ff6481;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  border-radius: 4px;
+  transition: all 0.5s;
+}
+
+blockquote:hover {
+  background: #2d213f;
+  color: #fff;
+}
