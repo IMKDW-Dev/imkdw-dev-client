@@ -27,6 +27,7 @@ export interface PostCreateArticleBody {
   visible: boolean;
   tags: string[];
   thumbnail: File;
+  images: string[];
 }
 
 export interface PostCreateArticleResponse {
@@ -34,7 +35,9 @@ export interface PostCreateArticleResponse {
 }
 
 export interface PatchUpdateArticleBody
-  extends Partial<Pick<PostCreateArticleBody, 'title' | 'categoryId' | 'content' | 'visible' | 'tags' | 'thumbnail'>> {}
+  extends Partial<
+    Pick<PostCreateArticleBody, 'title' | 'categoryId' | 'content' | 'visible' | 'tags' | 'thumbnail' | 'images'>
+  > {}
 
 export interface GetArticlesReponse extends OffsetPagingResponse<Article> {}
 

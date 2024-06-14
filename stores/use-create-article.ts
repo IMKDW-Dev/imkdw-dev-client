@@ -12,6 +12,7 @@ interface CreateArticleStore {
     thumbnail: File | null;
     thumbnailUrl: string;
     isPublic: boolean;
+    images: string[];
   };
   setId: (id: string) => void;
   setTitle: (title: string) => void;
@@ -21,6 +22,7 @@ interface CreateArticleStore {
   setThumbnail: (thumbnail: File) => void;
   setThumbnailUrl: (thumbnailUrl: string) => void;
   setIsPublic: (isPublic: boolean) => void;
+  setImages: (imageUrl: string) => void;
   reset: () => void;
 }
 
@@ -36,6 +38,7 @@ const useCreateArticle = create(
         thumbnail: null,
         thumbnailUrl: '',
         isPublic: false,
+        images: [],
       },
       setId: (id) => set((state) => ({ data: { ...state.data, id } })),
       setTitle: (title) => set((state) => ({ data: { ...state.data, title } })),
@@ -45,6 +48,8 @@ const useCreateArticle = create(
       setThumbnail: (thumbnail) => set((state) => ({ data: { ...state.data, thumbnail } })),
       setThumbnailUrl: (thumbnailUrl) => set((state) => ({ data: { ...state.data, thumbnailUrl } })),
       setIsPublic: (isPublic) => set((state) => ({ data: { ...state.data, isPublic } })),
+      setImages: (imageUrl) =>
+        set((state) => ({ data: { ...state.data, images: [...(state.data.images ?? []), imageUrl] } })),
       reset: () =>
         set(() => ({
           data: {
@@ -56,6 +61,7 @@ const useCreateArticle = create(
             thumbnail: null,
             thumbnailUrl: '',
             isPublic: false,
+            images: [],
           },
         })),
     }),

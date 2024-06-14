@@ -31,7 +31,7 @@ export default function EditArticleForm({ article }: Props) {
     const { id, title, content, tags, category, thumbnail, visible } = article;
     editArticleHooks.setId(id);
     editArticleHooks.setTitle(title);
-    editArticleHooks.setContent(content);
+    editArticleHooks.setContent({ type: 'doc', content: JSON.parse(content) });
     editArticleHooks.setTags(tags.map((tag) => tag.name));
     editArticleHooks.setCategoryId(category.id);
     editArticleHooks.setThumbnailUrl(thumbnail);
@@ -60,6 +60,10 @@ export default function EditArticleForm({ article }: Props) {
     }
   };
 
+  const handleUploadImage = (imageUrl: string) => {
+    editArticleHooks.setImages(imageUrl);
+  };
+
   return (
     <form onSubmit={handleSubmit} ref={formRef} className="flex w-full flex-col gap-5">
       {/* 제목 작성 */}
@@ -80,7 +84,11 @@ export default function EditArticleForm({ article }: Props) {
 
       {/* 내용 작성 */}
       <ArticleCategoryFormItemWrapper title="Article Content">
-        <ArticleContentEditor content={editArticleHooks.data.content} onChangeContent={editArticleHooks.setContent} />
+        <ArticleContentEditor
+          content={editArticleHooks.data.content}
+          onChangeContent={editArticleHooks.setContent}
+          onUploadImage={handleUploadImage}
+        />
       </ArticleCategoryFormItemWrapper>
 
       {/* 태그 입력 */}

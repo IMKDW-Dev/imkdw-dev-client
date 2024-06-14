@@ -13,8 +13,10 @@ export default function SearchModal({ children }: Props) {
   return element && children
     ? ReactDOM.createPortal(
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-70">
-          <div className="mobile:w-[80%] flex w-full max-w-[600px] flex-col gap-10">
-            <h3 className="w-full text-center text-4xl font-bold tracking-wide text-white">Press ESC to close</h3>
+          <div className="flex w-full max-w-[600px] flex-col gap-10 mobile:w-[80%]">
+            <h3 className="w-full text-center text-4xl font-bold tracking-wide text-white mobile:hidden">
+              Press ESC to close
+            </h3>
             {children}
           </div>
         </div>,

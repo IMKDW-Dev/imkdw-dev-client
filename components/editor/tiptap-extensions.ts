@@ -8,6 +8,7 @@ import Text from '@tiptap/extension-text';
 import Underline from '@tiptap/extension-underline';
 import Blockquote from '@tiptap/extension-blockquote';
 import Bold from '@tiptap/extension-bold';
+import Image from '@tiptap/extension-image';
 import { ReactNodeViewRenderer } from '@tiptap/react';
 import Highlight from '@tiptap/extension-highlight';
 
@@ -26,6 +27,7 @@ export const tiptapExtensions = [
   Highlight,
   Blockquote,
   Bold,
+  Image,
   CodeBlockLowlight.extend({
     addNodeView() {
       return ReactNodeViewRenderer(CodeBlock);

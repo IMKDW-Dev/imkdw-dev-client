@@ -20,6 +20,7 @@ export const postCreateArticle = (body: PostCreateArticleBody) => {
   formData.append('visible', body.visible.toString());
   body.tags.forEach((tag) => formData.append('tags[]', tag));
   formData.append('thumbnail', body.thumbnail);
+  body.images.map((image) => formData.append('images[]', image));
 
   return callApi<PostCreateArticleResponse>({ url, method: HttpMethod.POST, body: formData });
 };
@@ -61,11 +62,13 @@ export const patchUpdateArticle = (articleId: string, body: PatchUpdateArticleBo
   const url = `v1/articles/${articleId}`;
 
   const formData = new FormData();
-  Object.entries(body).forEach(([key, value]) => {
-    if (value) {
-      formData.append(key, value as string | Blob);
-    }
-  });
+  if (body?.title) formData.append('title', body.title);
+  if (body?.categoryId) formData.append('categoryId', body.categoryId.toString());
+  if (body?.content) formData.append('content', JSON.stringify(body.content.content));
+  if (body?.visible) formData.append('visible', body.visible.toString());
+  if (body?.tags && body.tags.length) body.tags.forEach((tag) => formData.append('tags[]', tag));
+  if (body?.thumbnail) formData.append('thumbnail', body.thumbnail);
+  if (body?.images && body.images.length) body.images.forEach((image) => formData.append('images[]', image));
 
   return callApi<Article>({ url, method: HttpMethod.PATCH, body: formData });
 };
