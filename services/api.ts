@@ -1,6 +1,6 @@
 // import { toast } from 'react-toastify';
 
-import { IHttpMethod } from '../enums/http-method.enum';
+import { HttpMethod, IHttpMethod } from '../enums/http-method.enum';
 
 // const toastErrorMessage = (errorCode: string) => {
 //   if (typeof window !== 'undefined') {
@@ -32,14 +32,17 @@ export const callApi = async <T>(params: CallApiParams): Promise<T> => {
 
   const json = await response.json();
 
-  // if (response.status === 401 && json.error.errorCode === 'Unauthorized') {
-  //   const url = '/v1/auth/refresh';
-  //   const refreshResponse = await callApi<PostRefreshTokenResponse>({ url, method: HttpMethod.POST });
+  if (response.status === 401 && response.statusText === 'Unauthorized') {
+    const refrehTokenApi = 'v1/auth/refresh-token';
+    const refreshResponse = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/${refrehTokenApi}`, {
+      method: HttpMethod.POST,
+      credentials: 'include',
+    });
 
-  //   if (refreshResponse.isSuccess) {
-  //     return callApi<T>(params);
-  //   }
-  // }
+    if (refreshResponse.status === 201) {
+      return callApi<T>(params);
+    }
+  }
 
   if (json?.error?.errorCode) {
     // toastErrorMessage(json.error.errorCode);
