@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 import { headers } from 'next/headers';
+import { ToastContainer } from 'react-toastify';
 
 import generateCustomMetadata from '../utils/metadata';
 import Header from '../components/header/Header';
@@ -51,6 +52,7 @@ export default function RootLayout({
         <main className={clsx('w-full pt-[100px]', !IS_MANAGE_PAGE && 'max-w-[1200px]')}>
           {children}
           {!pathname.includes(MANAGE_PAGE_PATH) && <Footer />}
+          <ToastContainer position="top-center" autoClose={2000} closeOnClick theme="dark" />
         </main>
       </body>
       <GoogleAnalytics gaId="G-DXRR1KZDDN" />
