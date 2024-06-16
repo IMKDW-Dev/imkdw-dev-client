@@ -2,8 +2,10 @@ import Image from 'next/image';
 
 export default function GithubOAuth() {
   const O_AUTH_ENDPOINT = 'https://github.com/login/oauth/authorize';
+
   const GITHUB_CLIENT_ID = process.env.NEXT_PUBLIC_GITHUB_OAUTH_CLIENT_ID;
-  const GITHUB_OAUTH_REDIRECT_URI = process.env.NEXT_PUBLIC_GITHUB_OAUTH_REDIRECT_URI;
+  const CLIENT_URL = process.env.NEXT_PUBLIC_CLIENT_URL;
+  const GITHUB_OAUTH_REDIRECT_URI = `${CLIENT_URL}/${process.env.NEXT_PUBLIC_KAKAO_OAUTH_REDIRECT_URI}`;
 
   const handleGithubOAuth = () => {
     const parameter = `?client_id=${GITHUB_CLIENT_ID}&redirect_uri=${GITHUB_OAUTH_REDIRECT_URI}&scope=user`;
