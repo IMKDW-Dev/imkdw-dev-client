@@ -19,7 +19,6 @@ interface Props {
 export default function TiptapEditor({ value, onChange, onUploadImage }: Props) {
   const editor = useEditor({
     extensions: tiptapExtensions,
-    autofocus: true,
     editable: true,
     content: value,
     // eslint-disable-next-line @typescript-eslint/no-shadow
@@ -30,7 +29,8 @@ export default function TiptapEditor({ value, onChange, onUploadImage }: Props) 
 
   useEffect(() => {
     editor?.commands.setContent(value);
-  }, [editor?.commands, value]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value]);
 
   return editor ? (
     <div className="flex flex-col">
