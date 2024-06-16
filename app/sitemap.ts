@@ -11,6 +11,7 @@ async function getArticleIds(): Promise<string[]> {
   const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/v1/sitemap/articles`;
   const response = await fetch(url, {
     method: 'GET',
+    cache: 'no-cache',
   });
   const responseBody = await response.json();
   return responseBody.data;
@@ -20,6 +21,7 @@ async function getCategoryNames(): Promise<string[]> {
   const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/v1/sitemap/categories`;
   const response = await fetch(url, {
     method: 'GET',
+    cache: 'no-cache',
   });
   const responseBody = await response.json();
   return responseBody.data;
