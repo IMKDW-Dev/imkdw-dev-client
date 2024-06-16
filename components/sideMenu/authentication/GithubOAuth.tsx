@@ -5,7 +5,7 @@ export default function GithubOAuth() {
 
   const GITHUB_CLIENT_ID = process.env.NEXT_PUBLIC_GITHUB_OAUTH_CLIENT_ID;
   const CLIENT_URL = process.env.NEXT_PUBLIC_CLIENT_URL;
-  const GITHUB_OAUTH_REDIRECT_URI = `${CLIENT_URL}/${process.env.NEXT_PUBLIC_KAKAO_OAUTH_REDIRECT_URI}`;
+  const GITHUB_OAUTH_REDIRECT_URI = `${CLIENT_URL}/${process.env.NEXT_PUBLIC_GITHUB_OAUTH_REDIRECT_URI}`;
 
   const handleGithubOAuth = () => {
     const parameter = `?client_id=${GITHUB_CLIENT_ID}&redirect_uri=${GITHUB_OAUTH_REDIRECT_URI}&scope=user`;
