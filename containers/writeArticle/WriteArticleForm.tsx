@@ -16,7 +16,7 @@ import { postCreateArticle } from '../../services/article';
 export default function WriteArticleForm() {
   const [isNext, setIsNext] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
-  const { data, setContent, setTitle, reset } = useCreateArticle((state) => state);
+  const { data, setContent, setTitle, reset, setImages } = useCreateArticle((state) => state);
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -39,6 +39,10 @@ export default function WriteArticleForm() {
     }
   };
 
+  const handleUploadImage = (imageUrl: string) => {
+    setImages(imageUrl);
+  };
+
   return (
     <form onSubmit={handleSubmit} ref={formRef} className="flex w-full flex-col gap-5">
       {/* 제목 작성 */}
@@ -59,7 +63,7 @@ export default function WriteArticleForm() {
 
       {/* 내용 작성 */}
       <ArticleCategoryFormItemWrapper title="Article Content">
-        <ArticleContentEditor content={data.content} onChangeContent={setContent} />
+        <ArticleContentEditor content={data.content} onChangeContent={setContent} onUploadImage={handleUploadImage} />
       </ArticleCategoryFormItemWrapper>
 
       {/* 태그 입력 */}

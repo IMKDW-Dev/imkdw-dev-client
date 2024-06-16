@@ -12,7 +12,7 @@ export default function HeaderMenu() {
   };
 
   return (
-    <button type="button" onClick={handleMenu}>
+    <button type="button" onClick={handleMenu} className="">
       <Image src="/images/icon/menu.svg" width={32} height={32} alt="Menu" />
     </button>
   );

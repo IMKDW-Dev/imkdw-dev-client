@@ -14,14 +14,14 @@ export default function CategoryArticleItem({ article }: Props) {
           href={`/articles/${article.id}`}
           className="profile relative h-[250px] w-full overflow-hidden rounded-tl-xl rounded-tr-xl"
         >
-          <Image src={article.thumbnail} alt="Server" className="object-cover" fill />
+          <Image src={article.thumbnail} alt={`${article.title}'s thumbnail`} className="object-cover" fill />
           <div className="absolute left-0 top-5 rounded-r-[100px] bg-red-400 p-2 pl-5 pr-5 text-sm text-white">
             <b>{article.category.name}</b>
           </div>
         </Link>
         <div className="flex flex-col gap-3 p-2">
           <h3 className="text-center">
-            <Link href="/articles/1">
+            <Link href={`/articles/${article.id}`}>
               <b className="line-clamp-2 overflow-hidden text-ellipsis text-lg">{article.title}</b>
             </Link>
           </h3>

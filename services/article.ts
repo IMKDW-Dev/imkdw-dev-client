@@ -8,6 +8,7 @@ import {
   PostCreateArticleResponse,
 } from './@types/article';
 import { callApi } from './api';
+import callSSRApi from './api-client/ssr-api';
 
 export const postCreateArticle = (body: PostCreateArticleBody) => {
   const url = 'v1/articles';
@@ -16,17 +17,18 @@ export const postCreateArticle = (body: PostCreateArticleBody) => {
   formData.append('id', body.id);
   formData.append('title', body.title);
   formData.append('categoryId', body.categoryId.toString());
-  formData.append('content', body.content);
+  formData.append('content', JSON.stringify(body.content?.content));
   formData.append('visible', body.visible.toString());
   body.tags.forEach((tag) => formData.append('tags[]', tag));
   formData.append('thumbnail', body.thumbnail);
+  body.images.map((image) => formData.append('images[]', image));
 
   return callApi<PostCreateArticleResponse>({ url, method: HttpMethod.POST, body: formData });
 };
 
 export const getArticleDetail = async (id: string) => {
   const url = `v1/articles/${id}`;
-  return callApi<Article>({ url, method: HttpMethod.GET });
+  return callSSRApi<Article>({ url, method: HttpMethod.GET });
 };
 
 export const getArticles = (query: GetArticlesQuery) => {
@@ -44,7 +46,7 @@ export const getArticles = (query: GetArticlesQuery) => {
     url += `&search=${query.search}`;
   }
 
-  return callApi<GetArticlesReponse>({ url, method: HttpMethod.GET });
+  return callSSRApi<GetArticlesReponse>({ url, method: HttpMethod.GET });
 };
 
 export const patchAddViewCount = (articleId: string) => {
@@ -61,11 +63,13 @@ export const patchUpdateArticle = (articleId: string, body: PatchUpdateArticleBo
   const url = `v1/articles/${articleId}`;
 
   const formData = new FormData();
-  Object.entries(body).forEach(([key, value]) => {
-    if (value) {
-      formData.append(key, value as string | Blob);
-    }
-  });
+  if (body?.title) formData.append('title', body.title);
+  if (body?.categoryId) formData.append('categoryId', body.categoryId.toString());
+  if (body?.content) formData.append('content', JSON.stringify(body.content.content));
+  if (body?.visible) formData.append('visible', body.visible.toString());
+  if (body?.tags && body.tags.length) body.tags.forEach((tag) => formData.append('tags[]', tag));
+  if (body?.thumbnail) formData.append('thumbnail', body.thumbnail);
+  if (body?.images && body.images.length) body.images.forEach((image) => formData.append('images[]', image));
 
   return callApi<Article>({ url, method: HttpMethod.PATCH, body: formData });
 };

@@ -1,15 +1,5 @@
-import { toast } from 'react-toastify';
-
-import ERROR_MESSAGE from '../constants/error.constant';
-
-import { HttpMethod, IHttpMethod } from '../enums/http-method.enum';
-
-const toastErrorMessage = (errorCode: string) => {
-  if (typeof window !== 'undefined') {
-    const errorMessage = ERROR_MESSAGE[errorCode] ?? '일시적인 오류가 발생했습니다. 잠시후 다시 시도해주세요';
-    toast.error(errorMessage);
-  }
-};
+import { HttpMethod, IHttpMethod } from '../../enums/http-method.enum';
+import { toastErrorMessage } from './toastErorr';
 
 interface CallApiParams {
   url: string;
@@ -19,8 +9,7 @@ interface CallApiParams {
   contentType?: string;
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export const callApi = async <T>(params: CallApiParams): Promise<T> => {
+const callCSRApi = async <T>(params: CallApiParams): Promise<T> => {
   const isFormData = params.body instanceof FormData;
   const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/${params.url}`;
   const response = await fetch(url, {
@@ -42,7 +31,7 @@ export const callApi = async <T>(params: CallApiParams): Promise<T> => {
     });
 
     if (refreshResponse.status === 201) {
-      return callApi<T>(params);
+      return callCSRApi<T>(params);
     }
   }
 
@@ -55,3 +44,5 @@ export const callApi = async <T>(params: CallApiParams): Promise<T> => {
 
   return json.data;
 };
+
+export default callCSRApi;

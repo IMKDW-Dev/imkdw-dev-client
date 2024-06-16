@@ -1,6 +1,7 @@
 import { HttpMethod } from '../enums/http-method.enum';
 import { AuthResponse } from './@types/auth';
 import { callApi } from './api';
+import callCSRApi from './api-client/csr-api';
 
 // eslint-disable-next-line import/prefer-default-export
 export const postGoogleOAuth = async (accessToken: string): Promise<AuthResponse> => {
@@ -10,7 +11,7 @@ export const postGoogleOAuth = async (accessToken: string): Promise<AuthResponse
 
 export const postGithubOAuth = async (code: string, redirectUri: string) => {
   const url = 'v1/oauth/github';
-  return callApi<AuthResponse>({
+  return callCSRApi<AuthResponse>({
     url,
     method: HttpMethod.POST,
     body: {
@@ -22,7 +23,7 @@ export const postGithubOAuth = async (code: string, redirectUri: string) => {
 
 export const postKakaoOAuth = async (code: string, redirectUri: string) => {
   const url = 'v1/oauth/kakao';
-  return callApi<AuthResponse>({
+  return callCSRApi<AuthResponse>({
     url,
     method: HttpMethod.POST,
     body: {
@@ -30,4 +31,9 @@ export const postKakaoOAuth = async (code: string, redirectUri: string) => {
       redirectUri,
     },
   });
+};
+
+export const postLogout = () => {
+  const url = 'v1/auth/logout';
+  return callCSRApi({ url, method: HttpMethod.POST });
 };

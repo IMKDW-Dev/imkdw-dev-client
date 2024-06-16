@@ -11,7 +11,7 @@ export default function ManageArticleItem({ article }: Props) {
   return (
     <li className="flex w-full items-center border-b border-gray-300 p-3 pb-5 pt-5 last:border-none hover:bg-gray-100">
       <a href={`/articles/${article.id}`} className="line-clamp-1 w-[12%] overflow-hidden text-ellipsis pr-1">
-        {article.id.slice(0, -12)}
+        {article.id.slice(0, -9)}
       </a>
       <div className="line-clamp-1 w-[17%] overflow-hidden text-ellipsis pr-1 font-bold">{article.title}</div>
       <div className="w-[11%] pr-1">

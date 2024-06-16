@@ -1,17 +1,33 @@
-import hljs from 'highlight.js/lib/core';
-import javascript from 'highlight.js/lib/languages/javascript';
-import typescript from 'highlight.js/lib/languages/typescript';
+'use client';
 
-import './content.css';
+import { generateHTML } from '@tiptap/html';
+import { JSONContent } from '@tiptap/core';
+import { useEffect } from 'react';
+import hljs from 'highlight.js';
 
-hljs.registerLanguage('javascript', javascript);
-hljs.registerLanguage('typescript', typescript);
+import './styles/editor.css';
+import './styles/blockquote.css';
+import './styles/code.css';
+import './styles/codeblock.css';
+
+import { tiptapExtensions } from '../../../components/editor/tiptap-extensions';
 
 interface Props {
   content: string;
 }
 
 export default function ArticleDetailContent({ content }: Props) {
+  const jsonContent: JSONContent = {
+    type: 'doc',
+    content: JSON.parse(content),
+  };
+
+  const output = generateHTML(jsonContent, tiptapExtensions);
+
+  useEffect(() => {
+    hljs.highlightAll();
+  }, [output]);
+
   // eslint-disable-next-line react/no-danger
-  return <section dangerouslySetInnerHTML={{ __html: content }} />;
+  return <section dangerouslySetInnerHTML={{ __html: output }} />;
 }

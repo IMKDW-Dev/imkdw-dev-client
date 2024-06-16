@@ -4,14 +4,17 @@ import clsx from 'clsx';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 import { headers } from 'next/headers';
+import { ToastContainer } from 'react-toastify';
 
 import generateCustomMetadata from '../utils/metadata';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import SideMenu from '../components/sideMenu/SideMenu';
 import { MANAGE_PAGE_PATH } from '../constants/path.constant';
-import './global.css';
 import { X_PATHNAME } from '../constants/header.constants';
+
+import './global.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const urbanist = Urbanist({ subsets: ['latin'] });
 
@@ -51,6 +54,7 @@ export default function RootLayout({
         <main className={clsx('w-full pt-[100px]', !IS_MANAGE_PAGE && 'max-w-[1200px]')}>
           {children}
           {!pathname.includes(MANAGE_PAGE_PATH) && <Footer />}
+          <ToastContainer position="top-center" autoClose={2000} closeOnClick theme="dark" />
         </main>
       </body>
       <GoogleAnalytics gaId="G-DXRR1KZDDN" />
