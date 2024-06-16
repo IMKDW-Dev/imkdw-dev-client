@@ -30,7 +30,7 @@ export default function TiptapEditor({ value, onChange, onUploadImage }: Props) 
 
   useEffect(() => {
     editor?.commands.setContent(value);
-  }, [value]);
+  }, [editor?.commands, value]);
 
   return editor ? (
     <div className="flex flex-col">

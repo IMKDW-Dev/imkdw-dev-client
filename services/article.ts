@@ -8,6 +8,7 @@ import {
   PostCreateArticleResponse,
 } from './@types/article';
 import { callApi } from './api';
+import callSSRApi from './api-client/ssr-api';
 
 export const postCreateArticle = (body: PostCreateArticleBody) => {
   const url = 'v1/articles';
@@ -27,7 +28,7 @@ export const postCreateArticle = (body: PostCreateArticleBody) => {
 
 export const getArticleDetail = async (id: string) => {
   const url = `v1/articles/${id}`;
-  return callApi<Article>({ url, method: HttpMethod.GET });
+  return callSSRApi<Article>({ url, method: HttpMethod.GET });
 };
 
 export const getArticles = (query: GetArticlesQuery) => {
@@ -45,7 +46,7 @@ export const getArticles = (query: GetArticlesQuery) => {
     url += `&search=${query.search}`;
   }
 
-  return callApi<GetArticlesReponse>({ url, method: HttpMethod.GET });
+  return callSSRApi<GetArticlesReponse>({ url, method: HttpMethod.GET });
 };
 
 export const patchAddViewCount = (articleId: string) => {

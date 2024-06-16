@@ -37,7 +37,7 @@ const useCreateArticle = create(
         categoryId: null,
         thumbnail: null,
         thumbnailUrl: '',
-        isPublic: false,
+        isPublic: true,
         images: [],
       },
       setId: (id) => set((state) => ({ data: { ...state.data, id } })),

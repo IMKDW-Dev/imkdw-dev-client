@@ -1,11 +1,16 @@
 import { useState } from 'react';
+
 import useUser from '../../../stores/use-user';
 import UserModal from '../../common/modals/UserModal';
 import ChangeUserInfoForm from './ChangeUserInfoForm';
+import { postLogout } from '../../../services/auth';
 
 export default function AuthButtons() {
   const { reset } = useUser((state) => state);
-  const handleLogout = () => reset();
+  const handleLogout = async () => {
+    await postLogout();
+    reset();
+  };
 
   const [isChangeProfile, setIsChangeProfile] = useState(false);
 

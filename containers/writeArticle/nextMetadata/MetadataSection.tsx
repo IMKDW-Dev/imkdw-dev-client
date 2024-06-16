@@ -1,6 +1,7 @@
 import { Lock, Public } from '@mui/icons-material';
-import useCreateArticle from '../../../stores/use-create-article';
 import clsx from 'clsx';
+
+import useCreateArticle from '../../../stores/use-create-article';
 
 export default function ArticleMetadataSection() {
   const { data, setId, setIsPublic } = useCreateArticle((state) => state);
