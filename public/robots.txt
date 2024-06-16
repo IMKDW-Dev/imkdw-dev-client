@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-Allow: /manage
-Allow: /manage/categories
-Allow: /articles
-Allow: /categories
-Allow: /contact
-Allow: /search
-
