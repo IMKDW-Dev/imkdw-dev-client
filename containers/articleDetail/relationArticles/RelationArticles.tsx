@@ -25,9 +25,7 @@ export default async function RelationArticles({ article }: Props) {
             <p className="mobile:text-sm">
               More in this <b>Category</b>
             </p>
-            <h3 className="mobile:text-lg text-2xl">
-              <b>{article.category.name}</b>
-            </h3>
+            <h3 className="text-2xl font-bold mobile:text-lg">{article.category.name}</h3>
           </div>
         </div>
         <Link
@@ -44,7 +42,7 @@ export default async function RelationArticles({ article }: Props) {
               <div className="flex min-h-[25px] min-w-[25px] items-center justify-center rounded-md bg-black text-white">
                 <p className="text-center font-bold">{index + 1}</p>
               </div>
-              <h3 className="mobile:text-lg line-clamp-1 overflow-hidden text-ellipsis font-bold">
+              <h3 className="line-clamp-1 overflow-hidden text-ellipsis text-xl font-bold mobile:text-lg">
                 {relationArticle.title}
               </h3>
             </Link>

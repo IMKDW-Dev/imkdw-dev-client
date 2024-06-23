@@ -17,7 +17,7 @@ export default function CategoryListPage() {
         <b>Explore My Blog Categories</b> ✨
       </h1>
       <p className="text-center leading-loose">
-        You can check artci by category that fit the nature of articles
+        You can check artcie by category that fit the nature of articles
         <br />
         Use the search function to find more correct articles
       </p>
