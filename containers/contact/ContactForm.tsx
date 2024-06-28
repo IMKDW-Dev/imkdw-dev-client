@@ -42,11 +42,12 @@ export default function ContactForm() {
       <div className="flex w-full flex-col gap-2">
         <b>Your email</b>
         <input
-          type="text"
+          type="email"
           value={contactData.email}
           name="email"
           onChange={handleChange}
           className="h-[45px] rounded-md border border-box p-3"
+          autoComplete="off"
         />
       </div>
       <div className="flex w-full flex-col gap-2">
