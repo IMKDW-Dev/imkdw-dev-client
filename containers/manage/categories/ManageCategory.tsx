@@ -91,9 +91,13 @@ export default function ManageCategory() {
       setCategories(updatedCategories.sort((a, b) => a.sort - b.sort));
 
       try {
-        await patchUpdateCategory(parseInt(draggableId, 10), { sort: destination.index });
+        const destCategory = categories.find((category) => category.id === +draggableId);
+        await patchUpdateCategory(+draggableId, {
+          name: destCategory?.name,
+          desc: destCategory?.desc,
+          sort: destination.index,
+        });
       } catch (error) {
-        // 서버 요청 실패 시 이전 상태로 되돌림
         setCategories(categories);
       }
     }
