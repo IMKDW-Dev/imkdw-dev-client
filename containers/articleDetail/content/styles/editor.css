@@ -46,6 +46,11 @@ img.ProseMirror-separator {
   animation: ProseMirror-cursor-blink 1.1s steps(2, start) infinite;
 }
 
+p,
+.paragraph {
+  min-height: 24px;
+}
+
 @keyframes ProseMirror-cursor-blink {
   to {
     visibility: hidden;
