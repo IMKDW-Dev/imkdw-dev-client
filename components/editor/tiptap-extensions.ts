@@ -11,6 +11,9 @@ import Bold from '@tiptap/extension-bold';
 import Image from '@tiptap/extension-image';
 import { ReactNodeViewRenderer } from '@tiptap/react';
 import Highlight from '@tiptap/extension-highlight';
+import ListItem from '@tiptap/extension-list-item';
+import OrderedList from '@tiptap/extension-ordered-list';
+import BulletList from '@tiptap/extension-bullet-list';
 
 import CodeBlock from './CodeBlock';
 import { lowlight } from './lowlight';
@@ -28,6 +31,17 @@ export const tiptapExtensions = [
   Blockquote,
   Bold,
   Image,
+  OrderedList.configure({
+    HTMLAttributes: {
+      class: 'ordered-list-item',
+    },
+  }),
+  BulletList.configure({
+    HTMLAttributes: {
+      class: 'unordered-list-item',
+    },
+  }),
+  ListItem,
   CodeBlockLowlight.extend({
     addNodeView() {
       return ReactNodeViewRenderer(CodeBlock);
