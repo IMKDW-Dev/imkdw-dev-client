@@ -6,6 +6,7 @@ import {
   FormatQuote,
   FormatUnderlined,
   Image,
+  InsertLink,
 } from '@mui/icons-material';
 import { Level } from '@tiptap/extension-heading';
 import { Editor } from '@tiptap/react';
@@ -27,6 +28,11 @@ export default function Toolbar({ editor, onUploadImage }: Props) {
   const handleCode = () => editor.chain().focus().toggleCode().run();
   const handleOrderedList = () => editor.chain().focus().toggleOrderedList().run();
   const handleUnorderedList = () => editor.chain().focus().toggleBulletList().run();
+  const handleLink = () => {
+    // eslint-disable-next-line no-alert
+    const url = window.prompt('Enter the URL') ?? '';
+    editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
+  };
 
   const handleUploadImage = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -81,6 +87,9 @@ export default function Toolbar({ editor, onUploadImage }: Props) {
         </button>
         <button type="button" onClick={() => handleOrderedList()} aria-label="ordered list">
           <FormatListNumbered />
+        </button>
+        <button type="button" onClick={() => handleLink()} aria-label="link">
+          <InsertLink />
         </button>
       </li>
       <input type="file" hidden ref={inputRef} onChange={handleUploadImage} />

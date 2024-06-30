@@ -14,6 +14,8 @@ import Highlight from '@tiptap/extension-highlight';
 import ListItem from '@tiptap/extension-list-item';
 import OrderedList from '@tiptap/extension-ordered-list';
 import BulletList from '@tiptap/extension-bullet-list';
+import Link from '@tiptap/extension-link';
+import ImageResize from 'tiptap-extension-resize-image';
 
 import CodeBlock from './CodeBlock';
 import { lowlight } from './lowlight';
@@ -35,6 +37,12 @@ export const tiptapExtensions = [
   Blockquote,
   Bold,
   Image,
+  ImageResize,
+  Link.configure({
+    HTMLAttributes: {
+      class: 'editor-link',
+    },
+  }),
   OrderedList.configure({
     HTMLAttributes: {
       class: 'ordered-list-item',
