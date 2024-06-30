@@ -10,6 +10,7 @@ import './styles/blockquote.css';
 import './styles/code.css';
 import './styles/codeblock.css';
 import './styles/link.css';
+import './styles/image.css';
 
 import { tiptapExtensions } from '../../../components/editor/tiptap-extensions';
 
