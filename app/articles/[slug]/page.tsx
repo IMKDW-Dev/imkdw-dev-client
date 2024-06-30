@@ -10,6 +10,7 @@ import ArticleCommentForm from '../../../containers/articleDetail/comment/Commen
 import { formatDate } from '../../../utils/data';
 import RelationArticles from '../../../containers/articleDetail/relationArticles/RelationArticles';
 import ArticleViewCount from '../../../containers/articleDetail/viewCount/ArticleViewCount';
+import { jsonContentToText } from '../../../utils/tiptap';
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const articleId = params.slug;
@@ -19,9 +20,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     return {
       ...generateCustomMetadata({
         title: articleDetail.title.slice(0, 50),
-        desc: articleDetail.content.slice(0, 100),
+        desc: jsonContentToText(articleDetail.content).slice(0, 150),
         link: `/articles/${articleId}`,
-        image: `/images/${articleDetail.thumbnail}`,
+        image: articleDetail.thumbnail,
       }),
     };
   } catch (error: any) {

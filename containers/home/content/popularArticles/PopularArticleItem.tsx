@@ -1,5 +1,3 @@
-'use client';
-
 import clsx from 'clsx';
 import { DM_Sans } from 'next/font/google';
 import Image from 'next/image';
