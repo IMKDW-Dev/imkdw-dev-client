@@ -49,6 +49,7 @@ img.ProseMirror-separator {
 p,
 .paragraph {
   min-height: 24px;
+  margin-top: 0.75em;
 }
 
 @keyframes ProseMirror-cursor-blink {
