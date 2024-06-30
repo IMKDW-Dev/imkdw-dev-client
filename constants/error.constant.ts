@@ -1,6 +1,29 @@
 type IErrorMessage = { [key: string]: string };
 
+// INVALID_CATEGORY_DESC: '400001',
+// INVALID_CATEGORY_NAME: '400002',
+// INVALID_ARTICLE_ID: '400003',
+// INVALID_ARTICLE_TITLE: '400004',
+// INVALID_ARTICLE_CONTENT: '400005',
+// INVALID_TAG_NAME: '400006',
+// INVALID_COMMENT_CONTENT: '400007',
+// INVALID_NICKNAME: '400008',
+// INVALID_USER_ID: '400009',
+// INVALID_USER_OAUTH_PROVIDER_ID: '400010',
+
 const BAD_REQUEST = {
+  '400001': '카테고리 설명 형식이 올바르지 않습니다',
+  '400002': '카테고리 이름 형식이 올바르지 않습니다',
+  '400003': '게시글 ID 형식이 올바르지 않습니다',
+  '400004': '게시글 제목 형식이 올바르지 않습니다',
+  '400005': '게시글 내용 형식이 올바르지 않습니다',
+  '400006': '태그 이름 형식이 올바르지 않습니다',
+  '400007': '댓글 내용 형식이 올바르지 않습니다',
+  '400008': '닉네임 형식이 올바르지 않습니다',
+  '400009': '사용자 ID 형식이 올바르지 않습니다',
+} as const;
+
+const UN_AUTHORIZED = {
   '401001': '인증이 만료되었습니다. 다시 로그인해주세요',
   '401002': '인증이 만료되었습니다. 다시 로그인해주세요',
 } as const;
@@ -26,6 +49,7 @@ const CONFLICT = {
 
 const ERROR_MESSAGE: IErrorMessage = {
   ...BAD_REQUEST,
+  ...UN_AUTHORIZED,
   ...FORBIDDEN,
   ...NOT_FOUND,
   ...CONFLICT,

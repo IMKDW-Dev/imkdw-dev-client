@@ -25,7 +25,12 @@ export default function CategoryUpdateForm({ onClose, category }: Props) {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const updatedCategory = await patchUpdateCategory(category.id, { name, desc, ...(image && { image }) });
+    const updatedCategory = await patchUpdateCategory(category.id, {
+      name,
+      desc,
+      sort: category.sort,
+      ...(image && { image }),
+    });
     onClose();
     setUpdatedCategory(updatedCategory);
   };
@@ -57,7 +62,7 @@ export default function CategoryUpdateForm({ onClose, category }: Props) {
           <Image src={imageUrl} alt="upload" width={80} height={80} />
         </button>
         <div className="flex w-full flex-col gap-3">
-          <p className="text-[14px] text-[#6C757D]">Name</p>
+          <p className="text-[14px] text-[#6C757D]">name</p>
           <input
             type="text"
             placeholder="Backend"

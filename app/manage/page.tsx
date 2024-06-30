@@ -9,5 +9,6 @@ export default function ManagePage() {
   useEffect(() => {
     router.push('/manage/dashboards');
   }, [router]);
+
   return null;
 }
