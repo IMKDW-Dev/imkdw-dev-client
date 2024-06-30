@@ -22,7 +22,11 @@ import { lowlight } from './lowlight';
 export const tiptapExtensions = [
   Heading.configure({ levels: [2, 3, 4] }),
   Document,
-  Paragraph,
+  Paragraph.configure({
+    HTMLAttributes: {
+      class: 'paragraph',
+    },
+  }),
   Text,
   Underline,
   Strike,
