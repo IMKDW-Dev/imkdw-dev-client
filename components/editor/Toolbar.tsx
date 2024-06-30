@@ -1,4 +1,12 @@
-import { Code, FormatQuote, Image } from '@mui/icons-material';
+import {
+  Code,
+  FormatBold,
+  FormatListBulleted,
+  FormatListNumbered,
+  FormatQuote,
+  FormatUnderlined,
+  Image,
+} from '@mui/icons-material';
 import { Level } from '@tiptap/extension-heading';
 import { Editor } from '@tiptap/react';
 import { ChangeEvent, useRef } from 'react';
@@ -17,6 +25,8 @@ export default function Toolbar({ editor, onUploadImage }: Props) {
   const handleUnderline = () => editor.commands.toggleUnderline();
   const handleBlockquote = () => editor.chain().focus().toggleBlockquote().run();
   const handleCode = () => editor.chain().focus().toggleCode().run();
+  const handleOrderedList = () => editor.chain().focus().toggleOrderedList().run();
+  const handleUnorderedList = () => editor.chain().focus().toggleBulletList().run();
 
   const handleUploadImage = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -41,35 +51,36 @@ export default function Toolbar({ editor, onUploadImage }: Props) {
 
   return (
     <ul className="flex w-full gap-1 border border-gray-200 bg-white p-2">
-      <li>
-        <button type="button" onClick={() => handleHeading(2)} className="p-2 px-4 font-bold">
+      <li className="flex items-center gap-4 p-2">
+        <button type="button" onClick={() => handleHeading(2)} className="text-xl font-bold">
           H2
         </button>
-        <button type="button" onClick={() => handleHeading(3)} className="p-2 px-4 font-bold">
+        <button type="button" onClick={() => handleHeading(3)} className="text-xl font-bold">
           H3
         </button>
-        <button type="button" onClick={() => handleHeading(4)} className="border-r border-gray-200 p-2 px-4 font-bold">
+        <button type="button" onClick={() => handleHeading(4)} className="text-xl font-bold">
           H4
         </button>
-        <button type="button" onClick={() => handleBold()} className="p-2 px-4 font-bold">
-          B
+        <button type="button" onClick={() => handleBold()} aria-label="format bold">
+          <FormatBold />
         </button>
-        <button type="button" onClick={() => handleUnderline()} className="p-2 px-4 font-bold">
-          U
+        <button type="button" onClick={() => handleUnderline()} aria-label="format underlined">
+          <FormatUnderlined />
         </button>
-        <button
-          type="button"
-          onClick={() => handleBlockquote()}
-          className="border-r border-gray-200 p-2 px-4"
-          aria-label="blockquote"
-        >
+        <button type="button" onClick={() => handleBlockquote()} aria-label="blockquote">
           <FormatQuote />
         </button>
-        <button type="button" onClick={() => handleCode()} className="p-2 px-4" aria-label="code block">
+        <button type="button" onClick={() => handleCode()} aria-label="code block">
           <Code />
         </button>
-        <button type="button" onClick={handleClickUpload} className="p-2" aria-label="code block">
+        <button type="button" onClick={handleClickUpload} aria-label="code block">
           <Image />
+        </button>
+        <button type="button" onClick={() => handleUnorderedList()} aria-label="unordered list">
+          <FormatListBulleted />
+        </button>
+        <button type="button" onClick={() => handleOrderedList()} aria-label="ordered list">
+          <FormatListNumbered />
         </button>
       </li>
       <input type="file" hidden ref={inputRef} onChange={handleUploadImage} />

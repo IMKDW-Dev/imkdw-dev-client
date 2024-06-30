@@ -72,6 +72,16 @@ img.ProseMirror-separator {
   opacity: 0;
 }
 
+.ordered-list-item {
+  list-style: decimal;
+  padding-left: 2em;
+}
+
+.unordered-list-item {
+  list-style: disc;
+  padding-left: 2em;
+}
+
 /* Basic editor styles */
 .tiptap > * + * {
   margin-top: 0.75em;
