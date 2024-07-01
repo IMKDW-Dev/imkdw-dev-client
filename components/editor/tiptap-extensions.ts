@@ -36,8 +36,11 @@ export const tiptapExtensions = [
   Highlight,
   Blockquote,
   Bold,
-  Image,
+  Image.configure({
+    inline: true,
+  }),
   ImageResize.configure({
+    inline: true,
     HTMLAttributes: {
       class: 'editor-image',
     },
