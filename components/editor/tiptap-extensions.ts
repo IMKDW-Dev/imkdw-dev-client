@@ -40,6 +40,7 @@ export const tiptapExtensions = [
     inline: true,
   }),
   ImageResize.configure({
+    inline: true,
     HTMLAttributes: {
       class: 'editor-image',
     },
