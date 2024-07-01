@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { Article } from '../../../services/@types/article';
 import { removeHtmlTags } from '../../../utils/html';
+import { jsonContentToText } from '../../../utils/tiptap';
 
 interface Props {
   article: Article;
@@ -39,15 +40,12 @@ export default function ArticleShare({ article }: Props) {
         objectType: 'feed',
         content: {
           title,
-          description: removeHtmlTags(content),
+          description: jsonContentToText(content),
           imageUrl: thumbnail,
           link: {
             mobileWebUrl: LINK,
             webUrl: LINK,
           },
-        },
-        social: {
-          commentCount,
         },
         buttons: [
           {
@@ -84,7 +82,7 @@ export default function ArticleShare({ article }: Props) {
       </div>
 
       {/* 링크 복사 */}
-      <div className="box-shadow mobile:w-full mobile:pl-2 flex w-[70%] justify-between rounded-md border border-box p-2 pl-5">
+      <div className="box-shadow flex w-[70%] justify-between rounded-md border border-box p-2 pl-5 mobile:w-full mobile:pl-2">
         <input type="text" value={LINK} className="flex-1 overflow-hidden text-ellipsis px-2" readOnly />
         <button
           type="button"
