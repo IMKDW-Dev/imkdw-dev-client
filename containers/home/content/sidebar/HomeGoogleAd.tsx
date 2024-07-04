@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-export default function ArticleDetailGoogleAd() {
+export default function HomeGoogleAd() {
   useEffect(() => {
     const pushAd = () => {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -35,10 +35,10 @@ export default function ArticleDetailGoogleAd() {
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}
-        data-ad-format="fluid"
-        data-ad-layout-key="-6t+ed+2i-1n-4w"
         data-ad-client="ca-pub-2998473783210725"
-        data-ad-slot="5252845885"
+        data-ad-slot="5467101329"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
       />
     </>
   );
