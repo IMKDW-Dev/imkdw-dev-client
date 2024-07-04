@@ -1,4 +1,5 @@
 import AboutMe from './AboutMe';
+import HomeGoogleAd from './HomeGoogleAd';
 import RecentArticles from './recendArticles/RecentArticles';
 
 export default function Sidebar() {
@@ -6,7 +7,9 @@ export default function Sidebar() {
     <aside className="sticky top-[150px] flex w-full flex-col gap-10">
       <AboutMe />
       <RecentArticles />
-      <div className="flex h-[300px] items-center justify-center bg-black text-xl text-white">Advertisement</div>
+      <div className="flex h-[300px] items-center justify-center bg-black">
+        <HomeGoogleAd />
+      </div>
     </aside>
   );
 }
