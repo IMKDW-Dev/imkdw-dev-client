@@ -11,6 +11,7 @@ import { formatDate } from '../../../utils/data';
 import RelationArticles from '../../../containers/articleDetail/relationArticles/RelationArticles';
 import ArticleViewCount from '../../../containers/articleDetail/viewCount/ArticleViewCount';
 import { jsonContentToText } from '../../../utils/tiptap';
+import ArticleDetailGoogleAd from '../../../containers/articleDetail/google-ads/ArticleDetailGoogleAd';
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const articleId = params.slug;
@@ -42,8 +43,8 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
       {/* 게시글 내용 */}
       <section className="box-shadow relative flex w-full flex-col gap-8 rounded-lg border border-box bg-white p-8 mobile:p-4">
         <ArticleDetailHeader title={articleDetail.title} createdAt={formatDate(articleDetail.createdAt)} />
-        <section className="flex h-[150px] items-center justify-center rounded-xl bg-black text-center text-3xl text-white">
-          Advertisement
+        <section className="flex h-auto min-h-[150px] items-center justify-center rounded-xl bg-black text-center text-3xl text-white">
+          <ArticleDetailGoogleAd />
         </section>
         <ArticleDetailContent content={articleDetail.content} />
         <ArticleShare article={articleDetail} />
