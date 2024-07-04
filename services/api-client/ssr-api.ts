@@ -3,6 +3,7 @@
 import { cookies, headers } from 'next/headers';
 import { IHttpMethod } from '../../enums/http-method.enum';
 import { toastErrorMessage } from './toastErorr';
+import { X_REAL_IP } from '../../constants/header.constants';
 
 interface CallApiParams {
   url: string;
@@ -12,7 +13,7 @@ interface CallApiParams {
 }
 
 const callSSRApi = async <T>(params: CallApiParams): Promise<T> => {
-  const ip = headers().get('x-forwarded-for') ?? '';
+  const ip = headers().get(X_REAL_IP) ?? '';
   const userAgent = headers().get('user-agent') ?? '';
 
   const isFormData = params.body instanceof FormData;

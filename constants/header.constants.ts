@@ -17,3 +17,8 @@ export const X_PAGING_PAGE = 'x-paging-page';
  * 카테고리 아이디를 저장할 때 사용
  */
 export const X_CATEGORY_ID = 'x-category-id';
+
+/**
+ * 실시간 IP 주소를 저장할 때 사용
+ */
+export const X_REAL_IP = 'x-real-ip';
