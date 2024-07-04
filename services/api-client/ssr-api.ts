@@ -1,6 +1,6 @@
 'use server';
 
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { IHttpMethod } from '../../enums/http-method.enum';
 import { toastErrorMessage } from './toastErorr';
 
@@ -8,18 +8,24 @@ interface CallApiParams {
   url: string;
   method: IHttpMethod;
   body?: any;
-  accessToken?: string;
   contentType?: string;
 }
 
 const callSSRApi = async <T>(params: CallApiParams): Promise<T> => {
+  const ip = headers().get('x-forwarded-for') ?? '';
+  const userAgent = headers().get('user-agent') ?? '';
+
   const isFormData = params.body instanceof FormData;
+
   const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/${params.url}`;
+
   const response = await fetch(url, {
     method: params.method,
     headers: {
       ...(!isFormData && { 'Content-Type': 'application/json' }),
       Cookie: cookies().toString(),
+      'x-forwarded-for': ip,
+      'user-agent': userAgent,
     },
     body: params.body instanceof FormData ? params.body : JSON.stringify(params.body),
   });
