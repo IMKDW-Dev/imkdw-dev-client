@@ -59,6 +59,10 @@ export default function RootLayout({
       </body>
       <GoogleAnalytics gaId="G-DXRR1KZDDN" />
       <Script src="https://developers.kakao.com/sdk/js/kakao.js" strategy="afterInteractive" />
+      <Script
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2998473783210725"
+        crossOrigin="anonymous"
+      />
     </html>
   );
 }
