@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { Article } from '../../../services/@types/article';
-import { removeHtmlTags } from '../../../utils/html';
 import { jsonContentToText } from '../../../utils/tiptap';
 
 interface Props {
@@ -12,7 +11,7 @@ interface Props {
 export default function ArticleShare({ article }: Props) {
   const CLIENT_URL = process.env.NEXT_PUBLIC_CLIENT_URL;
   const LINK = `${CLIENT_URL}/articles/${article.id}`;
-  const { commentCount, content, thumbnail, title } = article;
+  const { content, thumbnail, title } = article;
 
   const [kakao, setKakao] = useState<any>(null);
   const [isCopied, setIsCopied] = useState(false);
