@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Article } from '../../services/@types/article';
-import { removeHtmlTags } from '../../utils/html';
+import { jsonContentToText } from '../../utils/tiptap';
 
 interface Props {
   article: Article;
 }
 export default function ArticleItem({ article }: Props) {
   return (
-    <li className="mobile:w-full w-1/3 p-5">
+    <li className="w-1/3 p-5 mobile:w-full">
       <div className="box-shadow flex flex-col gap-4 rounded-lg border border-box bg-white">
         <Link
           href={`/articles/${article.id}`}
@@ -25,7 +25,7 @@ export default function ArticleItem({ article }: Props) {
               <b className="text-lg">{article.title}</b>
             </Link>
           </h3>
-          <p className="line-clamp-3 overflow-hidden text-ellipsis text-center">{removeHtmlTags(article.content)}</p>
+          <p className="line-clamp-3 overflow-hidden text-ellipsis text-center">{jsonContentToText(article.content)}</p>
           <div className="flex justify-center gap-1">
             <Image src="/images/icon/eye.svg" width={20} height={20} alt="Eye" />
             <span className="ml-1 text-sm text-[#4D6385]">{article.viewCount} reads</span>
