@@ -8,8 +8,8 @@ interface Props {
 }
 export default function ArticleItem({ article }: Props) {
   return (
-    <li className="w-1/3 p-5 mobile:w-full">
-      <div className="box-shadow flex flex-col gap-4 rounded-lg border border-box bg-white">
+    <li className="w-1/3 flex-1 p-5 mobile:w-full">
+      <div className="box-shadow flex h-full flex-col gap-4 rounded-lg border border-box bg-white">
         <Link
           href={`/articles/${article.id}`}
           className="profile relative h-[250px] w-full overflow-hidden rounded-tl-xl rounded-tr-xl"
@@ -22,7 +22,7 @@ export default function ArticleItem({ article }: Props) {
         <div className="flex flex-col gap-3 p-5">
           <h3 className="text-center">
             <Link href="/articles/1">
-              <b className="text-lg">{article.title}</b>
+              <b className="line-clamp-2 text-lg">{article.title}</b>
             </Link>
           </h3>
           <p className="line-clamp-3 overflow-hidden text-ellipsis text-center">{jsonContentToText(article.content)}</p>
