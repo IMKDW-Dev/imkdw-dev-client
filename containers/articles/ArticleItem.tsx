@@ -8,7 +8,7 @@ interface Props {
 }
 export default function ArticleItem({ article }: Props) {
   return (
-    <li className="w-1/3 flex-1 p-5 mobile:w-full">
+    <li className="w-1/3 p-5 mobile:w-full">
       <div className="box-shadow flex h-full flex-col gap-4 rounded-lg border border-box bg-white">
         <Link
           href={`/articles/${article.id}`}
