@@ -17,6 +17,7 @@ import UpdateArticleMetadata from './nextMetadata/UpdateArticleMetadata';
 interface Props {
   article: Article;
 }
+
 export default function EditArticleForm({ article }: Props) {
   const [isNext, setIsNext] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
