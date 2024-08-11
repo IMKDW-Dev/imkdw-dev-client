@@ -24,7 +24,7 @@ export default function useArticleForm({ article }: Props) {
   const [articleData, setArticleData] = useState<IArticleData>({
     title: article?.title ?? '',
     categoryId: article?.category.id ?? null,
-    content: article?.content ?? '',
+    content: article?.content ? JSON.parse(article?.content) : '',
     images: [],
     tags: article?.tags.map((tag) => tag.name) ?? [],
     id: article?.id ?? '',
@@ -70,7 +70,7 @@ export default function useArticleForm({ article }: Props) {
     formData.append('id', articleData.id);
     formData.append('title', articleData.title);
     formData.append('categoryId', articleData.categoryId!.toString());
-    formData.append('content', articleData.content);
+    formData.append('content', JSON.stringify(articleData.content));
     formData.append('visible', articleData.visible.toString());
     articleData.tags.forEach((tag) => formData.append('tags[]', tag));
     formData.append('thumbnail', articleData.thumbnail!);
@@ -83,7 +83,7 @@ export default function useArticleForm({ article }: Props) {
     const formData = new FormData();
     if (articleData.title) formData.append('title', articleData.title);
     if (articleData.categoryId) formData.append('categoryId', articleData.categoryId.toString());
-    if (articleData.content) formData.append('content', articleData.content);
+    if (articleData.content) formData.append('content', JSON.stringify(articleData.content));
     if (articleData.visible) formData.append('visible', articleData.visible.toString());
     if (articleData.tags && articleData.tags.length) articleData.tags.forEach((tag) => formData.append('tags[]', tag));
     if (articleData.thumbnail) formData.append('thumbnail', articleData.thumbnail);

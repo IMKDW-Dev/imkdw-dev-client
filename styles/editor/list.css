@@ -1,0 +1,52 @@
+.tiptap > .unordered-list-item,
+.tiptap > .ordered-list-item,
+.tiptap-viewer > .unordered-list-item,
+.tiptap-viewer > .ordered-list-item {
+  counter-reset: li;
+  margin-left: 0;
+  padding-left: 0;
+  line-height: 1.25;
+}
+
+.tiptap > .unordered-list-item > li,
+.tiptap > .ordered-list-item > li,
+.tiptap-viewer > .unordered-list-item > li,
+.tiptap-viewer > .ordered-list-item > li {
+  position: relative;
+  list-style: none;
+  margin: 1rem 0 1rem 2rem;
+  padding: 0 0 0 1rem;
+}
+
+.tiptap > .unordered-list-item > li:before,
+.tiptap > .ordered-list-item > li:before,
+.tiptap-viewer > .unordered-list-item > li:before,
+.tiptap-viewer > .ordered-list-item > li:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  top: -0.3em;
+  left: -0.9em;
+  width: 1em;
+  text-align: center;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 2em;
+  font-weight: bold;
+  font-weight: 700;
+  color: #ff6481;
+  text-shadow:
+    3px 3px 0 #feeaec,
+    -1px -1px 0 #feeaec,
+    1px -1px 0 #feeaec,
+    -1px 1px 0 #feeaec,
+    1px 1px 0 #feeaec;
+}
+
+.tiptap > .unordered-list-item > li:hover::before,
+.tiptap > .ordered-list-item > li:hover::before,
+.tiptap-viewer > .unordered-list-item > li:hover::before,
+.tiptap-viewer > .ordered-list-item > li:hover::before {
+  color: #ebe3aa;
+}

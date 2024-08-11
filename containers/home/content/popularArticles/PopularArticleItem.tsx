@@ -1,14 +1,11 @@
 import clsx from 'clsx';
-import { DM_Sans } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CalendarMonth } from '@mui/icons-material';
 
+import { articleContentToPlainText } from '@/utils/article';
 import { formatDate } from '../../../../utils/date';
 import { Article } from '../../../../services/@types/article';
-import { jsonContentToText } from '../../../../utils/tiptap';
-
-const DmSans = DM_Sans({ subsets: ['latin'] });
 
 interface Props {
   article: Article;
@@ -40,11 +37,10 @@ export default function PopularArticleItem({ article }: Props) {
             </h3>
             <p
               className={clsx(
-                DmSans.className,
                 'line-clamp-3 max-w-[400px] overflow-hidden text-ellipsis text-[15px] leading-loose mobile:text-center',
               )}
             >
-              {jsonContentToText(article.content)}
+              {articleContentToPlainText(article.content)}
             </p>
           </div>
 

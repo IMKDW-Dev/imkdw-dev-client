@@ -1,5 +1,6 @@
 import { Extension, NodeViewContent, NodeViewWrapper } from '@tiptap/react';
 import React from 'react';
+import './code-block.css';
 
 interface Props {
   updateAttributes: any;

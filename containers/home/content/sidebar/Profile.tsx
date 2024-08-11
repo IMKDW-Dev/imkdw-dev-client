@@ -1,8 +1,4 @@
 import Image from 'next/image';
-import { DM_Sans } from 'next/font/google';
-import clsx from 'clsx';
-
-const DmSans = DM_Sans({ subsets: ['latin'] });
 
 export default function Profile() {
   return (
@@ -12,7 +8,7 @@ export default function Profile() {
       </div>
       <div className="flex flex-col">
         <b>Dongwoo Kim</b>
-        <p className={clsx(DmSans.className, 'text-sm')}>Backend Engineer</p>
+        <p className="text-sm">Backend Engineer</p>
       </div>
     </div>
   );

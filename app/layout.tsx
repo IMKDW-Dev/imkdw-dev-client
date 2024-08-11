@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { Urbanist } from 'next/font/google';
 import clsx from 'clsx';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 import { headers } from 'next/headers';
 import { ToastContainer } from 'react-toastify';
+import localFont from 'next/font/local';
 
 import generateCustomMetadata from '../utils/metadata';
 import Header from '../components/header/Header';
@@ -16,7 +16,20 @@ import { X_PATHNAME } from '../constants/header.constants';
 import './global.css';
 import 'react-toastify/dist/ReactToastify.css';
 
-const urbanist = Urbanist({ subsets: ['latin'] });
+const maplestoryFont = localFont({
+  src: [
+    {
+      path: '../fonts/maplestory_light.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/maplestory_bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+});
 
 export const metadata: Metadata = {
   ...generateCustomMetadata({
@@ -43,7 +56,7 @@ export default function RootLayout({
       </head>
       <body
         className={clsx(
-          urbanist.className,
+          maplestoryFont.className,
           'flex justify-center',
           pathname.includes(MANAGE_PAGE_PATH) ? 'bg-[#f3f4f6]' : 'bg-primary',
         )}

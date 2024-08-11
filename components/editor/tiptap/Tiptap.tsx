@@ -4,7 +4,12 @@ import { Editor } from '@tiptap/core';
 import { EditorContent, useEditor } from '@tiptap/react';
 import { useCallback } from 'react';
 
-import './styles/tiptap.css';
+import '@/styles/editor/editor.css';
+import '@/styles/editor/list.css';
+import '@/styles/editor/heading.css';
+import '@/styles/editor/link.css';
+import '@/styles/editor/blockquote.css';
+import '@/styles/editor/code.css';
 
 interface Props {
   value: string;

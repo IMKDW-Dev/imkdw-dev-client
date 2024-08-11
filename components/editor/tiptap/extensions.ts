@@ -8,7 +8,6 @@ import Text from '@tiptap/extension-text';
 import Underline from '@tiptap/extension-underline';
 import Blockquote from '@tiptap/extension-blockquote';
 import Bold from '@tiptap/extension-bold';
-import Image from '@tiptap/extension-image';
 import { ReactNodeViewRenderer } from '@tiptap/react';
 import Highlight from '@tiptap/extension-highlight';
 import ListItem from '@tiptap/extension-list-item';
@@ -16,10 +15,10 @@ import OrderedList from '@tiptap/extension-ordered-list';
 import BulletList from '@tiptap/extension-bullet-list';
 import Link from '@tiptap/extension-link';
 import ImageResize from 'tiptap-extension-resize-image';
-import { common, createLowlight } from 'lowlight';
+import { all, createLowlight } from 'lowlight';
 import CodeBlock from './CodeBlock';
 
-const lowlight = createLowlight(common);
+const lowlight = createLowlight(all);
 
 const tiptapExtensions = [
   Heading.configure({ levels: [1, 2, 3, 4] }),
@@ -36,9 +35,6 @@ const tiptapExtensions = [
   Highlight,
   Blockquote,
   Bold,
-  Image.configure({
-    inline: true,
-  }),
   ImageResize.configure({
     inline: true,
     HTMLAttributes: {
