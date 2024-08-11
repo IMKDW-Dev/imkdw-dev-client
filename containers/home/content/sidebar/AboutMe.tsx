@@ -1,9 +1,4 @@
-import clsx from 'clsx';
-import { DM_Sans } from 'next/font/google';
-
 import Profile from './Profile';
-
-const DmSans = DM_Sans({ subsets: ['latin'] });
 
 export default function AboutMe() {
   return (
@@ -13,7 +8,7 @@ export default function AboutMe() {
       </h3>
       <div className="box-shadow flex flex-col gap-5 rounded-[10px] bg-white p-6">
         <Profile />
-        <p className={clsx(DmSans.className)}>
+        <p>
           Hello! My name is Dongwoo Kim
           <br />
           Welcome to my Blog!

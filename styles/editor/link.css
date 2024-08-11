@@ -1,0 +1,9 @@
+.tiptap a,
+.tiptap-viewer a {
+  border-bottom: 1px solid;
+}
+
+.tiptap a:hover,
+.tiptap-viewer a:hover {
+  background-color: #feeaec;
+}

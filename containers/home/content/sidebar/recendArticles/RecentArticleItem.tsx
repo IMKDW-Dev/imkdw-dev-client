@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { formatDate } from '../../../../../utils/data';
+import { formatDate } from '../../../../../utils/date';
 import RecentArticleImage from './ArticleImage';
 import { Article } from '../../../../../services/@types/article';
 

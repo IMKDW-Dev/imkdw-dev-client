@@ -1,14 +1,11 @@
-'use client';
-
-import { JSONContent } from '@tiptap/core';
-import TiptapEditor from './Tiptap';
+import Tiptap from '@/components/editor/tiptap/Tiptap';
 
 interface Props {
-  value: JSONContent | null;
-  onChange: (value: JSONContent | null) => void;
-  onUploadImage: (imageUrl: string) => void;
+  value: string;
+  changeValue: (value: string) => void;
+  uploadImage: (imageUrl: string) => void;
 }
 
-export default function Editor({ value, onChange, onUploadImage }: Props) {
-  return <TiptapEditor value={value} onChange={onChange} onUploadImage={onUploadImage} />;
+export default function Editor({ value, changeValue, uploadImage }: Props) {
+  return <Tiptap value={value} changeValue={changeValue} uploadImage={uploadImage} />;
 }

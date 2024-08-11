@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { articleContentToPlainText } from '@/utils/article';
 import { Article } from '../../services/@types/article';
-import { jsonContentToText } from '../../utils/tiptap';
 
 interface Props {
   article: Article;
@@ -25,7 +25,9 @@ export default function CategoryArticleItem({ article }: Props) {
               <b className="line-clamp-2 overflow-hidden text-ellipsis text-lg">{article.title}</b>
             </Link>
           </h3>
-          <p className="line-clamp-3 overflow-hidden text-ellipsis text-center">{jsonContentToText(article.content)}</p>
+          <p className="line-clamp-3 overflow-hidden text-ellipsis text-center">
+            {articleContentToPlainText(article.content)}
+          </p>
           <div className="flex justify-center gap-1">
             <Image src="/images/icon/eye.svg" width={20} height={20} alt="Eye" />
             <span className="ml-1 text-sm text-[#4D6385]">{article.viewCount} reads</span>
