@@ -1,6 +1,6 @@
-import ArticleShareButtons from '@/features/blog/components/article-detail/content/share/ArticleShareButtons';
-import ArticleShareLink from '@/features/blog/components/article-detail/content/share/ArticleShareLink';
-import { Article } from '@/services/@types/article';
+import { Article } from '../../../../../../services/@types/article';
+import ArticleShareButtons from './ArticleShareButtons';
+import ArticleShareLink from './ArticleShareLink';
 
 interface Props {
   article: Article;

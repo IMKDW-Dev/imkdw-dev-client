@@ -1,5 +1,5 @@
-import { Article } from '@/services/@types/article';
 import Link from 'next/link';
+import { Article } from '../../../../../services/@types/article';
 
 interface Props {
   index: number;

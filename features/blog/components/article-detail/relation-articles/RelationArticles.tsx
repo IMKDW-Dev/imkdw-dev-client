@@ -1,9 +1,9 @@
-import CategoryImage from '@/components/category/CategoryImage';
-import { GetArticlesSort } from '@/enums/article.enum';
-import RelationArticleItem from '@/features/blog/components/article-detail/relation-articles/RelationArticleItem';
-import { Article } from '@/services/@types/article';
-import { getArticles } from '@/services/article';
 import Link from 'next/link';
+import { getArticles } from '../../../../../services/article';
+import { GetArticlesSort } from '../../../../../enums/article.enum';
+import { Article } from '../../../../../services/@types/article';
+import CategoryImage from '../../../../../components/category/CategoryImage';
+import RelationArticleItem from './RelationArticleItem';
 
 interface Props {
   article: Article;

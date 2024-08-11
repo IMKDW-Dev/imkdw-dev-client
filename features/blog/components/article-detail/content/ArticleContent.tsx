@@ -1,8 +1,8 @@
-import ArticleAds from '@/features/blog/components/article-detail/content/ads/ArticleAds';
-import ArticleBody from '@/features/blog/components/article-detail/content/body/ArticleBody';
-import ArticleHeader from '@/features/blog/components/article-detail/content/header/ArticleHeader';
-import ArticleShare from '@/features/blog/components/article-detail/content/share/ArticleShare';
-import { Article } from '@/services/@types/article';
+import { Article } from '../../../../../services/@types/article';
+import ArticleAds from './ads/ArticleAds';
+import ArticleBody from './body/ArticleBody';
+import ArticleHeader from './header/ArticleHeader';
+import ArticleShare from './share/ArticleShare';
 
 interface Props {
   article: Article;

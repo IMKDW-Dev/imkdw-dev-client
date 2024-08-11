@@ -1,8 +1,8 @@
-import { ArticleComment } from '@/services/@types/article-comment';
-import useCommentReply from '@/stores/use-comment-reply';
-import { formatDate } from '@/utils/date';
+import { formatDate } from 'date-fns';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ArticleComment } from '../../../../../services/@types/article-comment';
+import useCommentReply from '../../../../../stores/use-comment-reply';
 
 interface Props {
   comment: ArticleComment;

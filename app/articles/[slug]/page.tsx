@@ -1,9 +1,8 @@
 import { notFound } from 'next/navigation';
-
-import ArticleDetail from '@/features/blog/components/article-detail/ArticleDetail';
-import { getArticle } from '@/services/article';
-import generateCustomMetadata from '@/utils/metadata';
-import { articleContentToPlainText } from '@/utils/article';
+import generateCustomMetadata from '../../../utils/metadata';
+import { articleContentToPlainText } from '../../../utils/article';
+import { getArticle } from '../../../services/article';
+import ArticleDetail from '../../../features/blog/components/article-detail/ArticleDetail';
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const articleId = params.slug;

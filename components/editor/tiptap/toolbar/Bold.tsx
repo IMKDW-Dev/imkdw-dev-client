@@ -1,5 +1,5 @@
-import { ToolbarProps } from '@/components/editor/tiptap/toolbar/types/toolbar';
 import { FormatBold } from '@mui/icons-material';
+import { ToolbarProps } from './types/toolbar';
 
 interface Props extends ToolbarProps {}
 

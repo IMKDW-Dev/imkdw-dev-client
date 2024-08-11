@@ -1,21 +1,20 @@
 'use client';
 
 import { FormEvent } from 'react';
-
-import ArticleFormCategory from '@/features/blog/components/article-form/ArticleFormCategory';
-import ArticleFormContent from '@/features/blog/components/article-form/ArticleFormContent';
-import ArticleFormId from '@/features/blog/components/article-form/ArticleFormId';
-import ArticleFormSubmitButton from '@/features/blog/components/article-form/ArticleFormSubmitButton';
-import ArticleFormThumbnail from '@/features/blog/components/article-form/ArticleFormThumbnail';
-import ArticleFormTitle from '@/features/blog/components/article-form/ArticleFormTitle';
-import ArticleFormToggle from '@/features/blog/components/article-form/ArticleFormToggle';
-import ArticleFormWrapper from '@/features/blog/components/article-form/ArticleFormWrapper';
-import ArticleFormTag from '@/features/blog/components/article-form/tag/ArticleFormTag';
-import ArticleFormTagList from '@/features/blog/components/article-form/tag/ArticleFormTagList';
-import useArticleForm from '@/features/blog/hooks/use-article-form';
-import { Article } from '@/services/@types/article';
-import { Category } from '@/services/@types/category';
 import { useRouter } from 'next/navigation';
+import { Article } from '../../../../services/@types/article';
+import { Category } from '../../../../services/@types/category';
+import useArticleForm from '../../hooks/use-article-form';
+import ArticleFormWrapper from './ArticleFormWrapper';
+import ArticleFormThumbnail from './ArticleFormThumbnail';
+import ArticleFormToggle from './ArticleFormToggle';
+import ArticleFormId from './ArticleFormId';
+import ArticleFormTitle from './ArticleFormTitle';
+import ArticleFormCategory from './ArticleFormCategory';
+import ArticleFormContent from './ArticleFormContent';
+import ArticleFormTag from './tag/ArticleFormTag';
+import ArticleFormTagList from './tag/ArticleFormTagList';
+import ArticleFormSubmitButton from './ArticleFormSubmitButton';
 
 interface Props {
   article?: Article;

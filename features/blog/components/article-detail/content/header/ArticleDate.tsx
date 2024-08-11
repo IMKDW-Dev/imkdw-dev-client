@@ -1,4 +1,4 @@
-import { formatDate } from '@/utils/date';
+import { formatDate } from 'date-fns';
 import Image from 'next/image';
 
 interface Props {

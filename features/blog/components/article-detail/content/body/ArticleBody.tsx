@@ -1,12 +1,12 @@
 import { JSDOM } from 'jsdom';
 import hljs from 'highlight.js';
 
-import '@/styles/editor/editor.css';
-import '@/styles/editor/list.css';
-import '@/styles/editor/heading.css';
-import '@/styles/editor/link.css';
-import '@/styles/editor/blockquote.css';
-import '@/styles/editor/code.css';
+import '../../../../../../styles/editor/editor.css';
+import '../../../../../../styles/editor/list.css';
+import '../../../../../../styles/editor/heading.css';
+import '../../../../../../styles/editor/link.css';
+import '../../../../../../styles/editor/blockquote.css';
+import '../../../../../../styles/editor/code.css';
 
 interface Props {
   content: string;

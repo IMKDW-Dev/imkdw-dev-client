@@ -1,4 +1,4 @@
-import Tiptap from '@/components/editor/tiptap/Tiptap';
+import Tiptap from './tiptap/Tiptap';
 
 interface Props {
   value: string;
