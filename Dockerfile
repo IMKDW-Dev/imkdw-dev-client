@@ -37,7 +37,7 @@ ENV NEXT_PUBLIC_PREGISNED_URL=${NEXT_PUBLIC_PREGISNED_URL}
 
 RUN npm install -g pnpm@8.15.1
 
-RUN pnpm i -P
+RUN pnpm i
 
 RUN pnpm build
 
