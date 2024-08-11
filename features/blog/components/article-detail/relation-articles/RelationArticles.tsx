@@ -1,13 +1,13 @@
+import CategoryImage from '@/components/category/CategoryImage';
+import { GetArticlesSort } from '@/enums/article.enum';
+import RelationArticleList from '@/features/blog/components/article-detail/relation-articles/RelationArticleList';
+import { Article } from '@/services/@types/article';
+import { getArticles } from '@/services/article';
 import Link from 'next/link';
-import CategoryImage from '../../../components/category/CategoryImage';
-import { Article } from '../../../services/@types/article';
-import { getArticles } from '../../../services/article';
-import { GetArticlesSort } from '../../../enums/article.enum';
 
 interface Props {
   article: Article;
 }
-
 export default async function RelationArticles({ article }: Props) {
   const { items } = await getArticles({
     sort: GetArticlesSort.LATEST,
@@ -36,20 +36,7 @@ export default async function RelationArticles({ article }: Props) {
           All Articles
         </Link>
       </div>
-      <ul className="flex w-full flex-col px-3">
-        {items.map((relationArticle, index) => (
-          <li className="border-b border-box py-3" key={relationArticle.id}>
-            <Link href={`/articles/${relationArticle.id}`} className="flex items-center gap-3">
-              <div className="flex min-h-[25px] min-w-[25px] items-center justify-center rounded-md bg-black text-white">
-                <p className="text-center font-bold">{index + 1}</p>
-              </div>
-              <h3 className="line-clamp-1 overflow-hidden text-ellipsis text-xl font-bold mobile:text-lg">
-                {relationArticle.title}
-              </h3>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <RelationArticleList articles={items} />
     </section>
   );
 }

@@ -14,7 +14,7 @@ export const patchUpdateArticle = (articleId: string, formData: FormData) => {
   return callApi<Article>({ url, method: HttpMethod.PATCH, body: formData });
 };
 
-export const getArticleDetail = async (id: string) => {
+export const getArticle = async (id: string) => {
   const url = `v1/articles/${id}`;
   return callSSRApi<Article>({ url, method: HttpMethod.GET });
 };

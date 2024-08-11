@@ -1,4 +1,4 @@
-import ArticleAds from '@/features/blog/components/article-detail/ads/ArticleAds';
+import ArticleAds from '@/features/blog/components/article-detail/content/ads/ArticleAds';
 import ArticleBody from '@/features/blog/components/article-detail/content/body/ArticleBody';
 import ArticleHeader from '@/features/blog/components/article-detail/content/header/ArticleHeader';
 import ArticleShare from '@/features/blog/components/article-detail/content/share/ArticleShare';
