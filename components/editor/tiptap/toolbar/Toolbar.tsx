@@ -1,13 +1,13 @@
-import TiptapBold from '@/components/editor/tiptap/toolbar/Bold';
-import TiptapCode from '@/components/editor/tiptap/toolbar/Code';
-import TiptapHeading from '@/components/editor/tiptap/toolbar/Heading';
-import TiptapImage from '@/components/editor/tiptap/toolbar/Image';
-import TiptapLink from '@/components/editor/tiptap/toolbar/Link';
-import TiptapOrderedList from '@/components/editor/tiptap/toolbar/OrderedList';
-import TiptapQuote from '@/components/editor/tiptap/toolbar/Quote';
-import TiptapUnderlined from '@/components/editor/tiptap/toolbar/Underlined';
-import TiptapUnOrderedList from '@/components/editor/tiptap/toolbar/UnOrderedList';
 import { Editor } from '@tiptap/react';
+import TiptapHeading from './Heading';
+import TiptapBold from './Bold';
+import TiptapUnderlined from './Underlined';
+import TiptapQuote from './Quote';
+import TiptapCode from './Code';
+import TiptapImage from './Image';
+import TiptapUnOrderedList from './UnOrderedList';
+import TiptapOrderedList from './OrderedList';
+import TiptapLink from './Link';
 
 interface Props {
   editor: Editor;

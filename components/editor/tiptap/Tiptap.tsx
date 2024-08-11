@@ -1,15 +1,16 @@
-import tiptapExtensions from '@/components/editor/tiptap/extensions';
-import Toolbar from '@/components/editor/tiptap/toolbar/Toolbar';
 import { Editor } from '@tiptap/core';
 import { EditorContent, useEditor } from '@tiptap/react';
 import { useCallback } from 'react';
 
-import '@/styles/editor/editor.css';
-import '@/styles/editor/list.css';
-import '@/styles/editor/heading.css';
-import '@/styles/editor/link.css';
-import '@/styles/editor/blockquote.css';
-import '@/styles/editor/code.css';
+import tiptapExtensions from './extensions';
+import Toolbar from './toolbar/Toolbar';
+
+import '../../../styles/editor/editor.css';
+import '../../../styles/editor/list.css';
+import '../../../styles/editor/heading.css';
+import '../../../styles/editor/link.css';
+import '../../../styles/editor/blockquote.css';
+import '../../../styles/editor/code.css';
 
 interface Props {
   value: string;

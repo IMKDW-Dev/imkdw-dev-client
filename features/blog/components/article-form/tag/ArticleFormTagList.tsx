@@ -1,5 +1,4 @@
-import ArticleFormTagItem from '@/features/blog/components/article-form/tag/ArticleFormTagItem';
-import Image from 'next/image';
+import ArticleFormTagItem from './ArticleFormTagItem';
 
 interface Props {
   tags: string[];

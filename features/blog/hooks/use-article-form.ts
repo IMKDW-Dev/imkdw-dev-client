@@ -1,8 +1,8 @@
 'use client';
 
-import { Article } from '@/services/@types/article';
-import { patchUpdateArticle, postCreateArticle } from '@/services/article';
 import { useState } from 'react';
+import { Article } from '../../../services/@types/article';
+import { patchUpdateArticle, postCreateArticle } from '../../../services/article';
 
 interface IArticleData {
   title: string;

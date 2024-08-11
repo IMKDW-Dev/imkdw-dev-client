@@ -1,6 +1,6 @@
-import ArticleForm from '@/features/blog/components/article-form/ArticleForm';
-import { getCategories } from '@/services/category';
+import ArticleForm from '../../../../features/blog/components/article-form/ArticleForm';
 import { getArticle } from '../../../../services/article';
+import { getCategories } from '../../../../services/category';
 
 export default async function ArticleWritePage({ params }: { params: { slug: string } }) {
   const article = await getArticle(params.slug);

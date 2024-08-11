@@ -1,8 +1,9 @@
-import { ToolbarProps } from '@/components/editor/tiptap/toolbar/types/toolbar';
-import { getUploadUrl, postUploadFile } from '@/services/storage';
 import { Image } from '@mui/icons-material';
 import { ChangeEvent, useRef } from 'react';
 import { v4 } from 'uuid';
+
+import { ToolbarProps } from './types/toolbar';
+import { getUploadUrl, postUploadFile } from '../../../../services/storage';
 
 interface Props extends ToolbarProps {
   uploadImage: (imageUrl: string) => void;

@@ -1,9 +1,9 @@
-import ArticleCommentForm from '@/features/blog/components/article-detail/comment/ArticleCommentForm';
-import ArticleComments from '@/features/blog/components/article-detail/comment/ArticleComments';
-import ArticleContent from '@/features/blog/components/article-detail/content/ArticleContent';
-import RelationArticles from '@/features/blog/components/article-detail/relation-articles/RelationArticles';
-import ArticleViewCount from '@/features/blog/components/article-detail/view-count/ArticleViewCount';
-import { Article } from '@/services/@types/article';
+import { Article } from '../../../../services/@types/article';
+import ArticleCommentForm from './comment/ArticleCommentForm';
+import ArticleComments from './comment/ArticleComments';
+import ArticleContent from './content/ArticleContent';
+import RelationArticles from './relation-articles/RelationArticles';
+import ArticleViewCount from './view-count/ArticleViewCount';
 
 interface Props {
   article: Article;

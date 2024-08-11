@@ -1,5 +1,5 @@
-import { ToolbarProps } from '@/components/editor/tiptap/toolbar/types/toolbar';
 import { Level } from '@tiptap/extension-heading';
+import { ToolbarProps } from './types/toolbar';
 
 interface Props extends ToolbarProps {
   level: Level;

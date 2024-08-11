@@ -3,7 +3,8 @@
 import { useEffect } from 'react';
 import { getCookie, setCookie } from 'cookies-next';
 import { addDays } from 'date-fns';
-import { patchAddViewCount } from '@/services/article';
+
+import { patchAddViewCount } from '../../../../../services/article';
 
 interface Props {
   articleId: string;
