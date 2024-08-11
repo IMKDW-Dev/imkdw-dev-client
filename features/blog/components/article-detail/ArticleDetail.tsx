@@ -1,7 +1,8 @@
-import ArticleCommentForm from '@/containers/articleDetail/comment/CommentForm';
-import RelationArticles from '@/containers/articleDetail/relationArticles/RelationArticles';
+import ArticleCommentForm from '@/features/blog/components/article-detail/comment/ArticleCommentForm';
 import ArticleComments from '@/features/blog/components/article-detail/comment/ArticleComments';
 import ArticleContent from '@/features/blog/components/article-detail/content/ArticleContent';
+import RelationArticles from '@/features/blog/components/article-detail/relation-articles/RelationArticles';
+import ArticleViewCount from '@/features/blog/components/article-detail/view-count/ArticleViewCount';
 import { Article } from '@/services/@types/article';
 
 interface Props {
@@ -15,6 +16,7 @@ export default function ArticleDetail({ article }: Props) {
       <RelationArticles article={article} />
       <ArticleComments comments={article.comments} />
       <ArticleCommentForm articleId={article.id} />
+      <ArticleViewCount articleId={article.id} />
     </article>
   );
 }

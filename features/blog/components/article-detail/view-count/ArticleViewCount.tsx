@@ -3,25 +3,24 @@
 import { useEffect } from 'react';
 import { getCookie, setCookie } from 'cookies-next';
 import { addDays } from 'date-fns';
-
-import { Article } from '../../../services/@types/article';
-import { patchAddViewCount } from '../../../services/article';
+import { patchAddViewCount } from '@/services/article';
 
 interface Props {
-  article: Article;
+  articleId: string;
 }
-export default function ArticleViewCount({ article }: Props) {
+
+export default function ArticleViewCount({ articleId }: Props) {
   useEffect(() => {
-    const key = `viewed_${article.id}`;
+    const key = `viewed_${articleId}`;
     const cookie = getCookie(key);
     if (cookie) {
       return;
     }
 
-    patchAddViewCount(article.id);
+    patchAddViewCount(articleId);
     const expires = addDays(new Date(), 1);
     setCookie(key, 'true', { expires });
-  }, [article]);
+  }, [articleId]);
 
   return null;
 }
