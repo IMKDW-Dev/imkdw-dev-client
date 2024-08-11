@@ -1,12 +1,14 @@
-import EditArticleForm from '../../../../containers/editArticle/EditArticleForm';
+import ArticleForm from '@/features/blog/components/article-form/ArticleForm';
+import { getCategories } from '@/services/category';
 import { getArticleDetail } from '../../../../services/article';
 
 export default async function ArticleWritePage({ params }: { params: { slug: string } }) {
   const article = await getArticleDetail(params.slug);
+  const { categories } = await getCategories();
 
   return (
-    <section className="w-full pt-[50px]">
-      <EditArticleForm article={article} />
+    <section>
+      <ArticleForm article={article} categories={categories} mode="edit" />
     </section>
   );
 }
