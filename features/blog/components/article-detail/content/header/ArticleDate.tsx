@@ -1,5 +1,5 @@
-import { formatDate } from 'date-fns';
 import Image from 'next/image';
+import { formatDate } from '../../../../../../utils/date';
 
 interface Props {
   createdAt: string;
