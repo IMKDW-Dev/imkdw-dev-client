@@ -1,0 +1,19 @@
+.tiptap > h2,
+.tiptap-viewer > h2 {
+  padding-bottom: 10px;
+  font-size: 1.9rem;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 20px; /* 밑줄과 텍스트 사이 간격 */
+}
+
+.tiptap > h2::after,
+.tiptap-viewer > h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 100%;
+  border-bottom: 2px solid #ff6481;
+}

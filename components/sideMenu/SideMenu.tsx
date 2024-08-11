@@ -51,7 +51,7 @@ export default function SideMenu() {
         {/* 관리자용 버튼 */}
         {userInfo.role === userRole.ADMIN && (
           <div className="flex">
-            <a href="/articles/write" onClick={handleCloseSideMenu}>
+            <a href="/articles/new" onClick={handleCloseSideMenu}>
               글쓰기
             </a>
           </div>

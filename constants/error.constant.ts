@@ -1,6 +1,5 @@
 type IErrorMessage = { [key: string]: string };
 
-
 const BAD_REQUEST = {
   '400001': '카테고리 설명 형식이 올바르지 않습니다',
   '400002': '카테고리 이름 형식이 올바르지 않습니다',

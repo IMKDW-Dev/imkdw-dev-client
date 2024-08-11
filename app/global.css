@@ -5,6 +5,7 @@
 :root {
   --font-color: #282424;
 }
+
 body {
   color: var(--font-color);
 }

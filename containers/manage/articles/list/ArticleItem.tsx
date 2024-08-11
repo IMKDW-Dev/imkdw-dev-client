@@ -1,6 +1,6 @@
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Article } from '../../../../services/@types/article';
-import { formatDate } from '../../../../utils/data';
+import { formatDate } from '../../../../utils/date';
 import ManageArticleItemAction from './ArticleAction';
 
 export interface Props {

@@ -1,0 +1,13 @@
+.tiptap {
+  .code-block {
+    position: relative;
+
+    select {
+      position: absolute;
+      background-color: var(--white);
+      background-color: #fff;
+      right: 0.5rem;
+      top: 0.5rem;
+    }
+  }
+}

@@ -1,4 +1,3 @@
-import { JSONContent } from '@tiptap/core';
 import { IGetArticlesSort } from '../../enums/article.enum';
 import { ArticleComment } from './article-comment';
 import { Category } from './category';
@@ -23,21 +22,19 @@ export interface PostCreateArticleBody {
   id: string;
   title: string;
   categoryId: number;
-  content: JSONContent | null;
+  content: string;
   visible: boolean;
   tags: string[];
   thumbnail: File;
   images: string[];
 }
 
-export interface PostCreateArticleResponse {
-  id: string;
-}
+export interface PostCreateArticleResponse extends Pick<Article, 'id'> {}
 
-export interface PatchUpdateArticleBody
-  extends Partial<
-    Pick<PostCreateArticleBody, 'title' | 'categoryId' | 'content' | 'visible' | 'tags' | 'thumbnail' | 'images'>
-  > {}
+// export interface PatchUpdateArticleBody
+//   extends Partial<
+//     Pick<PostCreateArticleBody, 'title' | 'categoryId' | 'content' | 'visible' | 'tags' | 'thumbnail' | 'images'>
+//   > {}
 
 export interface GetArticlesReponse extends OffsetPagingResponse<Article> {}
 
