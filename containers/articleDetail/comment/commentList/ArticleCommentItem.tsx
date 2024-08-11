@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { formatDate } from '../../../../utils/data';
+import { formatDate } from '../../../../utils/date';
 import useCommentReply from '../../../../stores/use-comment-reply';
 import { ArticleComment } from '../../../../services/@types/article-comment';
 

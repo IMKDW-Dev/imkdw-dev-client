@@ -57,8 +57,14 @@ export default function RootLayout({
           <ToastContainer position="top-center" autoClose={2000} closeOnClick theme="dark" />
         </main>
       </body>
+
+      {/* Google Analytics */}
       <GoogleAnalytics gaId="G-DXRR1KZDDN" />
+
+      {/* 카카오 SDK */}
       <Script src="https://developers.kakao.com/sdk/js/kakao.js" strategy="afterInteractive" />
+
+      {/* Google Ads */}
       <Script
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2998473783210725"
         crossOrigin="anonymous"

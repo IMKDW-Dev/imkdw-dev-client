@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CalendarMonth } from '@mui/icons-material';
 
-import { formatDate } from '../../../../utils/data';
+import { formatDate } from '../../../../utils/date';
 import { Article } from '../../../../services/@types/article';
 import { jsonContentToText } from '../../../../utils/tiptap';
 

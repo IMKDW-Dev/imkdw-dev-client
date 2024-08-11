@@ -3,18 +3,11 @@
 import { useEffect } from 'react';
 import hljs from 'highlight.js';
 
-import './styles/editor.css';
-import './styles/blockquote.css';
-import './styles/code.css';
-import './styles/codeblock.css';
-import './styles/link.css';
-import './styles/image.css';
-
 interface Props {
   content: string;
 }
 
-export default function ArticleDetailContent({ content }: Props) {
+export default function ArticleBody({ content }: Props) {
   useEffect(() => {
     hljs.highlightAll();
   }, [content]);
