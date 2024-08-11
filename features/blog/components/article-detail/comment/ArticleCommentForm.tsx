@@ -1,10 +1,9 @@
 'use client';
 
+import { postCreateArticleComment } from '@/services/article-comment';
+import useArticleComment from '@/stores/use-article-comment';
+import useCommentReply from '@/stores/use-comment-reply';
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { postCreateArticleComment } from '../../../services/article-comment';
-import useArticleComment from '../../../stores/use-article-comment';
-import useCommentReply from '../../../stores/use-comment-reply';
-import useUser from '@/stores/use-user';
 
 interface Props {
   articleId: string;
@@ -14,7 +13,6 @@ export default function ArticleCommentForm({ articleId }: Props) {
   const [comment, setComment] = useState('');
   const { setNewArticleComment } = useArticleComment((state) => state);
   const { replyCommentId, setReplyCommendId } = useCommentReply((state) => state);
-  const { isLoggedIn } = useUser((state) => state);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -46,16 +44,12 @@ export default function ArticleCommentForm({ articleId }: Props) {
       <div className="w-full">
         <textarea
           className="box-shadow min-h-[150px] w-full resize-none rounded-md  border border-box p-5 outline-accent"
-          placeholder={isLoggedIn ? 'Comment' : '로그인이 필요합니다'}
+          placeholder="Comment"
           value={comment}
           onChange={handleChange}
         />
       </div>
-      <button
-        type="submit"
-        className="rounded-md bg-[#FF6481] p-2 pl-5 pr-5 text-white hover:bg-black"
-        disabled={!isLoggedIn}
-      >
+      <button type="submit" className="rounded-md bg-[#FF6481] p-2 pl-5 pr-5 text-white hover:bg-black">
         Post Comment
       </button>
     </form>

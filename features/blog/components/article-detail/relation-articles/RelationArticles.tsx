@@ -1,6 +1,6 @@
 import CategoryImage from '@/components/category/CategoryImage';
 import { GetArticlesSort } from '@/enums/article.enum';
-import RelationArticleList from '@/features/blog/components/article-detail/relation-articles/RelationArticleList';
+import RelationArticleItem from '@/features/blog/components/article-detail/relation-articles/RelationArticleItem';
 import { Article } from '@/services/@types/article';
 import { getArticles } from '@/services/article';
 import Link from 'next/link';
@@ -36,7 +36,11 @@ export default async function RelationArticles({ article }: Props) {
           All Articles
         </Link>
       </div>
-      <RelationArticleList articles={items} />
+      <ul className="flex w-full flex-col px-3">
+        {items.map((item, index) => (
+          <RelationArticleItem index={index + 1} article={item} key={item.id} />
+        ))}
+      </ul>
     </section>
   );
 }

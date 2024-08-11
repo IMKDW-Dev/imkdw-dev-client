@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation';
 
-import generateCustomMetadata from '../../../utils/metadata';
-import { getArticle } from '../../../services/article';
-import ArticleDetail from '@/features/blog/components/article-detail/ArticleDetail';
 import { jsonContentToText } from '@/utils/tiptap';
+import ArticleDetail from '@/features/blog/components/article-detail/ArticleDetail';
+import { getArticle } from '@/services/article';
+import generateCustomMetadata from '@/utils/metadata';
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const articleId = params.slug;
@@ -32,12 +32,3 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
 
   return <ArticleDetail article={article} />;
 }
-
-// {/* 댓글 목록 */}
-// <ArticleCommentList comments={articleDetail.comments} />
-
-// {/* 댓글 작성창 */}
-// <ArticleCommentForm articleId={articleDetail.id} />
-
-// {/* 조회수 추가용 컴포넌트 */}
-// <ArticleViewCount article={articleDetail} />
