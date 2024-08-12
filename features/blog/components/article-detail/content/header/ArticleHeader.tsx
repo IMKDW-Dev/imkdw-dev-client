@@ -1,5 +1,5 @@
-import ArticleDate from '@/features/blog/components/article-detail/content/header/ArticleDate';
-import ArticleTitle from '@/features/blog/components/article-detail/content/header/ArticleTitle';
+import ArticleDate from './ArticleDate';
+import ArticleTitle from './ArticleTitle';
 
 interface Props {
   title: string;

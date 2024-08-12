@@ -1,5 +1,5 @@
-import { Category } from '@/services/@types/category';
 import Select, { SingleValue } from 'react-select';
+import { Category } from '../../../../services/@types/category';
 
 /**
  * 게시글 수정의 경우 초기 카테고리가 선택되어있음

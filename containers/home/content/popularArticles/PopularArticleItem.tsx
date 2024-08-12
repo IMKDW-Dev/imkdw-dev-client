@@ -3,9 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CalendarMonth } from '@mui/icons-material';
 
-import { articleContentToPlainText } from '@/utils/article';
 import { formatDate } from '../../../../utils/date';
 import { Article } from '../../../../services/@types/article';
+import { articleContentToPlainText } from '../../../../utils/article';
 
 interface Props {
   article: Article;

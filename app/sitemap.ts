@@ -43,5 +43,4 @@ export default async function Sitemap(): Promise<MetadataRoute.Sitemap> {
   const categoryPages = categoryNames.map((name) => generateSitemapItem(`${BASIC_URL}/categories/${name}`));
 
   return [...commonPages, ...articlePages, ...categoryPages];
-  return [];
 }

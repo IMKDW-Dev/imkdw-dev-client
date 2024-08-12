@@ -1,8 +1,8 @@
 'use client';
 
-import useKakaoSDK from '@/features/common/hooks/use-kakao-sdk';
-import { Article } from '@/services/@types/article';
 import Image from 'next/image';
+import useKakaoSDK from '../../../../../common/hooks/use-kakao-sdk';
+import { Article } from '../../../../../../services/@types/article';
 
 interface Props {
   article: Article;

@@ -1,4 +1,4 @@
-import Editor from '@/components/editor/Editor';
+import Editor from '../../../../components/editor/Editor';
 
 interface Props {
   content: string;

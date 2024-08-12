@@ -1,9 +1,9 @@
 'use client';
 
-import ArticleCommentItem from '@/features/blog/components/article-detail/comment/ArticleCommentItem';
-import { ArticleComment } from '@/services/@types/article-comment';
-import useArticleComment from '@/stores/use-article-comment';
 import { useEffect, useState } from 'react';
+import { ArticleComment } from '../../../../../services/@types/article-comment';
+import useArticleComment from '../../../../../stores/use-article-comment';
+import ArticleCommentItem from './ArticleCommentItem';
 
 interface Props {
   comments: ArticleComment[];

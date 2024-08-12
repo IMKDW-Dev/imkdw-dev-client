@@ -1,9 +1,9 @@
 'use client';
 
-import { postCreateArticleComment } from '@/services/article-comment';
-import useArticleComment from '@/stores/use-article-comment';
-import useCommentReply from '@/stores/use-comment-reply';
 import { ChangeEvent, FormEvent, useState } from 'react';
+import useArticleComment from '../../../../../stores/use-article-comment';
+import useCommentReply from '../../../../../stores/use-comment-reply';
+import { postCreateArticleComment } from '../../../../../services/article-comment';
 
 interface Props {
   articleId: string;
