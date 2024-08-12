@@ -45,3 +45,12 @@ h4 {
 body::-webkit-scrollbar {
   display: none;
 }
+
+:target::before {
+  content: '';
+  display: block;
+  height: 100px;
+  margin-top: -80px;
+  visibility: hidden;
+  pointer-events: none;
+}

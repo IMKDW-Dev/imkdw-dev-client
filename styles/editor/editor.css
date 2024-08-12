@@ -7,11 +7,11 @@
   overflow-y: scroll;
   border: 1px solid #e5e7eb;
   border-top: none;
-  font-size: 1.25em;
+  font-size: 1.1em;
 }
 
 .tiptap-viewer > p {
   min-height: 1em;
   line-height: 1.75;
-  font-size: 1.25em;
+  font-size: 1.1em;
 }

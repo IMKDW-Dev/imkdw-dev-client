@@ -13,7 +13,7 @@ export default function RelationArticleItem({ index, article }: Props) {
         <div className="flex min-h-[25px] min-w-[25px] items-center justify-center rounded-md bg-black text-white">
           <p className="text-center font-bold">{index}</p>
         </div>
-        <h3 className="line-clamp-1 overflow-hidden text-ellipsis text-xl font-bold mobile:text-lg">{article.title}</h3>
+        <h3 className="line-clamp-1 overflow-hidden text-ellipsis text-xl mobile:text-lg">{article.title}</h3>
       </Link>
     </li>
   );

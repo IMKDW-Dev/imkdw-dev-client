@@ -74,4 +74,9 @@
       font-weight: 700;
     }
   }
+
+  pre::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 }
