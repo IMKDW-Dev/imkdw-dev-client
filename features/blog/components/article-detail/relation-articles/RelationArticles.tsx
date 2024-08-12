@@ -33,7 +33,7 @@ export default async function RelationArticles({ article }: Props) {
           href={`/categories/${article.category.name}`}
           className="rounded-md bg-[#8665f0] p-2 pl-4 pr-4 text-white hover:bg-black"
         >
-          All Articles
+          Show More
         </Link>
       </div>
       <ul className="flex w-full flex-col px-3">
