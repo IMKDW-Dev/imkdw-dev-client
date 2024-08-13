@@ -38,19 +38,19 @@ export default function BookContents() {
   ];
 
   return (
-    <section className="flex w-full flex-col p-10">
+    <section className="flex w-full flex-col p-10 mobile:px-4">
       <h3 className="border-b border-gray-300 pb-1 text-4xl">Contents</h3>
       <ul className="flex flex-col gap-8 pt-10">
         {contents.map((content, parentIndex) => (
           <li key={content.chapter} className="border-b border-gray-300">
-            <h2 className="pb-4 text-3xl font-bold">
+            <h2 className="pb-4 text-3xl font-bold mobile:text-2xl">
               {parentIndex + 1}. {content.title}
             </h2>
             <ul>
               {content.children.map((_content, childIndex) => (
                 <li key={_content.title} className="p-4">
                   <Link href={`/study/books/${_content.title}`}>
-                    <h3 className="text-2xl">
+                    <h3 className="text-2xl mobile:text-xl">
                       {parentIndex + 1}-{childIndex + 1}. {_content.title}
                     </h3>
                   </Link>

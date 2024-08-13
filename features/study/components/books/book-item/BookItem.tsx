@@ -10,7 +10,7 @@ interface Props {
 
 export default function BookItem({ book }: Props) {
   return (
-    <li className="box-shadow mt-5 flex h-[600px] w-[31%] rounded-lg border border-gray-300 bg-white hover:shadow-2xl">
+    <li className="box-shadow mt-5 flex h-[600px] w-[31%] rounded-lg border border-gray-300 bg-white hover:shadow-2xl mobile:w-full">
       <Link href={`/study/books/${book.id}`} className="flex w-full flex-col">
         <BookItemImage image={book.image} title={book.title} />
         <div className="flex flex-col gap-2 p-3">

@@ -15,7 +15,7 @@ export default function BookDetailPage({ params }: { params: { slug: string } })
   };
 
   return (
-    <section className="flex flex-col items-center justify-between gap-6 px-10 pt-[50px]">
+    <section className="flex flex-col items-center justify-between gap-6 px-10 pt-[50px] mobile:px-4">
       <BookDetailImage image={book.image} title={book.title} />
       <h1 className="w-full text-center text-4xl">{book.title}</h1>
       <p className="text-xl text-gray-500">{book.description}</p>

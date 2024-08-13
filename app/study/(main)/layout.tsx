@@ -8,7 +8,7 @@ interface Props {
 
 export default function StduyLayout({ children }: Props) {
   return (
-    <section className="w-full pt-[50px]">
+    <section className="w-full pt-[50px] mobile:px-2">
       <StudyHeader />
       <StudyDescription />
       <StudyNavigator />

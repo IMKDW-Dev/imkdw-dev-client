@@ -10,10 +10,11 @@ export default function Books() {
     progress: index + 1,
     description:
       '타입스크립트의 동작 원리, 해야 할 것과 하지 말아야 할 것에 대한 구체적인 조언을 62가지 항목으로 나누어 담았다.',
+    link: 'https://www.yes24.com/Product/Goods/102124327',
   }));
 
   return (
-    <ul className="flex flex-wrap justify-between pt-6">
+    <ul className="flex flex-wrap justify-between pt-6 mobile:p-4">
       {books.map((book) => (
         <BookItem key={book.title} book={book} />
       ))}
