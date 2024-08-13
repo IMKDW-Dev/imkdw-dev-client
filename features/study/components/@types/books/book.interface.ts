@@ -5,4 +5,5 @@ export interface Book {
   image: string;
   pages: number;
   progress: number;
+  link: string;
 }

@@ -1,7 +1,8 @@
+import { Book } from '../@types/books/book.interface';
 import BookItem from './book-item/BookItem';
 
 export default function Books() {
-  const books = Array.from({ length: 4 }, (_, index) => ({
+  const books: Book[] = Array.from({ length: 4 }, (_, index) => ({
     id: index + 1,
     title: '이펙티브 타입스크립트',
     image: 'https://static.imkdw.dev/images/book_thumbnail.jpg',
