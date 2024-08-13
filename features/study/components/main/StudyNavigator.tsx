@@ -26,7 +26,7 @@ export default function StudyNavigator() {
         const isActive = pathname === data.href;
 
         return (
-          <li className={clsx('rounded-t-lg p-4 px-6', isActive && 'bg-[#FF6481] text-white')} key={data.name}>
+          <li className={clsx('rounded-t-lg p-3 px-5', isActive && 'bg-[#FF6481] text-white')} key={data.name}>
             <Link href={data.href} className="flex items-center gap-2 text-xl ">
               <data.icon />
               {data.name}
