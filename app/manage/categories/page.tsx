@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import ManageCategory from '../../../containers/manage/categories/ManageCategory';
 import generateCustomMetadata from '../../../utils/metadata';
-import CategoryCreateButton from '../../../containers/manage/categories/CategoryCreateButton';
+import CategoryCreateButton from '../../../features/category/components/CreateCategoryButton';
 
 export const metadata: Metadata = {
   ...generateCustomMetadata({
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   }),
 };
 
-export default function ManageCategoryPage() {
+export default async function ManageCategoryPage() {
   return (
     <div className="flex w-full flex-col gap-5 p-6">
       <div className="flex w-full justify-between">

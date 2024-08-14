@@ -23,6 +23,7 @@ interface CallApiParams {
 export const callApi = async <T>(params: CallApiParams): Promise<T> => {
   const isFormData = params.body instanceof FormData;
   const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/${params.url}`;
+
   const response = await fetch(url, {
     method: params.method,
     headers: {

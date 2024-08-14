@@ -92,11 +92,14 @@ export default function ManageCategory() {
 
       try {
         const destCategory = categories.find((category) => category.id === +draggableId);
-        await patchUpdateCategory(+draggableId, {
-          name: destCategory?.name,
-          desc: destCategory?.desc,
-          sort: destination.index,
-        });
+        if (destCategory && destination) {
+          const formData = new FormData();
+          formData.append('name', destCategory?.name);
+          formData.append('desc', destCategory?.desc);
+          formData.append('sort', destination.index.toString());
+
+          await patchUpdateCategory(+draggableId, formData);
+        }
       } catch (error) {
         setCategories(categories);
       }
