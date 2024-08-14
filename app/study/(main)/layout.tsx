@@ -1,6 +1,6 @@
-import StudyDescription from '../../../features/study/components/main/StudyDescription';
-import StudyHeader from '../../../features/study/components/main/StudyHeader';
-import StudyNavigator from '../../../features/study/components/main/StudyNavigator';
+import StudyDescription from '../../../features/book/components/main/StudyDescription';
+import StudyHeader from '../../../features/book/components/main/StudyHeader';
+import StudyNavigator from '../../../features/book/components/main/StudyNavigator';
 
 interface Props {
   children: React.ReactNode;

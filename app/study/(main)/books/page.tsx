@@ -1,4 +1,4 @@
-import Books from '../../../../features/study/components/books/Books';
+import Books from '../../../../features/book/components/books/Books';
 
 export default function StudyBooksPage() {
   return (

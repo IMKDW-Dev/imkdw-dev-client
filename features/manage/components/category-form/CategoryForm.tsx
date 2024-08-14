@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 import clsx from 'clsx';
-
 import { postCreateCategory } from '../../../../services/category';
 import useCategory from '../../../../stores/use-category';
 import useUser from '../../../../stores/use-user';
@@ -12,7 +11,7 @@ import { userRole } from '../../../../constants/user.constant';
 interface Props {
   onClose: () => void;
 }
-export default function CategoryCreateForm({ onClose }: Props) {
+export default function CategoryForm({ onClose }: Props) {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState<File | null>(null);

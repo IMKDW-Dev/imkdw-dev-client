@@ -50,11 +50,18 @@ export default function SideMenu() {
 
         {/* 관리자용 버튼 */}
         {userInfo.role === userRole.ADMIN && (
-          <div className="flex">
-            <a href="/articles/new" onClick={handleCloseSideMenu}>
-              글쓰기
-            </a>
-          </div>
+          <>
+            <div className="flex">
+              <a href="/articles/new" onClick={handleCloseSideMenu}>
+                글쓰기
+              </a>
+            </div>
+            <div className="flex">
+              <a href="/books/new" onClick={handleCloseSideMenu}>
+                책 스터디 쓰기
+              </a>
+            </div>
+          </>
         )}
 
         {/* 네비게이터 */}

@@ -1,6 +1,6 @@
-import { Book } from '../../../../features/study/components/@types/books/book.interface';
-import BookContents from '../../../../features/study/components/books/book-detail/BookContents';
-import BookDetailImage from '../../../../features/study/components/books/book-detail/BookDetailImage';
+import { Book } from '../../../../features/book/@types/books/book.interface';
+import BookContents from '../../../../features/book/components/books/book-detail/BookContents';
+import BookDetailImage from '../../../../features/book/components/books/book-detail/BookDetailImage';
 
 export default function BookDetailPage({ params }: { params: { slug: string } }) {
   const book: Book = {

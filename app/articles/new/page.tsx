@@ -1,4 +1,4 @@
-import ArticleForm from '../../../features/blog/components/article-form/ArticleForm';
+import ArticleForm from '../../../features/article/components/article-form/ArticleForm';
 import { getCategories } from '../../../services/category';
 
 export default async function NewArticlePage() {

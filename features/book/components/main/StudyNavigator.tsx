@@ -15,8 +15,8 @@ export default function StudyNavigator() {
       icon: MenuBook,
     },
     {
-      name: 'Online Courses',
-      href: '/study/online-courses',
+      name: 'Courses',
+      href: '/study/courses',
       icon: LiveTv,
     },
   ];

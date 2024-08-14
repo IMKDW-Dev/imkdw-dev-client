@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { LinearProgress } from '@mui/material';
 
 import BookItemImage from './BookItemImage';
-import { Book } from '../../@types/books/book.interface';
+import { Book } from '../../../@types/books/book.interface';
 
 interface Props {
   book: Book;
