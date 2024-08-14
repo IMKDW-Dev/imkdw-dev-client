@@ -15,6 +15,11 @@ export default function SideMenuNavigator() {
       </h3>
       <ul className="flex flex-col gap-2">
         <li className="border-b border-box p-4 text-xl hover:underline">
+          <a href="/study" onClick={handleCloseSideMenu}>
+            Study
+          </a>
+        </li>
+        <li className="border-b border-box p-4 text-xl hover:underline">
           <a href="/" onClick={handleCloseSideMenu}>
             Home
           </a>

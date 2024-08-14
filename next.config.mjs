@@ -11,6 +11,7 @@ const nextConfig = {
         hostname: 'static.imkdw.dev',
       },
     ],
+    formats: ['image/webp'],
   },
   reactStrictMode: false,
   webpack: (config) => {
