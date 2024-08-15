@@ -5,9 +5,9 @@ import { forwardRef } from 'react';
 import { DraggableProvidedDragHandleProps, DraggableProvidedDraggableProps } from 'react-beautiful-dnd';
 import clsx from 'clsx';
 
-import CategoryImage from '../../../components/category/CategoryImage';
-import { Category } from '../../../services/@types/category';
-import ManageCategoryActions from './actionButton/ManagaCategoryActions';
+import CategoryImage from '../CategoryImage';
+import { Category } from '../../../../services/@types/category';
+import ManageCategoryActions from './ManagaCategoryActions';
 
 interface Props {
   category: Category;

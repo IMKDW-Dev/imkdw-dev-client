@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Article } from '../../services/@types/article';
-import { articleContentToPlainText } from '../../utils/article';
+import { Article } from '../../../../services/@types/article';
+import { articleContentToPlainText } from '../../../../utils/article';
 
 interface Props {
   article: Article;

@@ -2,15 +2,14 @@
 
 import { useState } from 'react';
 import Delete from '@mui/icons-material/Delete';
-
 import { Category } from '../../../../services/@types/category';
 import Confirm from '../../../../components/common/Confirm';
-import CategoryDeleteForm from '../deleteForm/CategoryDeleteForm';
+import CategoryDeleteForm from '../category-form/CategoryDeleteForm';
 
 interface Props {
   category: Category;
 }
-export default function ManageCategoryDeleteButton({ category }: Props) {
+export default function DeleteCategoryButton({ category }: Props) {
   const [isDelete, setIsDelete] = useState(false);
 
   const handleClick = () => {

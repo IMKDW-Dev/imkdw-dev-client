@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default function CategoryForm({ category, mode, onClose }: Props) {
-  const { setNewCategory } = useCategory((state) => state);
+  const { setNewCategory, setUpdatedCategory } = useCategory((state) => state);
 
   const {
     categoryData,
@@ -32,8 +32,14 @@ export default function CategoryForm({ category, mode, onClose }: Props) {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const createdCategory = await (mode === 'new' ? handleCreateCategory() : handleUpdateCategory());
-    setNewCategory(createdCategory);
+    const submittedCategory = await (mode === 'new' ? handleCreateCategory() : handleUpdateCategory());
+
+    if (mode === 'new') {
+      setNewCategory(submittedCategory);
+    } else {
+      setUpdatedCategory(submittedCategory);
+    }
+
     onClose();
   };
 

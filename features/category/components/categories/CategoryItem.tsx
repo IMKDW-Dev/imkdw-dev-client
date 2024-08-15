@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { Category } from '../../services/@types/category';
-import CategoryImage from '../../components/category/CategoryImage';
+import { Category } from '../../../../services/@types/category';
+import CategoryImage from '../CategoryImage';
 
 interface Props extends Pick<Category, 'image' | 'name' | 'articleCount'> {}
 export default function CategoryItem({ articleCount, image, name }: Props) {

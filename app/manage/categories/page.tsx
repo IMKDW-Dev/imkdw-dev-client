@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
-import ManageCategory from '../../../containers/manage/categories/ManageCategory';
+import ManageCategory from '../../../features/category/components/manage-category/ManageCategory';
 import generateCustomMetadata from '../../../utils/metadata';
-import CategoryCreateButton from '../../../features/category/components/CreateCategoryButton';
+import CategoryCreateButton from '../../../features/category/components/manage-category/CreateCategoryButton';
 
 export const metadata: Metadata = {
   ...generateCustomMetadata({

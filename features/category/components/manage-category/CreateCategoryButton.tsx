@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import CategoryModal from '../../../components/common/modals/CategoryModal';
-import CategoryForm from './category-form/CategoryForm';
+import CategoryForm from '../category-form/CategoryForm';
+import CategoryModal from '../CategoryModal';
 
 export default function CategoryCreateButton() {
   const [isCreate, setIsCreate] = useState(false);

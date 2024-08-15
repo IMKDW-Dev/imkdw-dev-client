@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
-import HomeContent from '../containers/home/content/HomeContent';
-import Introduce from '../containers/home/introduce/Introduce';
-import TrendingCategories from '../containers/home/trending-categories/TrendingCategories';
+import HomeContent from '../features/home/content/HomeContent';
+import Introduce from '../features/home/introduce/Introduce';
+import TrendingCategories from '../features/home/trending-categories/TrendingCategories';
 import generateCustomMetadata from '../utils/metadata';
 
 export const metadata: Metadata = {

@@ -2,9 +2,9 @@
 
 import { Edit } from '@mui/icons-material';
 import { useState } from 'react';
-import CategoryForm from './category-form/CategoryForm';
-import CategoryModal from '../../../components/common/modals/CategoryModal';
-import { Category } from '../../../services/@types/category';
+import CategoryForm from '../category-form/CategoryForm';
+import { Category } from '../../../../services/@types/category';
+import CategoryModal from '../CategoryModal';
 
 interface Props {
   category: Category;

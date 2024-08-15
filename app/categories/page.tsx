@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Categories from '../../containers/categories/Categories';
+import Categories from '../../features/category/components/categories/Categories';
 import generateCustomMetadata from '../../utils/metadata';
 
 export const metadata: Metadata = {

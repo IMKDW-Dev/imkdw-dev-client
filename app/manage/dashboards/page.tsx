@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
-import DashboardStatsCount from '../../../containers/manage/dashboards/statsCount/StatsCount';
+import DashboardStatsCount from '../../../features/manage/dashboards/statsCount/StatsCount';
 import generateCustomMetadata from '../../../utils/metadata';
-import DashboardEnviroment from '../../../containers/manage/dashboards/enviroments/Enviroments';
+import DashboardEnviroment from '../../../features/manage/dashboards/enviroments/Enviroments';
 
 export const metadata: Metadata = {
   ...generateCustomMetadata({

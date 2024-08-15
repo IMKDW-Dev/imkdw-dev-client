@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react';
 import { DragDropContext, Draggable, DropResult, Droppable } from 'react-beautiful-dnd';
 
 import ManageCategoryItem from './ManageCategoryItem';
-import { Category } from '../../../services/@types/category';
-import { getCategories, patchUpdateCategory } from '../../../services/category';
-import useCategory from '../../../stores/use-category';
+import { Category } from '../../../../services/@types/category';
+import { getCategories, patchUpdateCategory } from '../../../../services/category';
+import useCategory from '../../../../stores/use-category';
 
 export default function ManageCategory() {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -49,8 +49,10 @@ export default function ManageCategory() {
    */
   useEffect(() => {
     if (updatedCategory) {
-      setCategories((prev) =>
-        prev.map((category) => (category.id === updatedCategory.id ? updatedCategory : category)),
+      setCategories((prevCategories) =>
+        prevCategories.map((category) =>
+          category.id === updatedCategory.id ? { ...category, ...updatedCategory } : category,
+        ),
       );
     }
   }, [updatedCategory]);

@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 import generateCustomMetadata from '../../../utils/metadata';
-import ArticleManageHeader from '../../../containers/manage/articles/header/ArticleManageHeader';
-import ManageArticles from '../../../containers/manage/articles/list/Articles';
+import ArticleManageHeader from '../../../features/manage/articles/header/ArticleManageHeader';
+import ManageArticles from '../../../features/manage/articles/list/Articles';
 
 export const metadata: Metadata = {
   ...generateCustomMetadata({

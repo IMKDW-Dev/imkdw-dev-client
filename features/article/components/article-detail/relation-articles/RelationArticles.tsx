@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { getArticles } from '../../../../../services/article';
 import { GetArticlesSort } from '../../../../../enums/article.enum';
 import { Article } from '../../../../../services/@types/article';
-import CategoryImage from '../../../../../components/category/CategoryImage';
+import CategoryImage from '../../../../category/components/CategoryImage';
 import RelationArticleItem from './RelationArticleItem';
 
 interface Props {

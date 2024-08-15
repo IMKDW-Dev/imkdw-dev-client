@@ -1,5 +1,5 @@
 import CategoryItem from './CategoryItem';
-import { getCategories } from '../../services/category';
+import { getCategories } from '../../../../services/category';
 
 export default async function Categories() {
   const response = await getCategories();

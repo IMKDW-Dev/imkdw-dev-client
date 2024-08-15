@@ -1,10 +1,10 @@
-import { GetArticlesSort } from '../../enums/article.enum';
-import { Category } from '../../services/@types/category';
-import { getArticles } from '../../services/article';
+import { GetArticlesSort } from '../../../../enums/article.enum';
+import { Category } from '../../../../services/@types/category';
+import { getArticles } from '../../../../services/article';
 import CategoryArticleItem from './CategoryArticleItem';
-import { getHeaderValue } from '../../functions/header.function';
-import { X_PAGING_PAGE } from '../../constants/header.constants';
-import OffsetPaging from '../../components/common/OffsetPaging';
+import { getHeaderValue } from '../../../../functions/header.function';
+import { X_PAGING_PAGE } from '../../../../constants/header.constants';
+import OffsetPaging from '../../../../components/common/OffsetPaging';
 
 interface Props {
   category: Category;

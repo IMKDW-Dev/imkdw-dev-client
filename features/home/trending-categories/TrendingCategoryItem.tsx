@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Category } from '../../../services/@types/category';
-import CategoryImage from '../../../components/category/CategoryImage';
+import CategoryImage from '../../category/components/CategoryImage';
 
 interface Props extends Pick<Category, 'name' | 'image'> {}
 export default function TrendingCategoryItem({ image, name }: Props) {
