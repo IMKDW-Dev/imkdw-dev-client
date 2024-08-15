@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import ContactForm from '../../containers/contact/ContactForm';
+import ContactForm from '../../features/contact/ContactForm';
 import generateCustomMetadata from '../../utils/metadata';
 
 export const metadata: Metadata = {

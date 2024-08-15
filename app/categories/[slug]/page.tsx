@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation';
 
-import CategoryArticles from '../../../containers/categoryArticles/CategoryArticles';
+import CategoryArticles from '../../../features/category/components/category-articles/CategoryArticles';
 import { getCategoryDetail } from '../../../services/category';
 import generateCustomMetadata from '../../../utils/metadata';
-import CategoryImage from '../../../components/category/CategoryImage';
+import CategoryImage from '../../../features/category/components/CategoryImage';
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const categoryName = params.slug;
@@ -34,9 +34,9 @@ export default async function CategoryDetailPage({ params }: { params: { slug: s
   const { articleCount, desc, image, name } = category;
 
   return (
-    <section className="mobile:pt-[50px] flex w-full flex-col items-center pl-5 pr-5 pt-[80px]">
-      <header className="mobile:flex-col mobile:gap-5 flex max-w-[960px] px-[60px] pb-[20px]">
-        <div className="mobile:border-none mobile:pr-0 flex items-center gap-3 border-r-2 border-box pr-10">
+    <section className="flex w-full flex-col items-center pl-5 pr-5 pt-[80px] mobile:pt-[50px]">
+      <header className="flex max-w-[960px] px-[60px] pb-[20px] mobile:flex-col mobile:gap-5">
+        <div className="flex items-center gap-3 border-r-2 border-box pr-10 mobile:border-none mobile:pr-0">
           <CategoryImage image={image} name={name} />
           <div className="flex flex-col justify-center">
             <h1 className="text-2xl font-bold">{name}</h1>
@@ -45,7 +45,7 @@ export default async function CategoryDetailPage({ params }: { params: { slug: s
             </p>
           </div>
         </div>
-        <p className="mobile:text-center mobile:pl-0 max-w-[480px] pl-10">{desc}</p>
+        <p className="max-w-[480px] pl-10 mobile:pl-0 mobile:text-center">{desc}</p>
       </header>
       <CategoryArticles category={category} />
     </section>
