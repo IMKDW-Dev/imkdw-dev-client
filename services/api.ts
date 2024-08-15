@@ -23,6 +23,7 @@ interface CallApiParams {
 export const callApi = async <T>(params: CallApiParams): Promise<T> => {
   const isFormData = params.body instanceof FormData;
   const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/${params.url}`;
+
   const response = await fetch(url, {
     method: params.method,
     headers: {
@@ -30,8 +31,7 @@ export const callApi = async <T>(params: CallApiParams): Promise<T> => {
       ...(!isFormData && { 'Content-Type': 'application/json' }),
     },
     credentials: 'include',
-    body: params.body instanceof FormData ? params.body : JSON.stringify(params.body),
-    next: { revalidate: 3600 },
+    body: isFormData ? params.body : JSON.stringify(params.body),
   });
 
   const json = await response.json();

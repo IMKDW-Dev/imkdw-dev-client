@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import generateCustomMetadata from '../../../utils/metadata';
 import { articleContentToPlainText } from '../../../utils/article';
 import { getArticle } from '../../../services/article';
-import ArticleDetail from '../../../features/blog/components/article-detail/ArticleDetail';
+import ArticleDetail from '../../../features/article/components/article-detail/ArticleDetail';
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const articleId = params.slug;

@@ -1,4 +1,4 @@
-import ArticleForm from '../../../../features/blog/components/article-form/ArticleForm';
+import ArticleForm from '../../../../features/article/components/article-form/ArticleForm';
 import { getArticle } from '../../../../services/article';
 import { getCategories } from '../../../../services/category';
 

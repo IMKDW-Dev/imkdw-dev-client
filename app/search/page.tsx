@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import OffsetPaging from '../../components/common/OffsetPaging';
 import SearchForm from '../../components/search/SearchForm';
 import { X_PAGING_PAGE, X_SEARCH_QUERY } from '../../constants/header.constants';
-import ArticleItem from '../../containers/articles/ArticleItem';
+import ArticleItem from '../../features/article/components/ArticleItem';
 import { GetArticlesSort } from '../../enums/article.enum';
 import { getHeaderValue } from '../../functions/header.function';
 import { getArticles } from '../../services/article';
