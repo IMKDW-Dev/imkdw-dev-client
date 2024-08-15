@@ -31,8 +31,7 @@ export const callApi = async <T>(params: CallApiParams): Promise<T> => {
       ...(!isFormData && { 'Content-Type': 'application/json' }),
     },
     credentials: 'include',
-    body: params.body instanceof FormData ? params.body : JSON.stringify(params.body),
-    next: { revalidate: 3600 },
+    body: isFormData ? params.body : JSON.stringify(params.body),
   });
 
   const json = await response.json();
