@@ -8,7 +8,7 @@ export interface Category {
 }
 
 export interface GetCategoriesResponse {
-  categories: Category[];
+  items: Category[];
 }
 
 export interface GetCategoryDetailResponse extends Category {}

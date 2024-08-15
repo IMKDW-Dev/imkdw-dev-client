@@ -1,9 +1,8 @@
 export interface Book {
-  id: number;
+  id: string;
   title: string;
   description: string;
   image: string;
-  pages: number;
   progress: number;
-  link: string;
+  pages: number;
 }

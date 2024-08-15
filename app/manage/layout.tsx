@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import ManageSideMenu from '../../features/manage/sideMenu/MangeSideMenu';
+import ManageSideMenu from '../../features/manage/sideMenu/ManageSideMenu';
 import generateCustomMetadata from '../../utils/metadata';
 
 interface Props {

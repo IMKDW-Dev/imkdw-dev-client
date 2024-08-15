@@ -1,4 +1,4 @@
-import { Book } from '../../@types/books/book.interface';
+import { Book } from '../../../../services/@types/book';
 import BookItem from './book-item/BookItem';
 
 export default function Books() {

@@ -5,7 +5,7 @@ import { getCategories } from '../../../services/category';
 export default async function TrendingCategories() {
   const SHOW_CATEGORY_COUNT = 5;
   const response = await getCategories(SHOW_CATEGORY_COUNT);
-  const { categories } = response;
+  const { items } = response;
 
   return (
     <section className="flex w-full px-5 mobile:px-0">
@@ -16,13 +16,13 @@ export default async function TrendingCategories() {
         </h2>
         <div className="box-shadow flex w-full rounded-[150px] border border-box bg-white pb-5 pt-5 mobile:rounded-none">
           <ul className="flex w-[80%] items-center justify-center gap-5 mobile:w-full mobile:flex-wrap mobile:justify-start mobile:gap-0">
-            {categories.map((category) => (
+            {items.map((category) => (
               <TrendingCategoryItem key={category.id} image={category.image} name={category.name} />
             ))}
           </ul>
           <div className="flex items-center justify-center gap-5 mobile:hidden">
             <b>or...</b>
-            <Link href="/categories" className="rounded-md bg-[#FF6481] pb-2 pl-4 pr-4 pt-2 text-white">
+            <Link href="/items" className="rounded-md bg-[#FF6481] pb-2 pl-4 pr-4 pt-2 text-white">
               Explore All
             </Link>
           </div>

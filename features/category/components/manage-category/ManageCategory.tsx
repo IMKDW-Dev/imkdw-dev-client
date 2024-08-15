@@ -18,7 +18,7 @@ export default function ManageCategory() {
   useEffect(() => {
     const fetchCategories = async () => {
       const response = await getCategories();
-      setCategories(response.categories);
+      setCategories(response.items);
     };
 
     fetchCategories();

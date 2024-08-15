@@ -13,6 +13,7 @@ export default function ManageSideMenu() {
         <SideMenuSeparator text="APPS" />
         <ManageSideMenuItem link="/manage/categories" text="Categories" />
         <ManageSideMenuItem link="/manage/articles?page=1" text="Articles" />
+        <ManageSideMenuItem link="/manage/books" text="Books" />
       </ul>
     </aside>
   );
