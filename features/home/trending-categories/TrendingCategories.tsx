@@ -4,8 +4,7 @@ import { getCategories } from '../../../services/category';
 
 export default async function TrendingCategories() {
   const SHOW_CATEGORY_COUNT = 5;
-  const response = await getCategories(SHOW_CATEGORY_COUNT);
-  const { items } = response;
+  const { categories } = await getCategories(SHOW_CATEGORY_COUNT);
 
   return (
     <section className="flex w-full px-5 mobile:px-0">
@@ -16,7 +15,7 @@ export default async function TrendingCategories() {
         </h2>
         <div className="box-shadow flex w-full rounded-[150px] border border-box bg-white pb-5 pt-5 mobile:rounded-none">
           <ul className="flex w-[80%] items-center justify-center gap-5 mobile:w-full mobile:flex-wrap mobile:justify-start mobile:gap-0">
-            {items.map((category) => (
+            {categories.map((category) => (
               <TrendingCategoryItem key={category.id} image={category.image} name={category.name} />
             ))}
           </ul>

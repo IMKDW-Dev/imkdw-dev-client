@@ -2,8 +2,7 @@ import CategoryItem from './CategoryItem';
 import { getCategories } from '../../../../services/category';
 
 export default async function Categories() {
-  const response = await getCategories();
-  const { categories } = response;
+  const { categories } = await getCategories();
 
   return (
     <div className="w-full px-10">

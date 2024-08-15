@@ -16,7 +16,7 @@ export default function ArticleManageHeaderCategorySelector() {
   useEffect(() => {
     const fetchCategories = async () => {
       const response = await getCategories();
-      setCategories(response.items);
+      setCategories(response.categories);
     };
     fetchCategories();
 
