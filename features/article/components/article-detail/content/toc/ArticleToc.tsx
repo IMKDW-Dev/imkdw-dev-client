@@ -39,8 +39,8 @@ export default function ArticleToc({ content }: Props) {
   }, []);
 
   return (
-    <aside ref={asideRef} className="absolute left-full w-[300px]">
-      <section className="sticky top-[120px] max-h-[calc(100vh-120px)] overflow-y-auto mobile:hidden">
+    <aside ref={asideRef} className="absolute left-full w-[300px] mobile:hidden">
+      <section className="sticky top-[120px] max-h-[calc(100vh-120px)] overflow-y-auto">
         <h3 className="border-b-2 border-[#FF6481]">In this Article</h3>
         <ul className="flex flex-col gap-4 pt-2">
           {tocItems.map((item) => {
