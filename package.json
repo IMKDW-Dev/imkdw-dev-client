@@ -12,6 +12,12 @@
     "brain-web": "pnpm -F @imkdw-dev-client/brain-web"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "15.2.0",
+    "eslint-config-prettier": "^10.0.2",
     "prettier": "^3.5.2",
     "turbo": "^2.4.4",
     "typescript": "5.7.3"

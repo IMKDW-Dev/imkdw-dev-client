@@ -8,6 +8,24 @@ importers:
 
   .:
     devDependencies:
+      '@eslint/eslintrc':
+        specifier: ^3.0.0
+        version: 3.3.0
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^8.25.0
+        version: 8.25.0(@typescript-eslint/parser@8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
+      '@typescript-eslint/parser':
+        specifier: ^8.25.0
+        version: 8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
+      eslint:
+        specifier: ^9.0.0
+        version: 9.21.0(jiti@2.4.2)
+      eslint-config-next:
+        specifier: 15.2.0
+        version: 15.2.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
+      eslint-config-prettier:
+        specifier: ^10.0.2
+        version: 10.0.2(eslint@9.21.0(jiti@2.4.2))
       prettier:
         specifier: ^3.5.2
         version: 3.5.2
@@ -30,9 +48,6 @@ importers:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
     devDependencies:
-      '@eslint/eslintrc':
-        specifier: ^3
-        version: 3.3.0
       '@imkdw-dev-client/config':
         specifier: workspace:*
         version: link:../../packages/config
@@ -45,12 +60,6 @@ importers:
       '@types/react-dom':
         specifier: ^19
         version: 19.0.4(@types/react@19.0.10)
-      eslint:
-        specifier: ^9
-        version: 9.21.0(jiti@2.4.2)
-      eslint-config-next:
-        specifier: 15.2.0
-        version: 15.2.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
       postcss:
         specifier: ^8
         version: 8.5.3
@@ -73,9 +82,6 @@ importers:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
     devDependencies:
-      '@eslint/eslintrc':
-        specifier: ^3
-        version: 3.3.0
       '@imkdw-dev-client/config':
         specifier: workspace:*
         version: link:../../packages/config
@@ -88,12 +94,6 @@ importers:
       '@types/react-dom':
         specifier: ^19
         version: 19.0.4(@types/react@19.0.10)
-      eslint:
-        specifier: ^9
-        version: 9.21.0(jiti@2.4.2)
-      eslint-config-next:
-        specifier: 15.2.0
-        version: 15.2.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
       postcss:
         specifier: ^8
         version: 8.5.3
@@ -104,38 +104,23 @@ importers:
         specifier: ^5
         version: 5.7.3
 
-  packages/config:
-    devDependencies:
-      '@eslint/eslintrc':
-        specifier: ^3.0.0
-        version: 3.3.0
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^8.25.0
-        version: 8.25.0(@typescript-eslint/parser@8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
-      eslint:
-        specifier: ^9.0.0
-        version: 9.21.0(jiti@2.4.2)
-      eslint-config-next:
-        specifier: 15.2.0
-        version: 15.2.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
-      eslint-config-prettier:
-        specifier: ^10.0.2
-        version: 10.0.2(eslint@9.21.0(jiti@2.4.2))
-      prettier:
-        specifier: ^3.5.2
-        version: 3.5.2
+  packages/config: {}
 
   packages/ui:
+    dependencies:
+      next:
+        specifier: 15.2.0
+        version: 15.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react:
+        specifier: ^19.0.0
+        version: 19.0.0
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.0.0(react@19.0.0)
     devDependencies:
-      prettier:
-        specifier: ^3.5.2
-        version: 3.5.2
-      turbo:
-        specifier: ^2.4.2
-        version: 2.4.4
-      typescript:
-        specifier: 5.7.3
-        version: 5.7.3
+      '@imkdw-dev-client/config':
+        specifier: workspace:*
+        version: link:../config
 
 packages:
 

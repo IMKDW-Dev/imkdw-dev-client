@@ -5,8 +5,14 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "lint": "eslint ."
+    "lint": "eslint . --config ./eslint.config.mjs"
   },
-  "dependencies": {}            
+  "dependencies": {
+    "next": "15.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@imkdw-dev-client/config": "workspace:*"
+  }
 }
-      

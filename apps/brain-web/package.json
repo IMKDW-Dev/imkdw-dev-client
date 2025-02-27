@@ -14,13 +14,10 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
     "@imkdw-dev-client/config": "workspace:*",
     "@types/node": "^22.13.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.2.0",
     "postcss": "^8",
     "tailwindcss": "^4.0.9",
     "typescript": "^5"
