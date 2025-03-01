@@ -7,8 +7,5 @@
     "postcss.config.mjs",
     "tsconfig.next.json",
     "tailwind.config.ts"
-  ],
-  "dependencies": {
-    "tailwindcss": "^4.0.9"
-  }
+  ]
 }
