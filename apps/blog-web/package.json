@@ -9,6 +9,9 @@
     "start": "next start",
     "lint": "eslint ."
   },
+  "dependencies": {
+    "tailwindcss": "^4.0.9"
+  },
   "devDependencies": {
     "@imkdw-dev-client/config": "workspace:*"
   }

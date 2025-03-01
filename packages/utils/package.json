@@ -1,22 +1,22 @@
 {
-  "name": "@imkdw-dev-client/ui",
+  "name": "@imkdw-dev-client/utils",
   "version": "0.1.0",
   "type": "module",
   "private": true,
+  "main": "./src/index.ts",
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
     "lint": "eslint ."
   },
+  "devDependencies": {
+    "@imkdw-dev-client/config": "workspace:*"
+  },
   "dependencies": {
-    "@imkdw-dev-client/utils": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.477.0",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7"
-  },
-  "devDependencies": {
-    "@imkdw-dev-client/config": "workspace:*"
   }
 }
