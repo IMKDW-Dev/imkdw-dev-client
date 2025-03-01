@@ -1,3 +1,6 @@
 import config from "@imkdw-dev-client/config/tailwind.config";
 
-export default config;
+export default {
+  ...config,
+  content: ["./src/**/*.{ts,tsx}"],
+};

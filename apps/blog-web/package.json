@@ -10,7 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "tailwindcss": "^4.0.9"
+    "@imkdw-dev-client/ui": "workspace:*"
   },
   "devDependencies": {
     "@imkdw-dev-client/config": "workspace:*"
