@@ -1,9 +1,10 @@
 {
   "name": "@imkdw-dev-client/ui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
+  "type": "module",
   "exports": {
-    "./*": "./src/*.tsx",
+    ".": "./src/index.ts",
     "./globals.css": "./src/styles/globals.css"
   },
   "scripts": {
@@ -12,7 +13,10 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.6",
+    "@radix-ui/react-separator": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.2",
+    "@radix-ui/react-tooltip": "^1.1.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.477.0",
@@ -23,8 +27,8 @@
   },
   "devDependencies": {
     "@imkdw-dev-client/eslint-config": "workspace:*",
-    "@imkdw-dev-client/typescript-config": "workspace:*",
     "@imkdw-dev-client/tailwind-config": "workspace:*",
+    "@imkdw-dev-client/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4.0.9",
     "@types/node": "^22.13.0",
     "@types/react": "19.0.8",

@@ -4,7 +4,7 @@ import type { Config } from "tailwindcss";
 import sharedConfig from "@imkdw-dev-client/tailwind-config";
 
 const config: Pick<Config, "content" | "presets"> = {
-  content: ["./src/**/*.tsx"],
+  content: ["./src/components/**/*.tsx"],
   presets: [sharedConfig],
 };
 
