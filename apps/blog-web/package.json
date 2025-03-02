@@ -1,5 +1,5 @@
 {
-  "name": "docs",
+  "name": "@imkdw-dev-client/blog-web",
   "version": "0.1.0",
   "type": "module",
   "private": true,
@@ -11,14 +11,14 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@repo/ui": "workspace:*",
+    "@imkdw-dev-client/ui": "workspace:*",
     "next": "^15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@imkdw-dev-client/eslint-config": "workspace:*",
+    "@imkdw-dev-client/typescript-config": "workspace:*",
     "@types/node": "^22",
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",

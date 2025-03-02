@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "imkdw-dev-client",
   "private": true,
   "scripts": {
     "build": "turbo run build",
