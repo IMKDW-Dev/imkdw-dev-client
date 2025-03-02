@@ -64,31 +64,18 @@ importers:
         specifier: ^5
         version: 5.8.2
 
-  apps/blog-web:
-    dependencies:
-      '@imkdw-dev-client/config':
-        specifier: workspace:*
-        version: link:../../packages/config
-      '@imkdw-dev-client/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
-      next:
-        specifier: 15.2.0
-        version: 15.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      react:
-        specifier: ^19.0.0
-        version: 19.0.0
-      react-dom:
-        specifier: ^19.0.0
-        version: 19.0.0(react@19.0.0)
+  packages/eslint-config: {}
 
-  packages/config: {}
-
-  packages/ui:
-    dependencies:
-      '@imkdw-dev-client/config':
+  packages/tailwind-config:
+    devDependencies:
+      '@imkdw-dev-client/eslint-config':
         specifier: workspace:*
-        version: link:../config
+        version: link:../eslint-config
+      '@imkdw-dev-client/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+
+  packages/typescript-config: {}
 
 packages:
 

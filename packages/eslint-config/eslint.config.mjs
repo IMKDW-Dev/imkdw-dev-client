@@ -30,16 +30,7 @@ const eslintConfig = [
     plugins: {
       "@typescript-eslint": typescript,
     },
-    rules: {
-      "react/prop-types": 0,
-      "no-empty-function": "off",
-      "react/react-in-jsx-scope": "off",
-      "react/no-unknown-property": ["error", { ignore: ["css"] }],
-      "@typescript-eslint/no-empty-interface": 0,
-      "@typescript-eslint/no-empty-function": 0,
-      "@typescript-eslint/no-unused-vars": "off",
-      "@next/next/no-assign-module-variable": "off",
-    },
+    rules: {},
     settings: {
       react: {
         version: "detect",

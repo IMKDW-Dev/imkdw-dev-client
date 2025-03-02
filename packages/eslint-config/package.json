@@ -1,0 +1,8 @@
+{
+  "name": "@imkdw-dev-client/eslint-config",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    "./eslint.config": "./eslint.config.mjs"
+  }
+}

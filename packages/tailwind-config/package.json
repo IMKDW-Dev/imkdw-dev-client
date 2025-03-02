@@ -1,0 +1,14 @@
+{
+  "name": "@imkdw-dev-client/tailwind-config",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./src/index.ts",
+  "exports": {
+    "./tailwind.config": "./tailwind.config.ts",
+    "./postcss.config": "./postcss.config.mjs"
+  },
+  "devDependencies": {
+    "@imkdw-dev-client/typescript-config": "workspace:*",
+    "@imkdw-dev-client/eslint-config": "workspace:*"
+  }
+}
