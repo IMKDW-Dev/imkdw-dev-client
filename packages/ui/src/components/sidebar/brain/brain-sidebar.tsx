@@ -108,7 +108,7 @@ export function BrainSidebar() {
   return (
     <BasicSidebar>
       <SidebarGroup>
-        <SidebarGroupLabel>Categories</SidebarGroupLabel>
+        <SidebarGroupLabel>{t('Sidebar.Categories.Title')}</SidebarGroupLabel>
         <SidebarGroupAction title="Add Project">
           <Icon icon="lucide:plus" /> <span className="sr-only">Add Project</span>
         </SidebarGroupAction>
