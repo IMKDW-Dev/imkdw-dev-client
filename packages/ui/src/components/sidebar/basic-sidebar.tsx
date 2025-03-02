@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import { Home } from "lucide-react";
 
 import {
   Sidebar,
@@ -10,42 +10,25 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/_shadcn/components/ui/sidebar";
-
-// Menu items.
-const items = [
-  {
-    title: "Home",
-    url: "#",
-    icon: Home,
-  },
-  {
-    title: "Inbox",
-    url: "#",
-    icon: Inbox,
-  },
-  {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
-  },
-];
+import { useSafeTranslations } from "@imkdw-dev-client/i18n";
 
 export function BasicSidebar() {
+  const t = useSafeTranslations("Sidebar");
+
+  // Menu items.
+  const items = [
+    {
+      title: t("Sidebar.platformMenu.main"),
+      url: "#",
+      icon: Home,
+    },
+  ];
+
   return (
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel>{t("Sidebar.platform")}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (

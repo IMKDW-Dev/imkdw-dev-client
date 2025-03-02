@@ -1,0 +1,9 @@
+{
+  "Sidebar": {
+    "platform": "Platform",
+    "platformMenu": {
+      "main": "Main"
+    },
+    "categories": "Categories"
+  }
+}

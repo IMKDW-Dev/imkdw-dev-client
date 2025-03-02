@@ -1,0 +1,9 @@
+{
+  "Sidebar": {
+    "platform": "플랫폼",
+    "platformMenu": {
+      "main": "메인"
+    },
+    "categories": "카테고리"
+  }
+}

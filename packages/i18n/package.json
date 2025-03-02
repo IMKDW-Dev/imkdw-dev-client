@@ -1,0 +1,27 @@
+{
+  "name": "@imkdw-dev-client/i18n",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./request": "./src/request/request.ts"
+  },
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "generate:component": "turbo gen react-component",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next-intl": "^3.26.5"
+  },
+  "devDependencies": {
+    "@imkdw-dev-client/eslint-config": "workspace:*",
+    "@imkdw-dev-client/typescript-config": "workspace:*",
+    "@types/node": "^22.13.0",
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3",
+    "eslint": "^9.21.0",
+    "typescript": "5.7.3"
+  }
+}
