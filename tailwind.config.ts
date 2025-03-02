@@ -1,0 +1,1 @@
+// for vscode tailwindcss intellisense

@@ -1,9 +1,16 @@
 {
   "Sidebar": {
-    "platform": "Platform",
-    "platformMenu": {
-      "main": "Main"
+    "Platform": {
+      "Title": "Platform",
+      "Blog": {
+        "Title": "Blog"
+      },
+      "Brain": {
+        "Title": "Brain"
+      }
     },
-    "categories": "Categories"
+    "Categories": {
+      "Title": "Categories"
+    }
   }
 }

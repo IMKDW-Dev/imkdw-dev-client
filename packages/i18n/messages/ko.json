@@ -1,9 +1,16 @@
 {
   "Sidebar": {
-    "platform": "플랫폼",
-    "platformMenu": {
-      "main": "메인"
+    "Platform": {
+      "Title": "플랫폼",
+      "Blog": {
+        "Title": "블로그"
+      },
+      "Brain": {
+        "Title": "메모"
+      }
     },
-    "categories": "카테고리"
+    "Categories": {
+      "Title": "카테고리"
+    }
   }
 }
