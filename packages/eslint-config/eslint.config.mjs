@@ -30,7 +30,9 @@ const eslintConfig = [
     plugins: {
       "@typescript-eslint": typescript,
     },
-    rules: {},
+    rules: {
+      "no-console": ["error", { allow: ["warn", "error"] }],
+    },
     settings: {
       react: {
         version: "detect",
