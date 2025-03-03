@@ -1,10 +1,7 @@
 import { Icon } from '@iconify/react';
 
 import {
-  Sidebar,
-  SidebarContent,
   SidebarGroup,
-  SidebarGroupAction,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
@@ -18,6 +15,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/_shadcn/c
 
 import { useSafeTranslations, Link } from '@imkdw-dev-client/i18n';
 import { BasicSidebar } from '../basic';
+import { CategoryAction } from './category';
 
 export function BrainSidebar() {
   const t = useSafeTranslations('Sidebar');
@@ -108,10 +106,12 @@ export function BrainSidebar() {
   return (
     <BasicSidebar>
       <SidebarGroup>
+        {/* Category Label */}
         <SidebarGroupLabel>{t('Sidebar.Categories.Title')}</SidebarGroupLabel>
-        <SidebarGroupAction title="Add Project">
-          <Icon icon="lucide:plus" /> <span className="sr-only">Add Project</span>
-        </SidebarGroupAction>
+
+        <CategoryAction />
+
+        {/* Category Content */}
         <SidebarGroupContent>
           <SidebarMenu>
             {categories.map((category) => (
