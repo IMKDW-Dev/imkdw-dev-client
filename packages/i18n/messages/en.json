@@ -3,14 +3,17 @@
     "Platform": {
       "Title": "Platform",
       "Blog": {
-        "Title": "Blog"
+        "Title": "BLOG"
       },
       "Brain": {
-        "Title": "Brain"
+        "Title": "BRAIN"
       }
     },
     "Categories": {
-      "Title": "Categories"
+      "Title": "Categories",
+      "Add": "Add Category",
+      "Edit": "Edit Category",
+      "Delete": "Delete Category"
     }
   }
 }
