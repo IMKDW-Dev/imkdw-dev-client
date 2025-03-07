@@ -11,9 +11,19 @@
     },
     "Categories": {
       "Title": "카테고리",
-      "Add": "카테고리 추가",
-      "Edit": "카테고리 수정",
-      "Delete": "카테고리 삭제"
+      "Button": {
+        "Add": "카테고리 추가",
+        "Edit": "카테고리 수정",
+        "Delete": "카테고리 삭제"
+      },
+      "Form": {
+        "Save": "저장",
+        "Cancel": "취소",
+        "Name": {
+          "Label": "이름",
+          "Placeholder": "카테고리 이름을 입력하세요"
+        }
+      }
     }
   }
 }

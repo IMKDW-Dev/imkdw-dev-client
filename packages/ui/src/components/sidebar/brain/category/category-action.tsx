@@ -32,17 +32,17 @@ export function CategoryAction() {
         className="!bg-white dark:!bg-gray-900 border !border-gray-200 dark:!border-gray-800"
       >
         <CategoryItem
-          title={t('Sidebar.Categories.Add')}
+          title={t('Sidebar.Categories.Button.Add')}
           isOpen={openDialog === actions.add}
           onOpenChange={(open) => setOpenDialog(open ? actions.add : null)}
         />
         <CategoryItem
-          title={t('Sidebar.Categories.Edit')}
+          title={t('Sidebar.Categories.Button.Edit')}
           isOpen={openDialog === actions.edit}
           onOpenChange={(open) => setOpenDialog(open ? actions.edit : null)}
         />
         <CategoryItem
-          title={t('Sidebar.Categories.Delete')}
+          title={t('Sidebar.Categories.Button.Delete')}
           isOpen={openDialog === actions.delete}
           onOpenChange={(open) => setOpenDialog(open ? actions.delete : null)}
         />

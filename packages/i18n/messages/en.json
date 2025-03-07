@@ -11,9 +11,19 @@
     },
     "Categories": {
       "Title": "Categories",
-      "Add": "Add Category",
-      "Edit": "Edit Category",
-      "Delete": "Delete Category"
+      "Button": {
+        "Add": "Add Category",
+        "Edit": "Edit Category",
+        "Delete": "Delete Category"
+      },
+      "Form": {
+        "Save": "Save",
+        "Cancel": "Cancel",
+        "Name": {
+          "Label": "Name",
+          "Placeholder": "Please enter category name"
+        }
+      }
     }
   }
 }
