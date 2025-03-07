@@ -8,16 +8,15 @@ import {
 
 interface Props {
   title: string;
-  className?: string;
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
-export function CategoryItem({ title, className = '', isOpen, onOpenChange }: Props) {
+export function CategoryItem({ title, isOpen, onOpenChange }: Props) {
   return (
     <>
       <DropdownMenuItem
-        className={cn('cursor-pointer', className)}
+        className="cursor-pointer"
         onSelect={(event) => {
           event.preventDefault();
           onOpenChange(true);
@@ -27,7 +26,7 @@ export function CategoryItem({ title, className = '', isOpen, onOpenChange }: Pr
       </DropdownMenuItem>
 
       <AlertDialog open={isOpen} onOpenChange={onOpenChange}>
-        <AlertDialogContent>
+        <AlertDialogContent onClick={(event) => event.stopPropagation()}>
           <AlertDialogHeader>
             <AlertDialogTitle>{title}</AlertDialogTitle>
           </AlertDialogHeader>

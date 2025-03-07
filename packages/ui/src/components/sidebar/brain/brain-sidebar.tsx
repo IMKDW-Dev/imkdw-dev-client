@@ -16,17 +16,6 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/_shadcn/c
 import { useSafeTranslations, Link } from '@imkdw-dev-client/i18n';
 import { BasicSidebar } from '../basic';
 import { CategoryAction } from './category';
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from '../../../_shadcn/components/ui/alert-dialog';
 
 export function BrainSidebar() {
   const t = useSafeTranslations('Sidebar');
