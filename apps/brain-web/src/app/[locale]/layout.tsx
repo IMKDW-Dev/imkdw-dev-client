@@ -6,7 +6,6 @@ import localFont from 'next/font/local';
 
 import './globals.css';
 
-import { BrainSidebar, SidebarProvider } from '@imkdw-dev-client/ui';
 import { NextIntlClientProvider } from 'next-intl';
 
 const pretendard = localFont({
@@ -54,10 +53,7 @@ export default async function RootLayout({
     <html lang={locale} className={pretendard.className}>
       <body>
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <SidebarProvider>
-            <BrainSidebar />
-            <main>{children}</main>
-          </SidebarProvider>
+          <main>{children}</main>
         </NextIntlClientProvider>
       </body>
     </html>
