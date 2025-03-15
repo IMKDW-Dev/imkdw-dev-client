@@ -3,6 +3,7 @@ import { routing, SupportLocale } from '@imkdw-dev-client/i18n';
 import { notFound } from 'next/navigation';
 import { getMessages } from 'next-intl/server';
 import localFont from 'next/font/local';
+import { Header, Wrapper } from '@imkdw-dev-client/ui';
 
 import './globals.css';
 
@@ -13,14 +14,6 @@ const pretendard = localFont({
     {
       path: '../../fonts/Pretendard-Regular.woff2',
       weight: '400',
-    },
-    {
-      path: '../../fonts/Pretendard-Medium.woff2',
-      weight: '500',
-    },
-    {
-      path: '../../fonts/Pretendard-SemiBold.woff2',
-      weight: '600',
     },
     {
       path: '../../fonts/Pretendard-Bold.woff2',
@@ -53,7 +46,10 @@ export default async function RootLayout({
     <html lang={locale} className={pretendard.className}>
       <body>
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <main>{children}</main>
+          <Wrapper>
+            <Header title="BLOG" />
+            <main>{children}</main>
+          </Wrapper>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -1,34 +1,24 @@
 {
-  "name": "@imkdw-dev-client/ui",
+  "name": "@imkdw-dev-client/utils",
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "exports": {
-    ".": "./src/index.ts",
-    "./globals.css": "./src/styles/globals.css"
-  },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component",
     "check-types": "tsc --noEmit"
   },
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "dependencies": {
-    "@imkdw-dev-client/utils": "workspace:*",
-    "@imkdw-dev-client/i18n": "workspace:*",
-    "clsx": "^2.1.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "tailwind-merge": "^3.0.2"
   },
   "devDependencies": {
     "@imkdw-dev-client/eslint-config": "workspace:*",
     "@imkdw-dev-client/tailwind-config": "workspace:*",
     "@imkdw-dev-client/typescript-config": "workspace:*",
-    "@tailwindcss/postcss": "^4.0.9",
-    "@types/node": "^22.13.0",
-    "@types/react": "19.0.8",
-    "@types/react-dom": "19.0.3",
     "eslint": "^9.21.0",
-    "tailwindcss": "^4.0.0",
     "typescript": "5.7.3"
   }
 }

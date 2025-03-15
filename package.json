@@ -12,6 +12,7 @@
     "============================== PACKAGES ==============================": "",
     "ui": "pnpm -F ui",
     "i18n": "pnpm -F i18n",
+    "utils": "pnpm -F utils",
     "============================== UTILS ==============================": "",
     "clean-repo": "find . -name \"node_modules\" -type d -prune -exec rm -rf {} + && find . -name \"dist\" -type d -prune -exec rm -rf {} + && find . -name \".next\" -type d -prune -exec rm -rf {} + "
   },
