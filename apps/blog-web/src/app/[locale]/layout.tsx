@@ -23,8 +23,8 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'IMKDW Dev | BRAIN',
-  description: 'IMKDW Dev | BRAIN',
+  title: 'IMKDW Dev | BLOG',
+  description: 'IMKDW Dev | BLOG',
 };
 
 export default async function RootLayout({

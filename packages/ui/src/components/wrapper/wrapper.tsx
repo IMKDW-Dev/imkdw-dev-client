@@ -5,5 +5,5 @@ interface WrapperProps {
 }
 
 export function LayoutWrapper({ children }: WrapperProps): React.ReactElement {
-  return <main className="min-h-screen w-full bg-black text-white">{children}</main>;
+  return <main className="w-full max-w-7xl bg-black min-h-screen">{children}</main>;
 }

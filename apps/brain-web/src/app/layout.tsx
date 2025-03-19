@@ -33,7 +33,7 @@ export default async function RootLayout({
       <body>
         <LayoutWrapper>
           <Header title="BRAIN" />
-          <section className="w-full">{children}</section>
+          <main>{children}</main>
         </LayoutWrapper>
       </body>
     </html>
