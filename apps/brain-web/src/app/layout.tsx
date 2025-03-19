@@ -3,7 +3,7 @@ import localFont from 'next/font/local';
 
 import './globals.css';
 import { Header } from '@imkdw-dev-client/ui';
-import { Wrapper } from '@imkdw-dev-client/ui';
+import { LayoutWrapper } from '@imkdw-dev-client/ui';
 
 const pretendard = localFont({
   src: [
@@ -31,10 +31,10 @@ export default async function RootLayout({
   return (
     <html lang="ko" className={pretendard.className}>
       <body>
-        <Wrapper className="bg-blue-200">
+        <LayoutWrapper>
           <Header title="BRAIN" />
-          <section>{children}</section>
-        </Wrapper>
+          <section className="w-full">{children}</section>
+        </LayoutWrapper>
       </body>
     </html>
   );
