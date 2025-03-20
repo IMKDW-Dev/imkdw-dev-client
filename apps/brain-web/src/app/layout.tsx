@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
 import './globals.css';
-import { Header } from '@imkdw-dev-client/ui';
-import { LayoutWrapper } from '@imkdw-dev-client/ui';
+
+import { Header, LayoutWrapper } from '@imkdw-dev-client/ui';
 
 const pretendard = localFont({
   src: [
