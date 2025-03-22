@@ -70,20 +70,26 @@ importers:
         specifier: 5.7.3
         version: 5.7.3
 
-  apps/brain-web:
+  apps/memo-web:
     dependencies:
+      '@imkdw-dev-client/fonts':
+        specifier: workspace:*
+        version: link:../../packages/fonts
+      '@imkdw-dev-client/i18n':
+        specifier: workspace:*
+        version: link:../../packages/i18n
       '@imkdw-dev-client/ui':
         specifier: workspace:*
         version: link:../../packages/ui
-      '@imkdw-dev-client/utils':
-        specifier: workspace:*
-        version: link:../../packages/utils
       '@tailwindcss/postcss':
         specifier: ^4.0.9
         version: 4.0.9
       next:
         specifier: ^15.1.6
         version: 15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      next-intl:
+        specifier: ^3.26.5
+        version: 3.26.5(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -154,6 +160,40 @@ importers:
       typescript-eslint:
         specifier: ^8.24.0
         version: 8.24.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
+
+  packages/fonts:
+    dependencies:
+      next:
+        specifier: ^15.1.6
+        version: 15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react:
+        specifier: ^19.0.0
+        version: 19.0.0
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.0.0(react@19.0.0)
+    devDependencies:
+      '@imkdw-dev-client/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@imkdw-dev-client/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/node':
+        specifier: ^22.13.0
+        version: 22.13.0
+      '@types/react':
+        specifier: 19.0.8
+        version: 19.0.8
+      '@types/react-dom':
+        specifier: 19.0.3
+        version: 19.0.3(@types/react@19.0.8)
+      eslint:
+        specifier: ^9.21.0
+        version: 9.21.0(jiti@2.4.2)
+      typescript:
+        specifier: 5.7.3
+        version: 5.7.3
 
   packages/i18n:
     dependencies:
