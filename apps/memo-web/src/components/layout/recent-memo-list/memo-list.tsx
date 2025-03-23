@@ -1,4 +1,5 @@
 import { Icon } from '@iconify/react';
+import { cn } from '@imkdw-dev-client/utils';
 import { FC } from 'react';
 
 interface MemoItemProps {
@@ -6,11 +7,17 @@ interface MemoItemProps {
   content: string;
   views: number;
   date: string;
+  color: string;
 }
 
-const MemoItem: FC<MemoItemProps> = ({ title, content, views, date }) => {
+const MemoItem: FC<MemoItemProps> = ({ title, content, views, date, color }) => {
   return (
-    <div className="flex flex-col bg-white border-b-4 border-b-[#F18484] shadow-primary rounded-lg p-4 gap-4 cursor-pointer hover:bg-gray-100">
+    <div
+      className={cn(
+        'flex flex-col bg-white shadow-primary rounded-lg p-4 gap-4 cursor-pointer hover:bg-gray-100 border-b-4',
+      )}
+      style={{ borderColor: color }}
+    >
       <div className="flex justify-between">
         <h3>{title}</h3>
         <button>
@@ -20,11 +27,11 @@ const MemoItem: FC<MemoItemProps> = ({ title, content, views, date }) => {
       <p className="text-gray-400 line-clamp-2 whitespace-pre-wrap">{content}</p>
       <div className="flex justify-between pt-4 items-end h-full">
         <div className="flex gap-2">
-          <Icon icon="solar:eye-outline" width={20} height={20} className="text-[#F18484]" />
+          <Icon icon="solar:eye-outline" width={20} height={20} style={{ color }} />
           <span className="text-sm text-gray-400 flex items-end">{views}</span>
         </div>
         <div className="flex gap-2">
-          <Icon icon="solar:calendar-outline" width={20} height={20} className="text-[#F18484]" />
+          <Icon icon="solar:calendar-outline" width={20} height={20} style={{ color }} />
           <span className="text-sm text-gray-400">{date}</span>
         </div>
       </div>
@@ -38,6 +45,7 @@ export function MemoList() {
     content: `About Knowledgeasdasdasdasdsadasdada dasdasdasdadadadadasdasdas`,
     views: 1234,
     date: '2024-01-01',
+    color: '#F18484',
   }));
 
   return (
