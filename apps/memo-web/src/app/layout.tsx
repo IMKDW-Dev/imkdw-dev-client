@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { mapleFont } from '@imkdw-dev-client/fonts';
 import './globals.css';
-import { Sidebar } from '@/src/components';
+import { Sidebar, Header } from '@/src/components';
 import { cn } from '@imkdw-dev-client/utils';
 
 export const metadata: Metadata = {
@@ -19,7 +19,10 @@ export default async function RootLayout({
       <body>
         <main className="flex p-8 bg-gray-100 gap-4">
           <Sidebar />
-          <section className="flex-1">{children}</section>
+          <section className="flex-1">
+            <Header />
+            <section className="flex-1">{children}</section>
+          </section>
         </main>
       </body>
     </html>
