@@ -19,7 +19,7 @@ export default async function RootLayout({
       <body>
         <main className="flex p-8 bg-gray-100 gap-4">
           <Sidebar />
-          <section className="flex-1">
+          <section className="flex-1 flex flex-col gap-4">
             <Header />
             <section className="flex-1">{children}</section>
           </section>

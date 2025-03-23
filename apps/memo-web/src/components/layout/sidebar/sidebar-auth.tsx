@@ -12,7 +12,7 @@ export function SidebarAuth() {
 
       {/* Username */}
       <div className="flex flex-col justify-center flex-1">
-        <span className="text-sm font-bold">imkdw</span>
+        <span className="text-lg font-bold">imkdw</span>
       </div>
 
       {/* Auth Utils */}

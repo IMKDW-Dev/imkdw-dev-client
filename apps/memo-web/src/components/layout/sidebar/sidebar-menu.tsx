@@ -38,7 +38,7 @@ function MenuItem({ menu, depth = 0 }: MenuItemProps) {
         <Icon icon={menu.icon} className="w-5 h-5 text-gray-500" />
 
         {/* Menu Name */}
-        <span>{menu.name}</span>
+        <div>{menu.name}</div>
 
         {/* Menu Collapse Icon */}
         {menu.type === 'folder' && menu.children.length > 0 && (
