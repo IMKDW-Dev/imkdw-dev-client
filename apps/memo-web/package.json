@@ -10,9 +10,12 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@iconify/react": "^5.2.0",
+    "@imkdw-dev-client/fonts": "workspace:*",
     "@imkdw-dev-client/i18n": "workspace:*",
     "@imkdw-dev-client/ui": "workspace:*",
-    "@imkdw-dev-client/fonts": "workspace:*",
+    "@imkdw-dev-client/utils": "workspace:*",
+    "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4.0.9",
     "next": "^15.1.6",
     "next-intl": "^3.26.5",
