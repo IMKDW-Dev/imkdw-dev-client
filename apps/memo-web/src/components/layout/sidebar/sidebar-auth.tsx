@@ -1,6 +1,6 @@
 import ProfileImage from '@/public/images/profile.jpg';
 import Image from 'next/image';
-import { Icon } from '@iconify/react';
+import { ChevronDown } from 'lucide-react';
 
 export function SidebarAuth() {
   return (
@@ -17,7 +17,7 @@ export function SidebarAuth() {
 
       {/* Auth Utils */}
       <button className="flex items-center gap-2 justify-end">
-        <Icon icon="zondicons:cheveron-down" className="text-text-primary" />
+        <ChevronDown className="text-gray-400" />
       </button>
     </section>
   );

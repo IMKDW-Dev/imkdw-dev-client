@@ -1,11 +1,12 @@
 'use client';
 
-import { Icon } from '@iconify/react';
 import { useState } from 'react';
+import { Pin, ChevronRight, File, Folder } from 'lucide-react';
+import { ReactNode } from 'react';
 
 interface SidebarMenu {
   name: string;
-  icon: string;
+  icon: ReactNode;
   type: 'folder' | 'docs';
   children: SidebarMenu[];
 }
@@ -29,24 +30,19 @@ function MenuItem({ menu, depth = 0 }: MenuItemProps) {
       <button
         onClick={handleToggle}
         className={`
-          w-full flex items-center gap-2 p-2 text-sm
+          w-full flex items-center gap-2 p-2 text-sm text-gray-600
           hover:bg-gray-100 rounded-md
         `}
         style={{ paddingLeft: depth > 0 ? `${depth * 16}px` : undefined }}
       >
         {/* Menu Icon */}
-        <Icon icon={menu.icon} className="w-5 h-5 text-gray-500" />
+        {menu.icon}
 
         {/* Menu Name */}
         <div>{menu.name}</div>
 
         {/* Menu Collapse Icon */}
-        {menu.type === 'folder' && menu.children.length > 0 && (
-          <Icon
-            icon={isOpen ? 'material-symbols:expand-more' : 'material-symbols:chevron-right'}
-            className="w-5 h-5 ml-auto"
-          />
-        )}
+        {menu.type === 'folder' && menu.children.length > 0 && <ChevronRight className="w-5 h-5 ml-auto" />}
       </button>
 
       {/* Menu Children */}
@@ -69,13 +65,13 @@ export function SidebarMenu() {
     const children: SidebarMenu[] = [];
 
     for (let i = 0; i < childrenCount; i++) {
-      const isFolder = Math.random() < 0.3; // 30% chance of being a folder
+      const isFolder = Math.random() < 0.3;
 
       children.push({
         name: isFolder
           ? `Folder ${Math.random().toString(36).substring(7)}`
           : `Document ${Math.random().toString(36).substring(7)}`,
-        icon: isFolder ? 'material-symbols:folder-outline' : 'bx:file',
+        icon: isFolder ? <Folder size={22} /> : <File size={22} />,
         type: isFolder ? 'folder' : 'docs',
         children: isFolder ? generateRandomChildren(depth + 1, maxDepth) : [],
       });
@@ -88,11 +84,18 @@ export function SidebarMenu() {
     { length: 20 }, // Reduced to 20 items for better performance
     (_, index): SidebarMenu => ({
       name: `Folder ${index + 1}`,
-      icon: 'material-symbols:folder-outline',
+      icon: <Folder size={22} />,
       type: 'folder',
       children: generateRandomChildren(),
     }),
   );
+
+  menus.unshift({
+    name: 'Pinned',
+    icon: <Pin size={22} />,
+    type: 'folder',
+    children: [],
+  });
 
   return (
     <section>

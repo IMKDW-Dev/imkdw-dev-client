@@ -5,8 +5,8 @@ import { Sidebar, Header } from '@/src/components';
 import { cn } from '@imkdw-dev-client/utils';
 
 export const metadata: Metadata = {
-  title: 'IMKDW Dev | MEMO',
-  description: 'IMKDW Dev | MEMO',
+  title: 'IMKDW Dev | Memo',
+  description: 'IMKDW Dev | Memo',
 };
 
 export default async function RootLayout({

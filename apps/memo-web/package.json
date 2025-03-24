@@ -17,6 +17,7 @@
     "@imkdw-dev-client/utils": "workspace:*",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4.0.9",
+    "lucide-react": "^0.483.0",
     "next": "^15.1.6",
     "next-intl": "^3.26.5",
     "react": "^19.0.0",

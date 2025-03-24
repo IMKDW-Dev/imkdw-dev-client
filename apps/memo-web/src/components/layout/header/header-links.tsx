@@ -1,4 +1,5 @@
 import { Icon } from '@iconify/react';
+import { Moon } from 'lucide-react';
 import { ReactNode } from 'react';
 
 function HeaderLink({ children }: { children: ReactNode }) {
@@ -12,7 +13,7 @@ export function HeaderLinks() {
         <Icon icon="mdi:github" className="text-gray-600" fontSize={24} />
       </HeaderLink>
       <HeaderLink>
-        <Icon icon="material-symbols:dark-mode-outline" className="text-gray-600" fontSize={24} />
+        <Moon className="text-gray-600" fontSize={24} />
       </HeaderLink>
     </div>
   );
