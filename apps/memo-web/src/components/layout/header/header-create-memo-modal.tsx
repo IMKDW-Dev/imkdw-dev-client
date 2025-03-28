@@ -5,7 +5,7 @@ interface CreateKnowledgeModalProps {
   onClose: () => void;
 }
 
-export function CreateKnowledgeModal({ isOpen, onClose }: CreateKnowledgeModalProps) {
+export function HeaderCreateMemoModal({ isOpen, onClose }: CreateKnowledgeModalProps) {
   if (!isOpen) {
     return null;
   }

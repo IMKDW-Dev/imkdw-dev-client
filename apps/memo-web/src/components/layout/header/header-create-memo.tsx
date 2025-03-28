@@ -2,9 +2,9 @@
 
 import { PencilLine } from 'lucide-react';
 import { useState } from 'react';
-import { CreateKnowledgeModal } from './create-knowledge-modal';
+import { CreateKnowledgeModal } from './header-create-memo-modal';
 
-export function HeaderCreateKnowledge() {
+export function HeaderCreateMemo() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
