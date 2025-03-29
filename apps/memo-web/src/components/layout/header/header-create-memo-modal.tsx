@@ -1,5 +1,8 @@
+'use client';
+
 import { X } from 'lucide-react';
 import { ReactNode, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface CreateKnowledgeModalProps {
   isOpen: boolean;
@@ -14,6 +17,7 @@ function MemoSection({ title, children }: { title: string; children: ReactNode }
     </div>
   );
 }
+
 export function HeaderCreateMemoModal({ isOpen, onClose }: CreateKnowledgeModalProps) {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -31,31 +35,41 @@ export function HeaderCreateMemoModal({ isOpen, onClose }: CreateKnowledgeModalP
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) {
-    return null;
-  }
-
   return (
-    <section className="fixed top-8 left-8 bottom-8 right-8 rounded-lg shadow-primary bg-white">
-      <div className="flex p-6 flex-col gap-6 h-full">
-        <div className="flex justify-between">
-          <h2 className="text-2xl">Create Memo</h2>
-          <button onClick={onClose}>
-            <X />
-          </button>
-        </div>
-        <div>
-          <input type="text" placeholder="Title" className="w-full border-b border-gray-200 p-2 outline-none text-lg" />
-        </div>
-        <div className="flex gap-4 justify-between flex-1">
-          <MemoSection title="Edit">
-            <textarea placeholder="Content" className="w-full p-4 outline-none text-lg resize-none" />
-          </MemoSection>
-          <MemoSection title="Preview">
-            <div className="p-4">Preview</div>
-          </MemoSection>
-        </div>
-      </div>
-    </section>
+    <AnimatePresence>
+      {isOpen && (
+        <motion.section
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 100 }}
+          transition={{ duration: 0.3 }}
+          className="fixed top-8 left-8 bottom-8 right-8 rounded-lg shadow-primary bg-white"
+        >
+          <div className="flex p-6 flex-col gap-6 h-full">
+            <div className="flex justify-between">
+              <h2 className="text-2xl">Create Memo</h2>
+              <button onClick={onClose}>
+                <X />
+              </button>
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Title"
+                className="w-full border-b border-gray-200 p-2 outline-none text-lg"
+              />
+            </div>
+            <div className="flex gap-4 justify-between flex-1">
+              <MemoSection title="Edit">
+                <textarea placeholder="Content" className="w-full p-4 outline-none text-lg resize-none" />
+              </MemoSection>
+              <MemoSection title="Preview">
+                <div className="p-4">Preview</div>
+              </MemoSection>
+            </div>
+          </div>
+        </motion.section>
+      )}
+    </AnimatePresence>
   );
 }

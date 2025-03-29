@@ -15,7 +15,7 @@ export function HeaderCreateMemoButton() {
       >
         <PencilLine className="text-gray-400" fontSize={28} />
         <div className="flex items-center h-full">
-          <span className="text-gray-400">Write Knowledge</span>
+          <span className="text-gray-400">Create Memo</span>
         </div>
       </button>
       <HeaderCreateMemoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
