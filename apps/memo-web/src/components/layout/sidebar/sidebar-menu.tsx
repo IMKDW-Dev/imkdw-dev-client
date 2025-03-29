@@ -76,7 +76,7 @@ export function SidebarMenu() {
       return [];
     }
 
-    const childrenCount = Math.floor(Math.random() * 5);
+    const childrenCount = 5;
     const children: SidebarMenu[] = [];
 
     for (let i = 0; i < childrenCount; i++) {
