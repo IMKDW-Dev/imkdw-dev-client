@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Pin, ChevronRight, File, Folder } from 'lucide-react';
 import { ReactNode } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface SidebarMenu {
   name: string;
@@ -42,26 +43,40 @@ function MenuItem({ menu, depth = 0 }: MenuItemProps) {
         <div>{menu.name}</div>
 
         {/* Menu Collapse Icon */}
-        {menu.type === 'folder' && menu.children.length > 0 && <ChevronRight className="w-5 h-5 ml-auto" />}
+        {menu.type === 'folder' && menu.children.length > 0 && (
+          <motion.div className="ml-auto" animate={{ rotate: isOpen ? 90 : 0 }} transition={{ duration: 0.2 }}>
+            <ChevronRight className="w-5 h-5" />
+          </motion.div>
+        )}
       </button>
 
       {/* Menu Children */}
-      {isOpen && menu.children.length > 0 && (
-        <ul>
-          {menu.children.map((childMenu) => (
-            <MenuItem key={childMenu.name} menu={childMenu} depth={depth + 1} />
-          ))}
-        </ul>
-      )}
+      <AnimatePresence>
+        {isOpen && menu.children.length > 0 && (
+          <motion.ul
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            style={{ overflow: 'hidden' }}
+          >
+            {menu.children.map((childMenu) => (
+              <MenuItem key={childMenu.name} menu={childMenu} depth={depth + 1} />
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </li>
   );
 }
 
 export function SidebarMenu() {
   const generateRandomChildren = (depth: number = 0, maxDepth: number = 3): SidebarMenu[] => {
-    if (depth >= maxDepth) return [];
+    if (depth >= maxDepth) {
+      return [];
+    }
 
-    const childrenCount = Math.floor(Math.random() * 5); // 0-4 children
+    const childrenCount = Math.floor(Math.random() * 5);
     const children: SidebarMenu[] = [];
 
     for (let i = 0; i < childrenCount; i++) {
@@ -81,7 +96,7 @@ export function SidebarMenu() {
   };
 
   const menus = Array.from(
-    { length: 20 }, // Reduced to 20 items for better performance
+    { length: 20 },
     (_, index): SidebarMenu => ({
       name: `Folder ${index + 1}`,
       icon: <Folder size={22} />,

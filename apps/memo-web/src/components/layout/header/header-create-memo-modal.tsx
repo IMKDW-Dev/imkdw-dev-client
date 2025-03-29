@@ -43,7 +43,7 @@ export function HeaderCreateMemoModal({ isOpen, onClose }: CreateKnowledgeModalP
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 100 }}
           transition={{ duration: 0.3 }}
-          className="fixed top-8 left-8 bottom-8 right-8 rounded-lg shadow-primary bg-white"
+          className="fixed top-8 left-8 bottom-8 right-8 rounded-lg shadow-primary bg-white z-[9999]"
         >
           <div className="flex p-6 flex-col gap-6 h-full">
             <div className="flex justify-between">
