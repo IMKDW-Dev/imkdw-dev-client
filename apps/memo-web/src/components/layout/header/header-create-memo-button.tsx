@@ -2,9 +2,9 @@
 
 import { PencilLine } from 'lucide-react';
 import { useState } from 'react';
-import { CreateKnowledgeModal } from './header-create-memo-modal';
+import { HeaderCreateMemoModal } from './header-create-memo-modal';
 
-export function HeaderCreateMemo() {
+export function HeaderCreateMemoButton() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -18,7 +18,7 @@ export function HeaderCreateMemo() {
           <span className="text-gray-400">Write Knowledge</span>
         </div>
       </button>
-      <CreateKnowledgeModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <HeaderCreateMemoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

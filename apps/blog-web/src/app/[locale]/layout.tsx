@@ -3,7 +3,7 @@ import { routing, SupportLocale } from '@imkdw-dev-client/i18n';
 import { notFound } from 'next/navigation';
 import { getMessages } from 'next-intl/server';
 import localFont from 'next/font/local';
-import { Header, Container } from '@imkdw-dev-client/ui';
+import { Container } from '@imkdw-dev-client/ui';
 
 import './globals.css';
 
@@ -47,7 +47,6 @@ export default async function RootLayout({
       <body>
         <NextIntlClientProvider messages={messages} locale={locale}>
           <Container>
-            <Header title="BLOG" />
             <main>{children}</main>
           </Container>
         </NextIntlClientProvider>
