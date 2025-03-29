@@ -35,7 +35,7 @@ export function MemoListTabMenu() {
   const handleTabClick = (tab: TabType) => setActiveTab(tab);
 
   return (
-    <div className="flex gap-5">
+    <div className="flex gap-4 pt-2">
       <TabMenuButton label="All" isActive={activeTab === 'all'} onClick={() => handleTabClick('all')} />
       <TabMenuButton label="Pinned" isActive={activeTab === 'pinned'} onClick={() => handleTabClick('pinned')} />
     </div>

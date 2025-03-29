@@ -4,8 +4,11 @@ import { X } from 'lucide-react';
 import { ReactNode, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface CreateKnowledgeModalProps {
+type MemoFormMode = 'create' | 'update';
+
+interface MemoFormProps {
   isOpen: boolean;
+  mode: MemoFormMode;
   onClose: () => void;
 }
 
@@ -18,7 +21,7 @@ function MemoSection({ title, children }: { title: string; children: ReactNode }
   );
 }
 
-export function HeaderCreateMemoModal({ isOpen, onClose }: CreateKnowledgeModalProps) {
+export function MemoForm({ isOpen, mode, onClose }: MemoFormProps) {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -47,7 +50,7 @@ export function HeaderCreateMemoModal({ isOpen, onClose }: CreateKnowledgeModalP
         >
           <div className="flex p-6 flex-col gap-6 h-full">
             <div className="flex justify-between">
-              <h2 className="text-2xl">Create Memo</h2>
+              <h2 className="text-2xl">{mode === 'create' ? 'Create Memo' : 'Update Memo'}</h2>
               <button onClick={onClose}>
                 <X />
               </button>

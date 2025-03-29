@@ -1,10 +1,10 @@
-import { HeaderCreateMemoButton } from './header-create-memo-button';
+import { HeaderTopButton } from './header-top-button';
 import { HeaderLinks } from './header-links';
 
 export function Header() {
   return (
     <header className="flex w-full gap-10">
-      <HeaderCreateMemoButton />
+      <HeaderTopButton />
       <HeaderLinks />
     </header>
   );
