@@ -7,6 +7,7 @@ interface Props {
   memoId: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function MemoDetailActions({ memoId }: Props) {
   const [isUpdateFormOpen, setIsUpdateFormOpen] = useState<boolean>(false);
 
